@@ -1,2 +1,2 @@
 # EduPlay
-Proyecto para estructura de datos
+Proyecto para algoritmica II
