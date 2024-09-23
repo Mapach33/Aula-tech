@@ -1,3 +1,5 @@
-login\UserManager.class
+login\Admin.class
+login\Profesor.class
+login\Alumno.class
 login\User.class
 login\Login.class
