@@ -116,73 +116,15 @@ public class Login {
 
     // Método para mostrar el menú según el rol del usuario logueado
     public void mostrarMenu(User user) {
-        if (user instanceof Admin) {
-            ((Admin) user).mostrarMenuAdmin();
-        } else if (user instanceof Profesor) {
-            mostrarMenuProfesor();
-        } else if (user instanceof Alumno) {
-            mostrarMenuAlumno();
+        if (user instanceof Admin admin) {
+            admin.mostrarMenuAdmin();
+        } else if (user instanceof Profesor profesor) {
+            profesor.mostrarMenuProfesor();
+        } else if (user instanceof Alumno alumno) {
+            alumno.mostrarMenuAlumno();
         }
     }
 
-
-    // Menú específico para Profesor con bucle persistente
-    public void mostrarMenuProfesor() {
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-        do {
-            System.out.println("---- Menu Profesor ----");
-            System.out.println("1. Informacion personal");
-            System.out.println("2. Modificar notas");
-            System.out.println("3. Tomar asistencia");
-            System.out.println("4. Publicar comunicado");
-            System.out.println("5. Modificar horario");
-            System.out.println("6. Salir");
-            System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();  // Consumir el salto de línea
-
-            switch (opcion) {
-                case 1 -> System.out.println("Funcionalidad de ver clases.");
-                case 2 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 3 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 4 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 5 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 6 -> System.out.println("Saliendo del menú Profesor...");
-                default -> System.out.println("Opción no válida.");
-            }
-        } while (opcion != 6);  // Repetir el menú hasta que se elija la opción de salir
-    }
-
-    // Menú específico para Alumno con bucle persistente
-    public void mostrarMenuAlumno() {
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-        do {
-            System.out.println("---- Menu Alumno ----");
-            System.out.println("1. Informacion Personal");
-            System.out.println("2. Ver notas");
-            System.out.println("3. Ver asistencias");
-            System.out.println("4. Ver pagos");
-            System.out.println("5. Ver comunicados");
-            System.out.println("6. Ver horarios");
-            System.out.println("7. Salir");
-            System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();  // Consumir el salto de línea
-
-            switch (opcion) {
-                case 1 -> System.out.println("Funcionalidad de ver informacion personal.");
-                case 2 -> System.out.println("Funcionalidad de ver notas.");
-                case 3 -> System.out.println("Funcionalidad de ver asistencias.");
-                case 4 -> System.out.println("Funcionalidad de ver pagos");
-                case 5 -> System.out.println("Funcionalidad de ver comunicados");
-                case 6 -> System.out.println("Funcionalidad de horarios");
-                case 7 -> System.out.println("Saliendo del menú Alumno...");
-                default -> System.out.println("Opción no válida.");
-            }
-        } while (opcion != 7);  // Repetir el menú hasta que se elija la opción de salir
-    }
 
     // Método para verificar si el usuario administrador ya está registrado
     public static boolean existeUsuarioAdmin(String filePath) {

@@ -84,7 +84,7 @@ public class Admin extends User {
         do {
             System.out.println("---- Menu Admin ----");
             System.out.println("1. Registrar Persona");
-            System.out.println("2. Ver usuarios registradas");
+            System.out.println("2. Ver usuarios registrados");
             System.out.println("3. Modificar Pagos");
             System.out.println("4. Publicar comunicado");
             System.out.println("5. Salir");
@@ -145,20 +145,26 @@ public class Admin extends User {
         if (usuarios.isEmpty()) {
             System.out.println("No hay usuarios registrados.");
         } else {
+            // Encabezados de la tabla
+            System.out.printf("%-15s %-15s %-15s %-30s %-10s\n", "DNI", "Nombre", "Apellido", "Email", "Rol");
+            System.out.println("--------------------------------------------------------------------------------------------");
+
+            // Iterar por cada usuario y mostrar sus datos en formato tabla
             for (User usuario : usuarios) {
-                System.out.println("DNI: " + usuario.getDni());
-                System.out.println("Nombre: " + usuario.getNombre());
-                System.out.println("Apellido: " + usuario.getApellido());
-                System.out.println("Email: " + usuario.getEmail());
-                System.out.println("Rol: " + usuario.getRol());
-                System.out.println("--------------------------");
+                System.out.printf("%-15s %-15s %-15s %-30s %-10s\n", 
+                    usuario.getDni(), 
+                    usuario.getNombre(), 
+                    usuario.getApellido(), 
+                    usuario.getEmail(), 
+                    usuario.getRol());
             }
         }
-        
+
         // Esperar a que el usuario presione Enter para continuar
+        System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("Presione 'Enter' para continuar...");
         Scanner scanner = new Scanner(System.in);
-        scanner.nextLine(); 
+        scanner.nextLine();  // Leer la entrada del usuario (espera hasta que presione Enter)
     }
     
     
