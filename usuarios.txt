@@ -1,1 +1,2 @@
 0001,Admin,Principal,admin@email.com,admin,admin,ADMIN
+76126506,Alejandro,Padilla Arellano,alejandro@unmsm.edu.pe,76126506,76126506,ALUMNO

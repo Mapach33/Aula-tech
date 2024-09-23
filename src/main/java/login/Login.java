@@ -117,7 +117,7 @@ public class Login {
     // Método para mostrar el menú según el rol del usuario logueado
     public void mostrarMenu(User user) {
         if (user instanceof Admin) {
-            mostrarMenuAdmin();
+            ((Admin) user).mostrarMenuAdmin();
         } else if (user instanceof Profesor) {
             mostrarMenuProfesor();
         } else if (user instanceof Alumno) {
@@ -125,29 +125,6 @@ public class Login {
         }
     }
 
-    // Menú específico para Admin con bucle persistente
-    public void mostrarMenuAdmin() {
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
-        do {
-            System.out.println("---- Menú Admin ----");
-            System.out.println("1. Registrar Persona");
-            System.out.println("2. Modificar Pagos");
-            System.out.println("3. Publicar comunicado");
-            System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();  // Consumir el salto de línea
-
-            switch (opcion) {
-                case 1 -> System.out.println("Funcionalidad de registrar persona.");
-                case 2 -> System.out.println("Funcionalidad de ver reportes.");
-                case 3 -> System.out.println("Funcionalidad publicar comunicado");
-                case 4 -> System.out.println("Funcionalidad publicar comunicado");
-                default -> System.out.println("Opción no válida.");
-            }
-        } while (opcion != 4);  // Repetir el menú hasta que se elija la opción de salir
-    }
 
     // Menú específico para Profesor con bucle persistente
     public void mostrarMenuProfesor() {
