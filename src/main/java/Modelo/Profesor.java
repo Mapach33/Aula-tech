@@ -48,19 +48,4 @@ public class Profesor extends User{
         } while (opcion != 6);  // Repetir el menú hasta que se elija la opción de salir
     }
     
-    public void modificarNotas(){
-        //
-    }
-    
-    public void asistencia(){
-        //
-    }
-    
-    public void postComunicado(){
-        //
-    }
-    
-    public void modificarHorario(){
-        //
-    }
 }
