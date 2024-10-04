@@ -1,5 +1,6 @@
-login\Admin.class
-login\Profesor.class
-login\Alumno.class
-login\User.class
-login\Login.class
+Controlador\Main.class
+Modelo\Alumno.class
+Modelo\Login.class
+Modelo\Admin.class
+Modelo\Profesor.class
+Modelo\User.class
