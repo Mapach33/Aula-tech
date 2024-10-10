@@ -1,6 +1,13 @@
-Controlador\Main.class
-Modelo\Alumno.class
+Modelo\Notas.class
 Modelo\Login.class
-Modelo\Admin.class
-Modelo\Profesor.class
 Modelo\User.class
+Modelo\Asistencia.class
+Controlador\Main.class
+Modelo\Comunicados.class
+Modelo\Cursos.class
+Modelo\ListaAlumnos.class
+Modelo\Profesor.class
+Modelo\Alumno.class
+Modelo\Admin.class
+Modelo\CrearSalones.class
+Modelo\ListaProfesores.class

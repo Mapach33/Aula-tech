@@ -81,6 +81,7 @@ public class Admin extends User {
     public void mostrarMenuAdmin() {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+        ListaAlumnos listaAlumnos = new ListaAlumnos();
         do {
             System.out.println("---- Menu Admin ----");
             System.out.println("1. Registrar Persona");
@@ -94,7 +95,20 @@ public class Admin extends User {
 
             switch (opcion) {
                 case 1 -> registrarPersona("usuarios.txt");
-                case 2 -> verUsuariosRegistrados();
+                case 2 -> {
+                    // Mostrar el submenú para elegir entre lista de alumnos o profesores
+                    System.out.println("Seleccione la lista que desea ver:");
+                    System.out.println("1. Lista de Alumnos");
+                    System.out.println("2. Lista de Profesores");
+                    System.out.print("Opción: ");
+                    int opcionLista = scanner.nextInt();
+                    scanner.nextLine();  // Consumir el salto de línea
+                    switch (opcionLista) {
+                        case 1 -> listaAlumnos.mostrarAlumnosRegistrados(); // Llamar a la lista de alumnos
+                        case 2 -> System.out.println("Lista de Profesores");// Llamar a la lista de profesores
+                        default -> System.out.println("Opción no válida.");
+                    }
+                }
                 case 3 -> System.out.println("Funcionalidad publicar comunicado");
                 case 4 -> System.out.println("Funcionalidad publicar comunicado");
                 default -> System.out.println("Opcion no valida.");
