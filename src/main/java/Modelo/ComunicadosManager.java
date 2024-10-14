@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class ComunicadosManager {
 
     private List<String> comunicados;
-    private final String archivoComunicados = "comunicados.txt";
+    private final String archivoComunicados = "data/comunicados.txt";
 
     public ComunicadosManager() {
         comunicados = new ArrayList<>();
