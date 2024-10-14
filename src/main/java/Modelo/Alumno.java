@@ -42,7 +42,8 @@ public class Alumno extends User {
                 case 2 -> System.out.println("Funcionalidad de ver notas.");
                 case 3 -> System.out.println("Funcionalidad de ver asistencias.");
                 case 4 -> System.out.println("Funcionalidad de ver pagos");
-                case 5 -> System.out.println("Funcionalidad de ver comunicados");
+                case 5 -> {ComunicadosManager manager = new ComunicadosManager();
+                manager.mostrarComunicados();}
                 case 6 -> System.out.println("Funcionalidad de horarios");
                 case 7 -> System.out.println("Saliendo del menú Alumno...");
                 default -> System.out.println("Opción no válida.");
