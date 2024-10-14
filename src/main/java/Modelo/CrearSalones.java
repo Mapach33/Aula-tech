@@ -72,7 +72,7 @@ public class CrearSalones {
         } while (opcion != 5);
     }
 
-    private static void mostrarMenu() {
+    public static void mostrarMenu() {
         System.out.println("\n--- Gestión de Salones ---");
         System.out.println("1. Añadir salón");
         System.out.println("2. Eliminar salón");

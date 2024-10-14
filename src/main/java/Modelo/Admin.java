@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+import Controlador.CrearSalones;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,12 +85,14 @@ public class Admin extends User {
         int opcion;
         ListaAlumnos listaAlumnos = new ListaAlumnos();
         do {
+
             System.out.println("---- Menu Admin ----");
             System.out.println("1. Registrar Persona");
             System.out.println("2. Ver usuarios registrados");
             System.out.println("3. Modificar Pagos");
             System.out.println("4. Publicar comunicado");
-            System.out.println("5. Salir");
+            System.out.println("6. Salones");
+            System.out.println("7. Salir");
             System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir el salto de línea
@@ -110,10 +114,12 @@ public class Admin extends User {
                     }
                 }
                 case 3 -> System.out.println("Funcionalidad publicar comunicado");
-                case 4 -> System.out.println("Funcionalidad publicar comunicado");
+                case 4 -> System.out.println("Funcionalidad publicar comuanicado");
+                case 6 -> CrearSalones.main(null);
+                case 7 -> System.out.println("Saliendo ...");
                 default -> System.out.println("Opcion no valida.");
             }
-        } while (opcion != 5);  // Repetir el menú hasta que se elija la opción de salir
+        } while (opcion != 7);  // Repetir el menú hasta que se elija la opción de salir
     }
     
     // Método para cargar los usuarios desde el archivo a la lista
@@ -123,7 +129,7 @@ public class Admin extends User {
             while ((linea = reader.readLine()) != null) {
                 String[] datos = linea.split(",");
                 if (datos.length >= 7) {
-                    // Crear un nuevo usuario basado en los datos del archivo
+                    //Crear un nuevo usuario basado en los datos del archivo
                     String dni = datos[0];
                     String nombre = datos[1];
                     String apellido = datos[2];
