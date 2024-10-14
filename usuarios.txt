@@ -3,3 +3,4 @@
 7612623,aasdf,asdf,asdf,7612623,7612623,PROFESOR
 asdf,asdf,xcva,sadfxzc,asdf,asdf,ALUMNO
 74069926,James,Romero,jromero@gmail.com,74069926,74069926,ALUMNO
+75432821,Anderson,Tataje,anderson.tataje@unmsm.edu.pe,75432821,75432821,PROFESOR

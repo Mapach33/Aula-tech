@@ -188,6 +188,8 @@ public class CrearSalones {
             for (Salon salon : salones) {
                 System.out.println(salon);
             }
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
         }
     }
 
