@@ -12,7 +12,7 @@ import Modelo.User;
 public class Main {
     
     public static void main(String[] args) {
-        String filePath = "usuarios.txt";  // Archivo donde se guardarán los datos
+        String filePath = "data/usuarios.txt";  // Archivo donde se guardarán los datos
 
         // Registrar admin si no existe ya en el archivo
         if (!existeUsuarioAdmin(filePath)) {

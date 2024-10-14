@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class Admin extends User {
     private List<User> usuarios;
-    private final String archivoPersonas = "usuarios.txt";
-    private final String archivoSalones = "salones.txt";
+    private final String archivoPersonas = "data/usuarios.txt";
+    private final String archivoSalones = "data/salones.txt";
     private final CrearSalones crearSalones;
 
     public Admin(String _dni, String _nombre, String _apellido, String _email) {
@@ -102,7 +102,7 @@ public class Admin extends User {
 
             switch (opcion) {
                 case 1 -> crearSalones.gestionarSalones(archivoSalones);
-                case 2 -> registrarPersona("usuarios.txt");
+                case 2 -> registrarPersona("data/usuarios.txt");
                 case 3 -> {
                     // Mostrar el submenú para elegir entre lista de alumnos o profesores
                     System.out.println("Seleccione la lista que desea ver:");
