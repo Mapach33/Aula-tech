@@ -64,7 +64,7 @@ public class ComunicadosManager {
             System.out.println("COMUNICADOS ORDENADOS DEL MAS RECIENTE AL MAS ANTIGUO:");
             for (int i = comunicados.size() - 1; i >= 0; i--) {
                 String comunicado = comunicados.get(i);
-                String[] partes = comunicado.split(" \\| 2");
+                String[] partes = comunicado.split(" \\| ");
                 String contenido = partes[0];
                 String fecha = partes.length > 1 ? partes[1] : "Fecha desconocida";
                 System.out.println("+-------------------------------------------+");
