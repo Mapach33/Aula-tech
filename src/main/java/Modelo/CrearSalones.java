@@ -49,7 +49,7 @@ class Salon {
 public class CrearSalones {
     private static final ArrayList<Salon> salones = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
-    private static final String FILE_NAME = "salones.txt"; // Nombre del archivo
+    private static final String FILE_NAME = "data/salones.txt"; // Nombre del archivo
 
     public void gestionarSalones(String filePathSalones) {
         int opcion;
