@@ -30,7 +30,9 @@ public class ComunicadosManager {
     }
 
     public void crearComunicado(String contenido) {
-        comunicados.add(contenido);
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String comunicadoConHora = contenido + " | " + timestamp;
+        comunicados.add(comunicadoConHora);
         guardarComunicado(contenido);
     }
 
@@ -43,6 +45,7 @@ public class ComunicadosManager {
         } catch (IOException e) {
             System.err.println("Error al guardar el comunicado: " + e.getMessage());
         }
+
     }
 
     private void cargarComunicados() {
