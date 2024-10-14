@@ -1,47 +1,13 @@
 package Modelo;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-class Nota {
-    private final String codigo;
-    private String descripcion;
-    private double calificacion;
-
-    public Nota(String codigo, String descripcion, double calificacion) {
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.calificacion = calificacion;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public double getCalificacion() {
-        return calificacion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setCalificacion(double calificacion) {
-        this.calificacion = calificacion;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("| %-10s | %-20s | %-10.2f |", codigo, descripcion, calificacion);
-    }
-}
-
 public class Notas {
-    private static final ArrayList<Nota> notas = new ArrayList<>();
+    private static final String archivoNotas = "data/notas.txt";
+    private static final List<Alumno> alumnos = new ListaAlumnos().obtenerAlumnos();
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -51,28 +17,17 @@ public class Notas {
             opcion = obtenerOpcion();
 
             switch (opcion) {
-                case 1:
-                    añadirNota();
-                    break;
-                case 2:
-                    eliminarNota();
-                    break;
-                case 3:
-                    modificarNota();
-                    break;
-                case 4:
-                    mostrarNotas();
-                    break;
-                case 5:
-                    System.out.println("Saliendo...");
-                    break;
-                default:
-                    System.out.println("Opción no válida, intente nuevamente.");
+                case 1 -> añadirNota();
+                case 2 -> eliminarNota();
+                case 3 -> modificarNota();
+                case 4 -> mostrarNotas();
+                case 5 -> System.out.println("Saliendo...");
+                default -> System.out.println("Opción no válida, intente nuevamente.");
             }
         } while (opcion != 5);
     }
 
-    public static void mostrarMenu() {
+    private static void mostrarMenu() {
         System.out.println("\n--- Gestión de Notas ---");
         System.out.println("1. Añadir nota");
         System.out.println("2. Eliminar nota");
@@ -93,36 +48,43 @@ public class Notas {
     }
 
     private static void añadirNota() {
-        System.out.print("Ingrese el código de la nota: ");
-        String codigo = scanner.nextLine();
+        System.out.print("Ingrese el código del alumno: ");
+        String codigoAlumno = scanner.nextLine();
 
-        System.out.print("Ingrese la descripción de la nota: ");
-        String descripcion = scanner.nextLine();
+        Alumno alumno = buscarAlumno(codigoAlumno);
+        if (alumno == null) {
+            System.out.println("Alumno no encontrado.");
+            return;
+        }
 
-        double calificacion = obtenerCalificacion();
+        System.out.print("Ingrese la nota: ");
+        String nota = scanner.nextLine();
 
-        notas.add(new Nota(codigo, descripcion, calificacion));
+        guardarNotaEnArchivo(codigoAlumno, nota);
         System.out.println("Nota añadida exitosamente.");
     }
 
-    private static double obtenerCalificacion() {
-        System.out.print("Ingrese la calificación: ");
-        while (!scanner.hasNextDouble()) {
-            System.out.println("Entrada no válida. Por favor ingrese un número.");
-            scanner.next(); // Limpiar la entrada incorrecta
-        }
-        double calificacion = scanner.nextDouble();
-        scanner.nextLine(); // Limpiar el buffer
-        return calificacion;
-    }
-
     private static void eliminarNota() {
-        System.out.print("Ingrese el código de la nota a eliminar: ");
-        String codigo = scanner.nextLine();
+        System.out.print("Ingrese el código del alumno: ");
+        String codigoAlumno = scanner.nextLine();
 
-        Nota notaEliminar = buscarNota(codigo);
-        if (notaEliminar != null) {
-            notas.remove(notaEliminar);
+        List<String> notas = leerNotasDesdeArchivo();
+        boolean notaEliminada = false;
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoNotas))) {
+            for (String linea : notas) {
+                String[] datos = linea.split(",");
+                if (!datos[0].equals(codigoAlumno)) {
+                    writer.write(linea + "\n");
+                } else {
+                    notaEliminada = true;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al eliminar la nota: " + e.getMessage());
+        }
+
+        if (notaEliminada) {
             System.out.println("Nota eliminada exitosamente.");
         } else {
             System.out.println("Nota no encontrada.");
@@ -130,17 +92,29 @@ public class Notas {
     }
 
     private static void modificarNota() {
-        System.out.print("Ingrese el código de la nota a modificar: ");
-        String codigo = scanner.nextLine();
+        System.out.print("Ingrese el código del alumno: ");
+        String codigoAlumno = scanner.nextLine();
 
-        Nota notaModificar = buscarNota(codigo);
-        if (notaModificar != null) {
-            System.out.print("Ingrese la nueva descripción de la nota: ");
-            String descripcion = scanner.nextLine();
-            double calificacion = obtenerCalificacion();
+        List<String> notas = leerNotasDesdeArchivo();
+        boolean notaModificada = false;
 
-            notaModificar.setDescripcion(descripcion);
-            notaModificar.setCalificacion(calificacion);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoNotas))) {
+            for (String linea : notas) {
+                String[] datos = linea.split(",");
+                if (datos[0].equals(codigoAlumno)) {
+                    System.out.print("Ingrese la nueva nota: ");
+                    String nuevaNota = scanner.nextLine();
+                    writer.write(codigoAlumno + "," + nuevaNota + "\n");
+                    notaModificada = true;
+                } else {
+                    writer.write(linea + "\n");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al modificar la nota: " + e.getMessage());
+        }
+
+        if (notaModificada) {
             System.out.println("Nota modificada exitosamente.");
         } else {
             System.out.println("Nota no encontrada.");
@@ -148,21 +122,43 @@ public class Notas {
     }
 
     private static void mostrarNotas() {
+        List<String> notas = leerNotasDesdeArchivo();
         if (notas.isEmpty()) {
             System.out.println("No hay notas registradas.");
         } else {
-            System.out.println(String.format("| %-10s | %-20s | %-10s |", "Código", "Descripción", "Calificación"));
-            System.out.println("-----------------------------------------------");
-            for (Nota nota : notas) {
-                System.out.println(nota);
+            System.out.println("---- Notas Registradas ----");
+            for (String linea : notas) {
+                String[] datos = linea.split(",");
+                System.out.printf("Alumno ID: %s, Nota: %s\n", datos[0], datos[1]);
             }
         }
     }
 
-    private static Nota buscarNota(String codigo) {
-        return notas.stream()
-                .filter(nota -> nota.getCodigo().equals(codigo))
+    private static Alumno buscarAlumno(String codigo) {
+        return alumnos.stream()
+                .filter(alumno -> alumno.getDni().equals(codigo))
                 .findFirst()
                 .orElse(null);
+    }
+
+    private static void guardarNotaEnArchivo(String codigoAlumno, String nota) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoNotas, true))) {
+            writer.write(codigoAlumno + "," + nota + "\n");
+        } catch (IOException e) {
+            System.out.println("Error al guardar la nota: " + e.getMessage());
+        }
+    }
+
+    private static List<String> leerNotasDesdeArchivo() {
+        List<String> notas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivoNotas))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                notas.add(linea);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer las notas: " + e.getMessage());
+        }
+        return notas;
     }
 }

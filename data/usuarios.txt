@@ -1,1 +1,12 @@
 0001,Admin,Principal,admin@email.com,admin,admin,ADMIN
+12345678,Alejandro,Padilla,asdad@gmail.com,12345678,12345678,ALUMNO
+12345678,Juan,Pérez,juan.perez@example.com,jperez,pass123,ALUMNO
+87654321,María,Gómez,maria.gomez@example.com,mgomez,pass456,ALUMNO
+55667788,Sofia,Martinez,sofia.martinez@example.com,smartinez,pass321,ALUMNO
+66778899,Ricardo,Rodriguez,ricardo.rodriguez@example.com,rrodriguez,pass987,ALUMNO
+44556677,Laura,Diaz,laura.diaz@example.com,ldiaz,pass852,ALUMNO
+99001122,Camila,Castro,camila.castro@example.com,ccastro,pass147,ALUMNO
+77889900,Diego,Santos,diego.santos@example.com,dsantos,pass258,ALUMNO
+99887766,Lucia,Fernandez,lucia.fernandez@example.com,lfernandez,pass654,ALUMNO
+55664433,Valeria,Ramos,valeria.ramos@example.com,vramos,pass369,ALUMNO
+33221100,Fernando,Morales,fernando.morales@example.com,fmorales,pass963,ALUMNO

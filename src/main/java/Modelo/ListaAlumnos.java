@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ListaAlumnos {
 
-    private final String archivoPersonas = "usuarios.txt";
+    private final String archivoPersonas = "data/usuarios.txt";
 
     // Método para obtener solo los alumnos del archivo
     public List<Alumno> obtenerAlumnos() {
