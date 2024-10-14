@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author Anderson
@@ -33,8 +35,10 @@ public class ComunicadosManager {
     }
 
     private void guardarComunicado(String contenido) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String comunicadoConHora = contenido + " | " + timestamp;
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoComunicados, true))) {
-            writer.write(contenido);
+            writer.write(comunicadoConHora);
             writer.newLine();
         } catch (IOException e) {
             System.err.println("Error al guardar el comunicado: " + e.getMessage());
@@ -57,13 +61,16 @@ public class ComunicadosManager {
             System.out.println("No hay comunicados disponibles.");
         } else {
             int comunicadoNum = comunicados.size();
-            System.out.println("COMUNICADOS ORDENADOS DEL MAS RECIENTE AL MAS ANTIGUO:+");
+            System.out.println("COMUNICADOS ORDENADOS DEL MAS RECIENTE AL MAS ANTIGUO:");
             for (int i = comunicados.size() - 1; i >= 0; i--) {
                 String comunicado = comunicados.get(i);
+                String[] partes = comunicado.split(" \\| 2");
+                String contenido = partes[0];
+                String fecha = partes.length > 1 ? partes[1] : "Fecha desconocida";
                 System.out.println("+-------------------------------------------+");
-                System.out.printf("| Comunicado %2d                             |\n", comunicadoNum--);
+                System.out.printf("| Comunicado %2d - %s |\n", comunicadoNum--, fecha);
                 System.out.println("+-------------------------------------------+");
-                System.out.printf("| %-42s |\n", comunicado);
+                System.out.printf("| %-42s |\n", contenido);
                 System.out.println("+-------------------------------------------+");
             }
         }
