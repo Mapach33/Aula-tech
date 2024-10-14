@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
-import Controlador.CrearSalones;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,13 +15,16 @@ import java.util.Scanner;
 public class Admin extends User {
     private List<User> usuarios;
     private final String archivoPersonas = "usuarios.txt";
-    
+    private final String archivoSalones = "salones.txt";
+    private final CrearSalones crearSalones;
+
     public Admin(String _dni, String _nombre, String _apellido, String _email) {
         super(_dni, _nombre, _apellido, _email,"ADMIN");
         usuarios = new ArrayList<>();  // Inicializamos la lista de usuarios
         cargarUsuariosDesdeArchivo();  // Cargamos los usuarios del archivo al iniciar
+        crearSalones = new CrearSalones();
     }
-    
+
     public void registrarPersona(String filePath) {
         Scanner scanner = new Scanner(System.in);
 
@@ -48,9 +50,9 @@ public class Admin extends User {
 
         switch (opcion) {
             case 1 -> // Registro de un Alumno
-                nuevoUsuario = new Alumno(dni, nombre, apellido, email);
+                    nuevoUsuario = new Alumno(dni, nombre, apellido, email);
             case 2 -> // Registro de un Profesor
-                nuevoUsuario = new Profesor(dni, nombre, apellido, email);
+                    nuevoUsuario = new Profesor(dni, nombre, apellido, email);
             default -> {
                 System.out.println("Opcion no valida.");
                 return;  // Salir si la opción es incorrecta
@@ -64,17 +66,17 @@ public class Admin extends User {
     public void registrarPersona(Admin admin,String filepath){
         guardarEnArchivo(admin,filepath);
     }
-    
+
     private void guardarEnArchivo(User usuario, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             // Escribir los datos del usuario en el archivo
             writer.write(usuario.getDni() + "," +
-                         usuario.getNombre() + "," +
-                         usuario.getApellido() + "," +
-                         usuario.getEmail() + "," +
-                         usuario.getUser() + "," +
-                         usuario.getPass() + "," +
-                         usuario.getRol() + "\n");
+                    usuario.getNombre() + "," +
+                    usuario.getApellido() + "," +
+                    usuario.getEmail() + "," +
+                    usuario.getUser() + "," +
+                    usuario.getPass() + "," +
+                    usuario.getRol() + "\n");
         } catch (IOException e) {
             System.out.println("Error al guardar el usuario en el archivo: " + e.getMessage());
         }
@@ -84,22 +86,24 @@ public class Admin extends User {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         ListaAlumnos listaAlumnos = new ListaAlumnos();
+        ListaProfesores listaProfesores = new ListaProfesores();
         do {
 
             System.out.println("---- Menu Admin ----");
-            System.out.println("1. Registrar Persona");
-            System.out.println("2. Ver usuarios registrados");
-            System.out.println("3. Modificar Pagos");
-            System.out.println("4. Publicar comunicado");
-            System.out.println("6. Salones");
-            System.out.println("7. Salir");
+            System.out.println("1. Gestonar Salones");
+            System.out.println("2. Registrar Persona");
+            System.out.println("3. Ver usuarios registrados");
+            System.out.println("4. Modificar Pagos");
+            System.out.println("5. Publicar comunicado");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir el salto de línea
 
             switch (opcion) {
-                case 1 -> registrarPersona("usuarios.txt");
-                case 2 -> {
+                case 1 -> crearSalones.gestionarSalones(archivoSalones);
+                case 2 -> registrarPersona("usuarios.txt");
+                case 3 -> {
                     // Mostrar el submenú para elegir entre lista de alumnos o profesores
                     System.out.println("Seleccione la lista que desea ver:");
                     System.out.println("1. Lista de Alumnos");
@@ -109,19 +113,18 @@ public class Admin extends User {
                     scanner.nextLine();  // Consumir el salto de línea
                     switch (opcionLista) {
                         case 1 -> listaAlumnos.mostrarAlumnosRegistrados(); // Llamar a la lista de alumnos
-                        case 2 -> System.out.println("Lista de Profesores");// Llamar a la lista de profesores
+                        case 2 -> listaProfesores.mostrarProfesoresRegistrados();// Llamar a la lista de profesores
                         default -> System.out.println("Opción no válida.");
                     }
                 }
-                case 3 -> System.out.println("Funcionalidad publicar comunicado");
-                case 4 -> System.out.println("Funcionalidad publicar comuanicado");
-                case 6 -> CrearSalones.main(null);
-                case 7 -> System.out.println("Saliendo ...");
+                case 4 -> System.out.println("Funcionalidad Modificar Pagos");
+                case 5 -> System.out.println("Funcionalidad publicar comunicado");
+                case 6 -> System.out.println("Saliendo de Aula-Tech");
                 default -> System.out.println("Opcion no valida.");
             }
-        } while (opcion != 7);  // Repetir el menú hasta que se elija la opción de salir
+        } while (opcion != 6);  // Repetir el menú hasta que se elija la opción de salir
     }
-    
+
     // Método para cargar los usuarios desde el archivo a la lista
     private void cargarUsuariosDesdeArchivo() {
         try (BufferedReader reader = new BufferedReader(new FileReader(archivoPersonas))) {
@@ -157,8 +160,8 @@ public class Admin extends User {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    
-    
+
+
     // Método para mostrar los usuarios registrados
     public void verUsuariosRegistrados() {
         System.out.println("---- Usuarios Registrados ----");
@@ -171,12 +174,12 @@ public class Admin extends User {
 
             // Iterar por cada usuario y mostrar sus datos en formato tabla
             for (User usuario : usuarios) {
-                System.out.printf("%-15s %-15s %-15s %-30s %-10s\n", 
-                    usuario.getDni(), 
-                    usuario.getNombre(), 
-                    usuario.getApellido(), 
-                    usuario.getEmail(), 
-                    usuario.getRol());
+                System.out.printf("%-15s %-15s %-15s %-30s %-10s\n",
+                        usuario.getDni(),
+                        usuario.getNombre(),
+                        usuario.getApellido(),
+                        usuario.getEmail(),
+                        usuario.getRol());
             }
         }
 
@@ -186,16 +189,11 @@ public class Admin extends User {
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();  // Leer la entrada del usuario (espera hasta que presione Enter)
     }
-    
-    
-    public void asignarAula(){
-        //
-    }
-    
+
     public void modificarPago(){
         //
     }
-    
+
     public void publicarComunicado(){
         //
     }

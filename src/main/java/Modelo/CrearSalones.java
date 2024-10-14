@@ -1,5 +1,6 @@
-package Controlador;
+package Modelo;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,36 +39,35 @@ class Salon {
     public String toString() {
         return String.format("| %-10s | %-20s | %-10d |", codigo, nombre, capacidad);
     }
+
+    // Método para convertir los atributos a un formato de texto para guardar en archivo
+    public String toFileString() {
+        return codigo + "," + nombre + "," + capacidad;
+    }
 }
 
 public class CrearSalones {
     private static final ArrayList<Salon> salones = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String FILE_NAME = "salones.txt"; // Nombre del archivo
 
-    public static void main(String[] args) {
+    public void gestionarSalones(String filePathSalones) {
         int opcion;
         do {
             mostrarMenu();
             opcion = obtenerOpcion();
 
             switch (opcion) {
-                case 1:
-                    añadirSalon();
-                    break;
-                case 2:
-                    eliminarSalon();
-                    break;
-                case 3:
-                    modificarSalon();
-                    break;
-                case 4:
-                    mostrarSalones();
-                    break;
-                case 5:
-                    System.out.println("Saliendo...");
-                    break;
-                default:
-                    System.out.println("Opción no válida, intente nuevamente.");
+                case 1 -> añadirSalon();
+                case 2 -> eliminarSalon();
+                case 3 -> modificarSalon();
+                case 4 -> mostrarSalones();
+                case 5 -> {
+                    // Guardar los salones en archivo antes de salir
+                    guardarSalonesEnArchivo(filePathSalones);
+                    System.out.println("Saliendo de la gestión de salones...");
+                }
+                default -> System.out.println("Opción no válida, intente nuevamente.");
             }
         } while (opcion != 5);
     }
@@ -96,7 +96,7 @@ public class CrearSalones {
         int grado = obtenerGrado();
         int numeroSeccion = obtenerNumeroSeccion();
         String codigo = generarCodigo(grado, numeroSeccion);
-        
+
         System.out.print("Ingrese el nombre del salón: ");
         String nombre = scanner.nextLine();
         int capacidad = obtenerCapacidad();
@@ -122,14 +122,14 @@ public class CrearSalones {
     private static int obtenerNumeroSeccion() {
         int numeroSeccion;
         do {
-            System.out.print("Ingrese el número de sección (01-99): ");
+            System.out.print("Ingrese el número de sección (01-27): ");
             while (!scanner.hasNextInt()) {
-                System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 99.");
+                System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 27.");
                 scanner.next(); // Limpiar la entrada incorrecta
             }
             numeroSeccion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer
-        } while (numeroSeccion < 1 || numeroSeccion > 99);
+        } while (numeroSeccion < 1 || numeroSeccion > 27);
         return numeroSeccion;
     }
 
@@ -198,5 +198,37 @@ public class CrearSalones {
                 .filter(salon -> salon.getCodigo().equals(codigo))
                 .findFirst()
                 .orElse(null);
+    }
+
+    private static void guardarSalonesEnArchivo(String filePathSalones) {
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME)))) {
+            for (Salon salon : salones) {
+                writer.println(salon.toFileString()); // Guardar cada salón en una línea
+            }
+            System.out.println("Salones guardados.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar los salones: " + e.getMessage());
+        }
+    }
+
+    // Método para cargar los salones desde un archivo al iniciar el programa
+    private static void cargarSalonesDesdeArchivo() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (datos.length == 3) {
+                    String codigo = datos[0];
+                    String nombre = datos[1];
+                    int capacidad = Integer.parseInt(datos[2]);
+                    salones.add(new Salon(codigo, nombre, capacidad));
+                }
+            }
+            System.out.println("Salones cargados desde el archivo " + FILE_NAME);
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no encontrado. Comenzando con lista vacía.");
+        } catch (IOException e) {
+            System.out.println("Error al cargar los salones: " + e.getMessage());
+        }
     }
 }
