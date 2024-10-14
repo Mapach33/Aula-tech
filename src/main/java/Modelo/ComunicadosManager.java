@@ -56,10 +56,12 @@ public class ComunicadosManager {
         if (comunicados.isEmpty()) {
             System.out.println("No hay comunicados disponibles.");
         } else {
-            int comunicadoNum = 1;
-            for (String comunicado : comunicados) {
+            int comunicadoNum = comunicados.size();
+            System.out.println("COMUNICADOS ORDENADOS DEL MAS RECIENTE AL MAS ANTIGUO:+");
+            for (int i = comunicados.size() - 1; i >= 0; i--) {
+                String comunicado = comunicados.get(i);
                 System.out.println("+-------------------------------------------+");
-                System.out.printf("| Comunicado %2d                             |\n", comunicadoNum++);
+                System.out.printf("| Comunicado %2d                             |\n", comunicadoNum--);
                 System.out.println("+-------------------------------------------+");
                 System.out.printf("| %-42s |\n", comunicado);
                 System.out.println("+-------------------------------------------+");
