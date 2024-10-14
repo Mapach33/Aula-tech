@@ -94,7 +94,7 @@ public class Admin extends User {
             System.out.println("2. Registrar Persona");
             System.out.println("3. Ver usuarios registrados");
             System.out.println("4. Modificar Pagos");
-            System.out.println("5. Publicar comunicado");
+            System.out.println("5. Comunicados");
             System.out.println("6. Salir");
             System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
@@ -118,7 +118,7 @@ public class Admin extends User {
                     }
                 }
                 case 4 -> System.out.println("Funcionalidad Modificar Pagos");
-                case 5 -> System.out.println("Funcionalidad publicar comunicado");
+                case 5 -> ComunicadosManager.main(null);
                 case 6 -> System.out.println("Saliendo de Aula-Tech");
                 default -> System.out.println("Opcion no valida.");
             }
