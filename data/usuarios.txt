@@ -1,5 +1,6 @@
 0001,Admin,Principal,admin@email.com,admin,admin,ADMIN
-12345678,Alejandro,Padilla,asdad@gmail.com,12345678,12345678,ALUMNO
+0002,Admin,Principal,admin@email.com,a,a,PROFESOR
+12345678,Alejandro,Padilla,asdad@gmail.com,1,1,ALUMNO
 12345678,Juan,Pérez,juan.perez@example.com,jperez,pass123,ALUMNO
 87654321,María,Gómez,maria.gomez@example.com,mgomez,pass456,ALUMNO
 55667788,Sofia,Martinez,sofia.martinez@example.com,smartinez,pass321,ALUMNO
@@ -10,3 +11,6 @@
 99887766,Lucia,Fernandez,lucia.fernandez@example.com,lfernandez,pass654,ALUMNO
 55664433,Valeria,Ramos,valeria.ramos@example.com,vramos,pass369,ALUMNO
 33221100,Fernando,Morales,fernando.morales@example.com,fmorales,pass963,ALUMNO
+87654321,Profe,Sor,profe.gmail,87654321,87654321,PROFESOR
+1231231,asdf,asdf,asdf,1231231,1231231,PROFESOR
+asdf,asdf,asdf,asdf,asdf,asdf,ALUMNO

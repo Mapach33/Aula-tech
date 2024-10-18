@@ -39,6 +39,7 @@ public class ListaProfesores {
 
     // Método para mostrar los profesores registrados
     public void mostrarProfesoresRegistrados() {
+        ConsoleUtils.clearConsole();
         List<Profesor> profesores = obtenerProfesores();
         System.out.println("---- Profesores Registrados ----");
         if (profesores.isEmpty()) {
@@ -58,5 +59,7 @@ public class ListaProfesores {
             }
         }
         System.out.println("----------------------------------------------------------------------");
+        ConsoleUtils.pauseConsole();
     }
+
 }

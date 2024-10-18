@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Clase para manejar la lista de alumnos.
@@ -49,6 +50,9 @@ public class ListaAlumnos {
 
     // Método para mostrar los alumnos registrados
     public void mostrarAlumnosRegistrados() {
+
+
+        ConsoleUtils.clearConsole();
         List<Alumno> alumnos = obtenerAlumnos();
         System.out.println("---- Alumnos Registrados ----");
         if (alumnos.isEmpty()) {
@@ -68,5 +72,6 @@ public class ListaAlumnos {
             }
         }
         System.out.println("----------------------------------------------------------------------");
+        ConsoleUtils.pauseConsole();
     }
 }

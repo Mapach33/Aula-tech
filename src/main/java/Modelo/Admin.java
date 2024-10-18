@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Modelo.ConsoleUtils;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class Admin extends User {
     }
 
     public void registrarPersona(String filePath) {
+        ConsoleUtils.clearConsole();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("---- Registro de Nueva Persona ----");
@@ -83,12 +85,13 @@ public class Admin extends User {
     }
 
     public void mostrarMenuAdmin() {
+        ConsoleUtils.clearConsole();
         Scanner scanner = new Scanner(System.in);
         int opcion;
         ListaAlumnos listaAlumnos = new ListaAlumnos();
         ListaProfesores listaProfesores = new ListaProfesores();
         do {
-
+            ConsoleUtils.clearConsole();
             System.out.println("---- Menu Admin ----");
             System.out.println("1. Gestonar Salones");
             System.out.println("2. Registrar Persona");
@@ -104,6 +107,7 @@ public class Admin extends User {
                 case 1 -> crearSalones.gestionarSalones(archivoSalones);
                 case 2 -> registrarPersona("data/usuarios.txt");
                 case 3 -> {
+                    ConsoleUtils.clearConsole();
                     // Mostrar el submenú para elegir entre lista de alumnos o profesores
                     System.out.println("Seleccione la lista que desea ver:");
                     System.out.println("1. Lista de Alumnos");

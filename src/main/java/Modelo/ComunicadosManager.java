@@ -60,6 +60,7 @@ public class ComunicadosManager {
     }
 
     public void mostrarComunicados() {
+        ConsoleUtils.clearConsole();
         if (comunicados.isEmpty()) {
             System.out.println("No hay comunicados disponibles.");
         } else {
@@ -77,12 +78,14 @@ public class ComunicadosManager {
                 System.out.println("+-------------------------------------------+");
             }
         }
+        ConsoleUtils.pauseConsole();
     }
 
     public static void main(String[] args) {
         ComunicadosManager manager = new ComunicadosManager();
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            ConsoleUtils.clearConsole();
             System.out.println("Opciones:");
             System.out.println("1. Crear un nuevo comunicado");
             System.out.println("2. Mostrar todos los comunicados");
@@ -92,6 +95,7 @@ public class ComunicadosManager {
             scanner.nextLine();  // Consumir nueva línea
             switch (opcion) {
                 case 1:
+                    ConsoleUtils.clearConsole();
                     System.out.print("Ingrese el contenido del comunicado: ");
                     String contenido = scanner.nextLine();
                     manager.crearComunicado(contenido);

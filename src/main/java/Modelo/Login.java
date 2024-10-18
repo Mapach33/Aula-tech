@@ -5,6 +5,7 @@
 package Modelo;
 import java.util.Scanner;
 import java.io.*;
+import Modelo.ConsoleUtils;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Login {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            ConsoleUtils.clearConsole();
             // Solicitar credenciales
             System.out.println("B I E N V E N I D O  A  A U L A - T E C H");
             System.out.print("Ingrese su usuario: ");

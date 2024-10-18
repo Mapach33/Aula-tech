@@ -51,9 +51,11 @@ public class CrearSalones {
     private static final String FILE_NAME = "data/salones.txt";
 
     public void gestionarSalones(String archivoSalones) {
+
         cargarSalonesDesdeArchivo(); // Cargar los salones al iniciar
         int opcion;
         do {
+            ConsoleUtils.clearConsole();
             mostrarMenu();
             opcion = obtenerOpcion();
 
@@ -92,6 +94,7 @@ public class CrearSalones {
     }
 
     private static void añadirSalon() {
+        ConsoleUtils.clearConsole();
         int grado = obtenerGrado();
         int numeroSeccion = obtenerNumeroSeccion();
         String codigo = generarCodigo(grado, numeroSeccion);
@@ -148,6 +151,7 @@ public class CrearSalones {
     }
 
     private static void eliminarSalon() {
+        ConsoleUtils.clearConsole();
         System.out.print("Ingrese el codigo del salon a eliminar: ");
         String codigo = scanner.nextLine();
 
@@ -161,6 +165,7 @@ public class CrearSalones {
     }
 
     private static void modificarSalon() {
+        ConsoleUtils.clearConsole();
         System.out.print("Ingrese el codigo del salon a modificar: ");
         String codigo = scanner.nextLine();
 
@@ -179,6 +184,7 @@ public class CrearSalones {
     }
 
     private static void mostrarSalones() {
+        ConsoleUtils.clearConsole();
         if (salones.isEmpty()) {
             System.out.println("No hay salones registrados.");
         } else {
@@ -187,7 +193,7 @@ public class CrearSalones {
             for (Salon salon : salones) {
                 System.out.println(salon);
             }
-            scanner.nextLine(); // Esperar que el usuario presione Enter
+           ConsoleUtils.pauseConsole(); // Esperar que el usuario presione Enter
         }
     }
 
@@ -221,7 +227,7 @@ public class CrearSalones {
                     salones.add(new Salon(codigo, nombre, capacidad));
                 }
             }
-            System.out.println("Salones cargados desde el archivo " + FILE_NAME);
+            //System.out.println("Salones cargados desde el archivo " + FILE_NAME);
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado. Comenzando con lista vacía.");
         } catch (IOException e) {

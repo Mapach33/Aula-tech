@@ -13,8 +13,10 @@ public class Profesor extends User {
     }
 
     public void infoPersonal() {
+        ConsoleUtils.clearConsole();
         // Implementar funcionalidad para ver información personal
         System.out.printf("DNI: %s, Nombre: %s %s, Email: %s%n", getDni(), getNombre(), getApellido(), getEmail());
+        ConsoleUtils.pauseConsole();
     }
 
     // Menú específico para Profesor con bucle persistente
@@ -22,6 +24,7 @@ public class Profesor extends User {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         do {
+            ConsoleUtils.clearConsole();
             System.out.println("---- Menu Profesor ----");
             System.out.println("1. Informacion personal");
             System.out.println("2. Modificar notas");
@@ -37,6 +40,7 @@ public class Profesor extends User {
                 case 1 -> infoPersonal(); // Ver información personal
                 case 2 -> Notas.modificarNota(); // Llamar al método para modificar notas
                 case 3 -> {
+                    ConsoleUtils.clearConsole();
                     System.out.print("Ingrese el codigo del alumno: ");
                     String codigoAlumno = scanner.nextLine();
                     System.out.print("¿Esta presente? (true/false): ");

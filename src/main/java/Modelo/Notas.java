@@ -92,6 +92,7 @@ public class Notas {
     }
 
     static void modificarNota() {
+        ConsoleUtils.clearConsole();
         System.out.print("Ingrese el codigo del alumno: ");
         String codigoAlumno = scanner.nextLine();
 

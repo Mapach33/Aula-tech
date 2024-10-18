@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class ConsoleUtils {
     public static void clearConsole() {
@@ -14,6 +15,11 @@ public class ConsoleUtils {
         } catch (IOException | InterruptedException ex) {
             System.err.println("Error al limpiar la consola: " + ex.getMessage());
         }
+    }
+    public static void pauseConsole() {
+        System.out.println("Presione enter para contiuar.");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
     public static void main(String[] args) {
