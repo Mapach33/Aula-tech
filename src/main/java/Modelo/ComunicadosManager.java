@@ -87,7 +87,7 @@ public class ComunicadosManager {
             System.out.println("1. Crear un nuevo comunicado");
             System.out.println("2. Mostrar todos los comunicados");
             System.out.println("3. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir nueva línea
             switch (opcion) {
@@ -103,8 +103,12 @@ public class ComunicadosManager {
                     System.out.println("Saliendo...");
                     return;
                 default:
-                    System.out.println("Opción no válida. Intente nuevamente.");
+                    System.out.println("Opcion no valida. Intente nuevamente.");
             }
         }
+    }
+
+    void publicarComunicado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

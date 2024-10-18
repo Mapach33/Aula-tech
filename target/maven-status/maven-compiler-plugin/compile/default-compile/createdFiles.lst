@@ -1,9 +1,9 @@
 Modelo\Notas.class
 Modelo\Login.class
 Modelo\User.class
-Modelo\Asistencia.class
+Modelo\AsistenciaManager.class
+Modelo\Cursos$Course.class
 Controlador\Main.class
-Modelo\Comunicados.class
 Modelo\Cursos.class
 Modelo\ListaAlumnos.class
 Modelo\Profesor.class

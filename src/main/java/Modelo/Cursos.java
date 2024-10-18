@@ -1,4 +1,4 @@
-package Controlador;
+package Modelo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +24,10 @@ public class Cursos {
                     mostrarCursosPorSeccion();
                     break;
                 case 3:
-                    System.out.println("Saliendo del menú de cursos...");
+                    System.out.println("Saliendo del menu de cursos...");
                     break;
                 default:
-                    System.out.println("Opción no válida, intente nuevamente.");
+                    System.out.println("Opción no valida, intente nuevamente.");
             }
         } while (opcion != 3);
     }
@@ -35,14 +35,14 @@ public class Cursos {
     private static void mostrarMenuCursos() {
         System.out.println("\n--- Gestión de Cursos ---");
         System.out.println("1. Agregar curso");
-        System.out.println("2. Mostrar cursos por sección");
+        System.out.println("2. Mostrar cursos por seccion");
         System.out.println("3. Salir");
     }
 
     private static int obtenerOpcion() {
-        System.out.print("Seleccione una opción: ");
+        System.out.print("Seleccione una opcion: ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Entrada no válida. Por favor ingrese un número.");
+            System.out.println("Entrada no valida. Por favor ingrese un numero.");
             scanner.next(); // Limpiar la entrada incorrecta
         }
         int opcion = scanner.nextInt();
@@ -51,13 +51,13 @@ public class Cursos {
     }
 
     private static void agregarCurso() {
-        System.out.print("Ingrese el código del curso: ");
+        System.out.print("Ingrese el codigo del curso: ");
         String codigoCurso = scanner.nextLine();
 
         System.out.print("Ingrese el nombre del curso: ");
         String nombreCurso = scanner.nextLine();
 
-        System.out.print("Ingrese el número de sección (ejemplo: 301): ");
+        System.out.print("Ingrese el numero de seccion (ejemplo: 301): ");
         String seccion = scanner.nextLine();
 
         // Guardar el curso
@@ -66,7 +66,7 @@ public class Cursos {
     }
 
     private static void mostrarCursosPorSeccion() {
-        System.out.println("Selecciona una sección:");
+        System.out.println("Selecciona una seccion:");
         List<String> secciones = new ArrayList<>();
         for (Course course : courses) {
             if (!secciones.contains(course.getSeccion())) {
@@ -81,21 +81,21 @@ public class Cursos {
         int seccionSeleccionada = obtenerOpcion();
         if (seccionSeleccionada > 0 && seccionSeleccionada <= secciones.size()) {
             String selectedSection = secciones.get(seccionSeleccionada - 1);
-            System.out.println("Cursos para la sección " + selectedSection + ":");
+            System.out.println("Cursos para la seccion " + selectedSection + ":");
             boolean found = false;
 
             for (Course course : courses) {
                 if (course.getSeccion().equals(selectedSection)) {
-                    System.out.println("- " + course.getNombreCurso() + " (Código: " + course.getCodigoCurso() + ")");
+                    System.out.println("- " + course.getNombreCurso() + " (Codigo: " + course.getCodigoCurso() + ")");
                     found = true;
                 }
             }
 
             if (!found) {
-                System.out.println("No hay cursos disponibles para esta sección.");
+                System.out.println("No hay cursos disponibles para esta seccion.");
             }
         } else {
-            System.out.println("Selección inválida.");
+            System.out.println("Seleccion invalida.");
         }
     }
 

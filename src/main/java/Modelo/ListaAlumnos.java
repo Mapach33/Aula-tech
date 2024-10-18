@@ -1,4 +1,3 @@
-
 package Modelo;
 
 import java.io.BufferedReader;
@@ -6,9 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- *
- * @author MATHIAS
+ * Clase para manejar la lista de alumnos.
+ * Autor: MATHIAS
  */
 public class ListaAlumnos {
 
@@ -35,6 +35,16 @@ public class ListaAlumnos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
         return alumnos;
+    }
+
+    // Método para obtener un alumno por su DNI
+    public Alumno obtenerAlumnoPorDni(String dni) {
+        for (Alumno alumno : obtenerAlumnos()) {
+            if (alumno.getDni().equals(dni)) {
+                return alumno;
+            }
+        }
+        return null; // Retorna null si no se encuentra el alumno
     }
 
     // Método para mostrar los alumnos registrados
