@@ -47,10 +47,7 @@ public class Profesor extends User {
                     boolean presente = scanner.nextBoolean(); // Leer si el alumno está presente
                     asistenciaManager.registrarAsistencia(codigoAlumno, presente); // Llama al método para registrar asistencia
                 }
-                case 4 -> {
-                    ComunicadosManager comunicadosManager = new ComunicadosManager();
-                    comunicadosManager.publicarComunicado(); // Método para publicar comunicado
-                }
+                case 4 -> ComunicadosManager.main(null);
                 case 5 -> modificarHorario(); // Llamar al método para modificar horario
                 case 6 -> System.out.println("Saliendo del menu Profesor...");
                 default -> System.out.println("Opcion no valida.");
