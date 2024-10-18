@@ -22,14 +22,14 @@ public class Notas {
                 case 3 -> modificarNota();
                 case 4 -> mostrarNotas();
                 case 5 -> System.out.println("Saliendo...");
-                default -> System.out.println("Opción no válida, intente nuevamente.");
+                default -> System.out.println("Opcion no valida, intente nuevamente.");
             }
         } while (opcion != 5);
     }
 
     private static void mostrarMenu() {
-        System.out.println("\n--- Gestión de Notas ---");
-        System.out.println("1. Añadir nota");
+        System.out.println("\n--- Gestion de Notas ---");
+        System.out.println("1. Anadir nota");
         System.out.println("2. Eliminar nota");
         System.out.println("3. Modificar nota");
         System.out.println("4. Mostrar notas");
@@ -37,9 +37,9 @@ public class Notas {
     }
 
     private static int obtenerOpcion() {
-        System.out.print("Seleccione una opción: ");
+        System.out.print("Seleccione una opcion: ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Entrada no válida. Por favor ingrese un número.");
+            System.out.println("Entrada no valida. Por favor ingrese un numero.");
             scanner.next(); // Limpiar la entrada incorrecta
         }
         int opcion = scanner.nextInt();
@@ -48,7 +48,7 @@ public class Notas {
     }
 
     private static void añadirNota() {
-        System.out.print("Ingrese el código del alumno: ");
+        System.out.print("Ingrese el codigo del alumno: ");
         String codigoAlumno = scanner.nextLine();
 
         Alumno alumno = buscarAlumno(codigoAlumno);
@@ -61,11 +61,11 @@ public class Notas {
         String nota = scanner.nextLine();
 
         guardarNotaEnArchivo(codigoAlumno, nota);
-        System.out.println("Nota añadida exitosamente.");
+        System.out.println("Nota anadida exitosamente.");
     }
 
     private static void eliminarNota() {
-        System.out.print("Ingrese el código del alumno: ");
+        System.out.print("Ingrese el codigo del alumno: ");
         String codigoAlumno = scanner.nextLine();
 
         List<String> notas = leerNotasDesdeArchivo();
@@ -91,8 +91,8 @@ public class Notas {
         }
     }
 
-    private static void modificarNota() {
-        System.out.print("Ingrese el código del alumno: ");
+    static void modificarNota() {
+        System.out.print("Ingrese el codigo del alumno: ");
         String codigoAlumno = scanner.nextLine();
 
         List<String> notas = leerNotasDesdeArchivo();
@@ -149,7 +149,7 @@ public class Notas {
         }
     }
 
-    private static List<String> leerNotasDesdeArchivo() {
+    static List<String> leerNotasDesdeArchivo() {
         List<String> notas = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(archivoNotas))) {
             String linea;

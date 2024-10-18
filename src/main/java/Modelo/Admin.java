@@ -32,7 +32,7 @@ public class Admin extends User {
         System.out.println("Seleccione el tipo de usuario a registrar:");
         System.out.println("1. Alumno");
         System.out.println("2. Profesor");
-        System.out.print("Opción: ");
+        System.out.print("Opcion: ");
         int opcion = scanner.nextInt();
         scanner.nextLine();  // Consumir el salto de línea
 
@@ -108,13 +108,13 @@ public class Admin extends User {
                     System.out.println("Seleccione la lista que desea ver:");
                     System.out.println("1. Lista de Alumnos");
                     System.out.println("2. Lista de Profesores");
-                    System.out.print("Opción: ");
+                    System.out.print("Opcion: ");
                     int opcionLista = scanner.nextInt();
                     scanner.nextLine();  // Consumir el salto de línea
                     switch (opcionLista) {
                         case 1 -> listaAlumnos.mostrarAlumnosRegistrados(); // Llamar a la lista de alumnos
                         case 2 -> listaProfesores.mostrarProfesoresRegistrados();// Llamar a la lista de profesores
-                        default -> System.out.println("Opción no válida.");
+                        default -> System.out.println("Opcion no valida.");
                     }
                 }
                 case 4 -> System.out.println("Funcionalidad Modificar Pagos");

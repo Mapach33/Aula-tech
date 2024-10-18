@@ -28,7 +28,7 @@ public class Login {
             System.out.println("B I E N V E N I D O  A  A U L A - T E C H");
             System.out.print("Ingrese su usuario: ");
             String userInput = scanner.nextLine();
-            System.out.print("Ingrese su contraseña: ");
+            System.out.print("Ingrese su contrasena: ");
             String passwordInput = scanner.nextLine();
 
             // Validar credenciales
@@ -38,7 +38,7 @@ public class Login {
             }
 
             // Si las credenciales no son correctas, preguntar si desea reintentar o salir
-            System.out.println("Usuario o contraseña incorrectos.");
+            System.out.println("Usuario o contrasena incorrecta.");
             System.out.print("¿Desea intentar de nuevo? (s/n): ");
             String opcion = scanner.nextLine();
 

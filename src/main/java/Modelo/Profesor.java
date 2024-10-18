@@ -1,26 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.util.Scanner;
 
-/**
- *
- * @author janom
- */
-public class Profesor extends User{
-    
+public class Profesor extends User {
+    private AsistenciaManager asistenciaManager; // Instancia de AsistenciaManager
+    private Notas notas; // Instancia de Notas para manejar notas
+
     public Profesor(String dni, String nombre, String apellido, String email) {
-        super(dni, nombre, apellido, email,"PROFESOR");
+        super(dni, nombre, apellido, email, "PROFESOR");
+        this.asistenciaManager = new AsistenciaManager(); // Inicializar AsistenciaManager
+        this.notas = new Notas(); // Inicializar Notas
     }
-    
-    public void infoPersonal(){
-        //
+
+    public void infoPersonal() {
+        // Implementar funcionalidad para ver información personal
+        System.out.printf("DNI: %s, Nombre: %s %s, Email: %s%n", getDni(), getNombre(), getApellido(), getEmail());
     }
-    
-       // Menú específico para Profesor con bucle persistente
+
+    // Menú específico para Profesor con bucle persistente
     public void mostrarMenuProfesor() {
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -32,20 +29,34 @@ public class Profesor extends User{
             System.out.println("4. Publicar comunicado");
             System.out.println("5. Modificar horario");
             System.out.println("6. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir el salto de línea
 
             switch (opcion) {
-                case 1 -> System.out.println("Funcionalidad de ver clases.");
-                case 2 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 3 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 4 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 5 -> System.out.println("Funcionalidad de evaluar alumnos.");
-                case 6 -> System.out.println("Saliendo del menú Profesor...");
-                default -> System.out.println("Opción no válida.");
+                case 1 -> infoPersonal(); // Ver información personal
+                case 2 -> Notas.modificarNota(); // Llamar al método para modificar notas
+                case 3 -> {
+                    System.out.print("Ingrese el codigo del alumno: ");
+                    String codigoAlumno = scanner.nextLine();
+                    System.out.print("¿Esta presente? (true/false): ");
+                    boolean presente = scanner.nextBoolean(); // Leer si el alumno está presente
+                    asistenciaManager.registrarAsistencia(codigoAlumno, presente); // Llama al método para registrar asistencia
+                }
+                case 4 -> {
+                    ComunicadosManager comunicadosManager = new ComunicadosManager();
+                    comunicadosManager.publicarComunicado(); // Método para publicar comunicado
+                }
+                case 5 -> modificarHorario(); // Llamar al método para modificar horario
+                case 6 -> System.out.println("Saliendo del menu Profesor...");
+                default -> System.out.println("Opcion no valida.");
             }
         } while (opcion != 6);  // Repetir el menú hasta que se elija la opción de salir
     }
-    
+
+    // Método para modificar horario (se puede implementar según sea necesario)
+    private void modificarHorario() {
+        System.out.println("Funcionalidad de modificar horario.");
+        
+    }
 }

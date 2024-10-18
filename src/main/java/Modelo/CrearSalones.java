@@ -40,7 +40,6 @@ class Salon {
         return String.format("| %-10s | %-20s | %-10d |", codigo, nombre, capacidad);
     }
 
-    // Método para convertir los atributos a un formato de texto para guardar en archivo
     public String toFileString() {
         return codigo + "," + nombre + "," + capacidad;
     }
@@ -49,9 +48,10 @@ class Salon {
 public class CrearSalones {
     private static final ArrayList<Salon> salones = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
-    private static final String FILE_NAME = "data/salones.txt"; // Nombre del archivo
+    private static final String FILE_NAME = "data/salones.txt";
 
-    public void gestionarSalones(String filePathSalones) {
+    public void gestionarSalones(String archivoSalones) {
+        cargarSalonesDesdeArchivo(); // Cargar los salones al iniciar
         int opcion;
         do {
             mostrarMenu();
@@ -63,28 +63,27 @@ public class CrearSalones {
                 case 3 -> modificarSalon();
                 case 4 -> mostrarSalones();
                 case 5 -> {
-                    // Guardar los salones en archivo antes de salir
-                    guardarSalonesEnArchivo(filePathSalones);
-                    System.out.println("Saliendo de la gestión de salones...");
+                    guardarSalonesEnArchivo(); // Guardar al salir
+                    System.out.println("Saliendo de la gestion de salones...");
                 }
-                default -> System.out.println("Opción no válida, intente nuevamente.");
+                default -> System.out.println("Opcion no valida, intente nuevamente.");
             }
         } while (opcion != 5);
     }
 
     public static void mostrarMenu() {
-        System.out.println("\n--- Gestión de Salones ---");
-        System.out.println("1. Añadir salón");
-        System.out.println("2. Eliminar salón");
-        System.out.println("3. Modificar salón");
+        System.out.println("\n--- Gestion de Salones ---");
+        System.out.println("1. Anadir salon");
+        System.out.println("2. Eliminar salon");
+        System.out.println("3. Modificar salon");
         System.out.println("4. Mostrar salones");
         System.out.println("5. Salir");
     }
 
     private static int obtenerOpcion() {
-        System.out.print("Seleccione una opción: ");
+        System.out.print("Seleccione una opcion: ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Entrada no válida. Por favor ingrese un número.");
+            System.out.println("Entrada no valida. Por favor ingrese un numero.");
             scanner.next(); // Limpiar la entrada incorrecta
         }
         int opcion = scanner.nextInt();
@@ -97,12 +96,12 @@ public class CrearSalones {
         int numeroSeccion = obtenerNumeroSeccion();
         String codigo = generarCodigo(grado, numeroSeccion);
 
-        System.out.print("Ingrese el nombre del salón: ");
+        System.out.print("Ingrese el nombre del salon: ");
         String nombre = scanner.nextLine();
         int capacidad = obtenerCapacidad();
 
         salones.add(new Salon(codigo, nombre, capacidad));
-        System.out.println("Salón añadido exitosamente.");
+        System.out.println("Salon anadido exitosamente.");
     }
 
     private static int obtenerGrado() {
@@ -110,7 +109,7 @@ public class CrearSalones {
         do {
             System.out.print("Ingrese el grado (1-6): ");
             while (!scanner.hasNextInt()) {
-                System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 6.");
+                System.out.println("Entrada no valida. Por favor ingrese un numero entre 1 y 6.");
                 scanner.next(); // Limpiar la entrada incorrecta
             }
             grado = scanner.nextInt();
@@ -122,9 +121,9 @@ public class CrearSalones {
     private static int obtenerNumeroSeccion() {
         int numeroSeccion;
         do {
-            System.out.print("Ingrese el número de sección (01-27): ");
+            System.out.print("Ingrese el numero de seccion (01-27): ");
             while (!scanner.hasNextInt()) {
-                System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 27.");
+                System.out.println("Entrada no valida. Por favor ingrese un numero entre 1 y 27.");
                 scanner.next(); // Limpiar la entrada incorrecta
             }
             numeroSeccion = scanner.nextInt();
@@ -138,9 +137,9 @@ public class CrearSalones {
     }
 
     private static int obtenerCapacidad() {
-        System.out.print("Ingrese la capacidad del salón: ");
+        System.out.print("Ingrese la capacidad del salon: ");
         while (!scanner.hasNextInt()) {
-            System.out.println("Entrada no válida. Por favor ingrese un número.");
+            System.out.println("Entrada no valida. Por favor ingrese un numero.");
             scanner.next(); // Limpiar la entrada incorrecta
         }
         int capacidad = scanner.nextInt();
@@ -149,33 +148,33 @@ public class CrearSalones {
     }
 
     private static void eliminarSalon() {
-        System.out.print("Ingrese el código del salón a eliminar: ");
+        System.out.print("Ingrese el codigo del salon a eliminar: ");
         String codigo = scanner.nextLine();
 
         Salon salonEliminar = buscarSalon(codigo);
         if (salonEliminar != null) {
             salones.remove(salonEliminar);
-            System.out.println("Salón eliminado exitosamente.");
+            System.out.println("Salon eliminado exitosamente.");
         } else {
-            System.out.println("Salón no encontrado.");
+            System.out.println("Salon no encontrado.");
         }
     }
 
     private static void modificarSalon() {
-        System.out.print("Ingrese el código del salón a modificar: ");
+        System.out.print("Ingrese el codigo del salon a modificar: ");
         String codigo = scanner.nextLine();
 
         Salon salonModificar = buscarSalon(codigo);
         if (salonModificar != null) {
-            System.out.print("Ingrese el nuevo nombre del salón: ");
+            System.out.print("Ingrese el nuevo nombre del salon: ");
             String nombre = scanner.nextLine();
             int capacidad = obtenerCapacidad();
 
             salonModificar.setNombre(nombre);
             salonModificar.setCapacidad(capacidad);
-            System.out.println("Salón modificado exitosamente.");
+            System.out.println("Salon modificado exitosamente.");
         } else {
-            System.out.println("Salón no encontrado.");
+            System.out.println("Salon no encontrado.");
         }
     }
 
@@ -183,13 +182,12 @@ public class CrearSalones {
         if (salones.isEmpty()) {
             System.out.println("No hay salones registrados.");
         } else {
-            System.out.println(String.format("| %-10s | %-20s | %-10s |", "Código", "Nombre", "Capacidad"));
+            System.out.println(String.format("| %-10s | %-20s | %-10s |", "Codigo", "Nombre", "Capacidad"));
             System.out.println("-----------------------------------------------");
             for (Salon salon : salones) {
                 System.out.println(salon);
             }
-            Scanner scanner = new Scanner(System.in);
-            scanner.nextLine();
+            scanner.nextLine(); // Esperar que el usuario presione Enter
         }
     }
 
@@ -200,7 +198,7 @@ public class CrearSalones {
                 .orElse(null);
     }
 
-    private static void guardarSalonesEnArchivo(String filePathSalones) {
+    private static void guardarSalonesEnArchivo() {
         try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(FILE_NAME)))) {
             for (Salon salon : salones) {
                 writer.println(salon.toFileString()); // Guardar cada salón en una línea
@@ -211,7 +209,6 @@ public class CrearSalones {
         }
     }
 
-    // Método para cargar los salones desde un archivo al iniciar el programa
     private static void cargarSalonesDesdeArchivo() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String linea;
