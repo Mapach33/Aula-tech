@@ -5,17 +5,26 @@ import java.util.Scanner;
 public class Profesor extends User {
     private AsistenciaManager asistenciaManager; // Instancia de AsistenciaManager
     private Notas notas; // Instancia de Notas para manejar notas
+    private String tipo;
 
-    public Profesor(String dni, String nombre, String apellido, String email) {
+    public Profesor(String dni, String nombre, String apellido, String email, String tipo) {
         super(dni, nombre, apellido, email, "PROFESOR");
         this.asistenciaManager = new AsistenciaManager(); // Inicializar AsistenciaManager
         this.notas = new Notas(); // Inicializar Notas
+        this.tipo = tipo;
+    }
+    
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public void infoPersonal() {
         ConsoleUtils.clearConsole();
-        // Implementar funcionalidad para ver información personal
-        System.out.printf("DNI: %s, Nombre: %s %s, Email: %s%n", getDni(), getNombre(), getApellido(), getEmail());
+        System.out.printf("DNI: %s, Nombre: %s %s, Email: %s, Tipo: %s%n", getDni(), getNombre(), getApellido(), getEmail(), getTipo());
         ConsoleUtils.pauseConsole();
     }
 

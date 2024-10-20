@@ -1,4 +1,5 @@
 Modelo\Notas.class
+Modelo\ConsoleUtils.class
 Modelo\Login.class
 Modelo\User.class
 Modelo\AsistenciaManager.class

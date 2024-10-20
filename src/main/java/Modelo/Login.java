@@ -72,7 +72,7 @@ public class Login {
                             return new Admin(fields[0], fields[1], fields[2], fields[3]); // DNI, Nombre, Apellido, Email
                         }
                         case "PROFESOR" -> {
-                            return new Profesor(fields[0], fields[1], fields[2], fields[3]); // Campo vacío para Materia, puede llenarse según lo necesites
+                            return new Profesor(fields[0], fields[1], fields[2], fields[3], fields[7]); // Campo vacío para Materia, puede llenarse según lo necesites
                         }
                         case "ALUMNO" -> {
                             return new Alumno(fields[0], fields[1], fields[2], fields[3]); // Campo vacío para Curso, puede llenarse según lo necesites

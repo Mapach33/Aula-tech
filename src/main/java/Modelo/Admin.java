@@ -27,58 +27,88 @@ public class Admin extends User {
     }
 
     public void registrarPersona(String filePath) {
-        ConsoleUtils.clearConsole();
-        Scanner scanner = new Scanner(System.in);
+    ConsoleUtils.clearConsole();
+    Scanner scanner = new Scanner(System.in);
 
-        System.out.println("---- Registro de Nueva Persona ----");
-        System.out.println("Seleccione el tipo de usuario a registrar:");
-        System.out.println("1. Alumno");
-        System.out.println("2. Profesor");
-        System.out.print("Opcion: ");
-        int opcion = scanner.nextInt();
-        scanner.nextLine();  // Consumir el salto de línea
+    System.out.println("---- Registro de Nueva Persona ----");
+    System.out.println("Seleccione el tipo de usuario a registrar:");
+    System.out.println("1. Alumno");
+    System.out.println("2. Profesor");
+    System.out.print("Opcion: ");
+    int opcion = scanner.nextInt();
+    scanner.nextLine();  // Consumir el salto de línea
 
-        // Datos comunes para cualquier usuario
-        System.out.print("Ingrese el DNI: ");
-        String dni = scanner.nextLine();
-        System.out.print("Ingrese el Nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Ingrese el Apellido: ");
-        String apellido = scanner.nextLine();
-        System.out.print("Ingrese el Email: ");
-        String email = scanner.nextLine();
+    // Datos comunes para cualquier usuario
+    System.out.print("Ingrese el DNI: ");
+    String dni = scanner.nextLine();
+    System.out.print("Ingrese el Nombre: ");
+    String nombre = scanner.nextLine();
+    System.out.print("Ingrese el Apellido: ");
+    String apellido = scanner.nextLine();
+    System.out.print("Ingrese el Email: ");
+    String email = scanner.nextLine();
 
-        User nuevoUsuario;
+    User nuevoUsuario;
 
-        switch (opcion) {
-            case 1 -> // Registro de un Alumno
-                    nuevoUsuario = new Alumno(dni, nombre, apellido, email);
-            case 2 -> // Registro de un Profesor
-                    nuevoUsuario = new Profesor(dni, nombre, apellido, email);
-            default -> {
-                System.out.println("Opcion no valida.");
-                return;  // Salir si la opción es incorrecta
+        if (opcion == 1) {
+            // Registro de un Alumno
+            nuevoUsuario = new Alumno(dni, nombre, apellido, email);
+        } else if (opcion == 2) {
+            // Registro de un Profesor
+            System.out.println("Seleccione el tipo de profesor:");
+            System.out.println("1. Contratado");
+            System.out.println("2. Estable");
+            System.out.print("Opcion: ");
+            int tipoProfesor = scanner.nextInt();
+            scanner.nextLine();  // Consumir el salto de línea
+
+            String tipo;
+            if (tipoProfesor == 1) {
+                tipo = "CONTRATADO";
+            } else if (tipoProfesor == 2) {
+                tipo = "ESTABLE";
+            } else {
+                System.out.println("Opción no válida.");
+                return;
             }
+
+            nuevoUsuario = new Profesor(dni, nombre, apellido, email, tipo);
+        } else {
+            System.out.println("Opcion no valida.");
+            return;  // Salir si la opción es incorrecta
         }
 
         // Guardar el nuevo usuario en el archivo
         guardarEnArchivo(nuevoUsuario, filePath);
         System.out.println("Usuario registrado exitosamente.");
     }
+
     public void registrarPersona(Admin admin,String filepath){
         guardarEnArchivo(admin,filepath);
     }
 
     private void guardarEnArchivo(User usuario, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            // Escribir los datos del usuario en el archivo
-            writer.write(usuario.getDni() + "," +
-                    usuario.getNombre() + "," +
-                    usuario.getApellido() + "," +
-                    usuario.getEmail() + "," +
-                    usuario.getUser() + "," +
-                    usuario.getPass() + "," +
-                    usuario.getRol() + "\n");
+            if (usuario instanceof Profesor) {
+                Profesor profesor = (Profesor) usuario;
+                writer.write(profesor.getDni() + "," +
+                        profesor.getNombre() + "," +
+                        profesor.getApellido() + "," +
+                        profesor.getEmail() + "," +
+                        profesor.getUser() + "," +
+                        profesor.getPass() + "," +
+                        profesor.getRol() + "," +
+                        profesor.getTipo() + "\n");  // Guardar el tipo de profesor
+            } else {
+                // Guardar para otros tipos de usuarios
+                writer.write(usuario.getDni() + "," +
+                        usuario.getNombre() + "," +
+                        usuario.getApellido() + "," +
+                        usuario.getEmail() + "," +
+                        usuario.getUser() + "," +
+                        usuario.getPass() + "," +
+                        usuario.getRol() + "\n");
+            }
         } catch (IOException e) {
             System.out.println("Error al guardar el usuario en el archivo: " + e.getMessage());
         }
@@ -148,8 +178,10 @@ public class Admin extends User {
                     User usuario;
                     if (rol.equals("ALUMNO")) {
                         usuario = new Alumno(dni, nombre, apellido, email);
-                    } else if (rol.equals("PROFESOR")) {
-                        usuario = new Profesor(dni, nombre, apellido, email);
+                    } else if (rol.equals("PROFESOR") && datos.length >= 8) {
+                    // Verificar que la línea contiene el tipo de profesor
+                    String tipo = datos[7]; // Extraer el tipo de profesor (CONTRATADO/ESTABLE)
+                    usuario = new Profesor(dni, nombre, apellido, email, tipo);
                     } else {
                         usuario = new User(dni, nombre, apellido, email, rol);
                     }

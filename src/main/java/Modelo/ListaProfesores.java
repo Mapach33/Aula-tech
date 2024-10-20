@@ -27,7 +27,8 @@ public class ListaProfesores {
                     String nombre = datos[1];
                     String apellido = datos[2];
                     String email = datos[3];
-                    Profesor profesor = new Profesor(dni, nombre, apellido, email);
+                    String tipo = datos[7];
+                    Profesor profesor = new Profesor(dni, nombre, apellido, email, tipo);
                     profesores.add(profesor);
                 }
             }
@@ -46,19 +47,20 @@ public class ListaProfesores {
             System.out.println("No hay profesores registrados.");
         } else {
             // Encabezados de la tabla
-            System.out.printf("%-15s %-15s %-15s %-30s\n", "DNI", "Nombre", "Apellido", "Email");
-            System.out.println("----------------------------------------------------------------------");
+            System.out.printf("%-15s %-15s %-15s %-25s %-12s\n", "DNI", "Nombre", "Apellido", "Email", "Tipo");
+            System.out.println("--------------------------------------------------------------------------------------");
 
             // Iterar por cada profesor y mostrar sus datos en formato tabla
             for (Profesor profesor : profesores) {
-                System.out.printf("%-15s %-15s %-15s %-30s\n",
+                System.out.printf("%-15s %-15s %-15s %-25s %-12s\n",
                         profesor.getDni(),
                         profesor.getNombre(),
                         profesor.getApellido(),
-                        profesor.getEmail());
+                        profesor.getEmail(),
+                        profesor.getTipo());
             }
         }
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------");
         ConsoleUtils.pauseConsole();
     }
 
