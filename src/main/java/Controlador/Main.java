@@ -10,7 +10,7 @@ import Modelo.User;
  * @author MATHIAS
  */
 public class Main {
-    
+
     public static void main(String[] args) {
         String filePath = "data/usuarios.txt";  // Archivo donde se guardarán los datos
 
@@ -36,3 +36,4 @@ public class Main {
         login.mostrarMenu(usuarioLogueado);
     }
 }
+
