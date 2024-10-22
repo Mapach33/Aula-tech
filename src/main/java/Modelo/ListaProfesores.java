@@ -21,7 +21,7 @@ public class ListaProfesores {
             String linea;
             while ((linea = reader.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos.length >= 7 && "PROFESOR".equals(datos[6])) {
+                if (datos.length >= 8 && "PROFESOR".equals(datos[6])) {
                     // Crear un profesor basado en los datos del archivo
                     String dni = datos[0];
                     String nombre = datos[1];
