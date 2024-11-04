@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 
 public class DatabaseUtils {
-    private static final String URL = "jdbc:mysql://root:xtaELGOEinOzRrWRNdkUDyJjGuWaWWqp@junction.proxy.rlwy.net:32950/railway";
+    private static final String URL = "jdbc:mysql://root:sOPFgGLQYUcSwemsWaIovRCoiiDdMvpd@junction.proxy.rlwy.net:24182/railway";
     private static final String USER = "root";
-    private static final String PASSWORD = "xtaELGOEinOzRrWRNdkUDyJjGuWaWWqp";
+    private static final String PASSWORD = "sOPFgGLQYUcSwemsWaIovRCoiiDdMvpd";
 
     public static Connection getConnection() {
         Connection connection = null;
@@ -18,14 +18,20 @@ public class DatabaseUtils {
         }
         return connection;
     }
+    public static void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
+    }
 }
-//    public static void closeConnection(Connection connection) {
-//        try {
-//            if (connection != null) {
-//                connection.close();
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println("Error al cerrar la conexión: " + ex.getMessage());
-//        }
+//    public static void main(String[] args) {
+//        // Test the connection
+//        Connection connection = DatabaseUtils.getConnection();
 //    }
-//}
+
+
+
