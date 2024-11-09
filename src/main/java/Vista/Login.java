@@ -32,16 +32,17 @@ public class Login extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldPassword = new javax.swing.JTextField();
         jButtonIngresar = new javax.swing.JButton();
+        jTextFieldUsuario = new javax.swing.JTextField();
+        jTextFieldPassword = new javax.swing.JPasswordField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 68, 129));
 
+        jPanel1.setBackground(new java.awt.Color(0, 68, 129));
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setAutoscrolls(true);
-        jPanel1.setPreferredSize(new java.awt.Dimension(620, 400));
+        jPanel1.setPreferredSize(new java.awt.Dimension(680, 420));
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 255));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
@@ -50,29 +51,21 @@ public class Login extends javax.swing.JPanel {
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabelUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelUsuario.setForeground(new java.awt.Color(255, 204, 51));
+        jLabelUsuario.setForeground(new java.awt.Color(0, 27, 72));
         jLabelUsuario.setText("USUARIO");
 
         jLabelPassword.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelPassword.setForeground(new java.awt.Color(255, 204, 51));
+        jLabelPassword.setForeground(new java.awt.Color(0, 27, 72));
         jLabelPassword.setText("PASSWORD");
 
+        jButtonIngresar.setBackground(new java.awt.Color(255, 255, 51));
+        jButtonIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonIngresar.setForeground(new java.awt.Color(1, 138, 190));
+        jButtonIngresar.setText("INGRESAR");
+
         jTextFieldUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldUsuarioMousePressed(evt);
-            }
-        });
 
         jTextFieldPassword.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldPasswordMousePressed(evt);
-            }
-        });
-
-        jButtonIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonIngresar.setText("INGRESAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,11 +81,11 @@ public class Login extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelPassword)
                             .addComponent(jLabelUsuario))
-                        .addGap(113, 113, 113)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(139, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldUsuario)
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
+                .addGap(144, 144, 144))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,7 +104,7 @@ public class Login extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
@@ -121,42 +114,18 @@ public class Login extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
+                .addGap(248, 248, 248)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
+                .addContainerGap(137, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
+                .addGap(123, 123, 123))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldPasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPasswordMousePressed
-        // TODO add your handling code here:
-        /*
-        if (String.valueOf(jTextFieldPassword.getPassword()).equals("*****************")) {
-            jTextFieldPassword.setText("");
-        }
-        if (jTextFieldUsuario.getText().isEmpty()) {
-            jTextFieldUsuario.setText("Ingrese su nombre de usuario");
-            jTextFieldUsuario.setForeground(new Color(204, 204, 204));
-        }*/
-    }//GEN-LAST:event_jTextFieldPasswordMousePressed
-
-    private void jTextFieldUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioMousePressed
-        // TODO add your handling code here:
-        /*
-        if (jTextFieldUsuario.getText().equals("Ingrese su nombre de usuario")) {
-            jTextFieldUsuario.setText("");
-        }
-        if (String.valueOf(jTextFieldPassword.getPassword()).isEmpty()) {
-            jTextFieldPassword.setText("*****************");
-            jTextFieldPassword.setForeground(new Color(204, 204, 204));
-        }*/
-    }//GEN-LAST:event_jTextFieldUsuarioMousePressed
     
     
     private void initStyles(){
@@ -171,8 +140,8 @@ public class Login extends javax.swing.JPanel {
     private void addRoundedPanel() {    
         // Creamos el panel con bordes redondeados y le damos un tamaño fijo
         RoundedPanel roundedPanel = new RoundedPanel(30); // Bordes redondeados con radio de 30
-        roundedPanel.setBackground(Color.GRAY); // Fondo gris para el RoundedPanel
-        roundedPanel.setPreferredSize(new java.awt.Dimension(620, 400)); // Tamaño preferido
+        roundedPanel.setBackground(new Color(151, 202, 219)); // Fondo gris para el RoundedPanel
+        roundedPanel.setPreferredSize(new java.awt.Dimension(680, 420)); // Tamaño preferido
        
         // Usamos GridBagLayout para centrar los componentes dentro del RoundedPanel
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
@@ -184,34 +153,39 @@ public class Login extends javax.swing.JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = java.awt.GridBagConstraints.CENTER; // Alinear en el centro
-        gbc.insets = new java.awt.Insets(20, 10, 20, 10); // Espacio entre los componentes
+        gbc.insets = new java.awt.Insets(10, 0, 20, 0); // Espacio entre los componentes
         roundedPanel.add(jLabel1, gbc); // Título centrado
 
         // Agregamos los campos de texto y etiquetas al GridBagLayout
-        gbc.gridy++;
-        gbc.gridwidth = 1;
+        gbc.gridwidth = 1; // Restablece a una columna
+        gbc.gridy = 1;
+        gbc.gridx = 0;
         gbc.anchor = java.awt.GridBagConstraints.EAST; // Etiqueta alineada a la derecha
+        gbc.insets = new java.awt.Insets(10, 10, 10, 5); // Ajuste de espacio para alineación
         roundedPanel.add(jLabelUsuario, gbc);
 
         gbc.gridx = 1;
-        gbc.anchor = java.awt.GridBagConstraints.WEST; // Campo de texto alineado a la izquierda
+        gbc.anchor = java.awt.GridBagConstraints.WEST;
+        gbc.insets = new java.awt.Insets(10, 5, 10, 10);
         roundedPanel.add(jTextFieldUsuario, gbc);
 
+        gbc.gridy = 2;
         gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.anchor = java.awt.GridBagConstraints.EAST; // Etiqueta alineada a la derecha
+        gbc.anchor = java.awt.GridBagConstraints.EAST;
         roundedPanel.add(jLabelPassword, gbc);
 
         gbc.gridx = 1;
-        gbc.anchor = java.awt.GridBagConstraints.WEST; // Campo de texto alineado a la izquierda
+        gbc.anchor = java.awt.GridBagConstraints.WEST;
         roundedPanel.add(jTextFieldPassword, gbc);
         
-        // Agregar el botón de ingreso
+        // Botón de ingreso en la última fila, centrado
+        gbc.gridy = 3;
+        gbc.gridx = 0;
+        gbc.gridwidth = 2; // Ocupa ambas columnas para centrarse
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(20, 0, 10, 0);
         jButtonIngresar.setPreferredSize(new java.awt.Dimension(120, 40));
-        gbc.gridx = 1; // Mismo layout que los campos de texto, alineado a la izquierda
-        gbc.gridy++; // Avanzamos al siguiente row en el layout
-        gbc.anchor = java.awt.GridBagConstraints.CENTER; // Alinear el botón al centro
-        roundedPanel.add(jButtonIngresar, gbc); // Añadir el botón al panel
+        roundedPanel.add(jButtonIngresar, gbc);
 
         // Ahora ajustamos el layout del jPanel1 para centrar el RoundedPanel
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -240,7 +214,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JPasswordField jTextFieldPassword;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
