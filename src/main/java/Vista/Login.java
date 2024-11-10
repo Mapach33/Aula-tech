@@ -1,6 +1,10 @@
 
 package Vista;
 import java.awt.Color;
+import Modelo.DatabaseUtils;
+
+import javax.swing.*;
+
 /**
  *
  * @author MATHIAS
@@ -62,6 +66,11 @@ public class Login extends javax.swing.JPanel {
         jButtonIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonIngresar.setForeground(new java.awt.Color(1, 138, 190));
         jButtonIngresar.setText("INGRESAR");
+        jButtonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonIngresarMouseClicked(evt);
+            }
+        });
 
         jTextFieldUsuario.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -104,7 +113,7 @@ public class Login extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPassword)
                     .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
@@ -126,6 +135,22 @@ public class Login extends javax.swing.JPanel {
                 .addGap(123, 123, 123))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseClicked
+        // Obtener los valores de usuario y contraseña
+        String usuario = jTextFieldUsuario.getText();
+        String password = new String(jTextFieldPassword.getPassword());
+    //
+//
+
+        if (Modelo.DatabaseUtils.verifyLogin(usuario, password)){
+            JOptionPane.showMessageDialog(Login.this, "Login successful");
+        } else {
+            JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
+        }
+        
+        
+    }//GEN-LAST:event_jButtonIngresarMouseClicked
     
     
     private void initStyles(){
