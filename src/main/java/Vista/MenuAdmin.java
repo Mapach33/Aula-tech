@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 /**
  *
@@ -13,6 +15,16 @@ import javax.swing.SwingUtilities;
 public class MenuAdmin extends javax.swing.JPanel {
 
     private Principal principal;
+    
+    public void mostrarPanel(JPanel panel) {
+        panel.setSize(900, 680);
+        panel.setLocation(0, 0);
+
+        Contenido.removeAll();
+        Contenido.add(panel, BorderLayout.CENTER);
+        Contenido.revalidate();
+        Contenido.repaint();
+    }
     
     public MenuAdmin(Principal principal) {
         this.principal = principal;
@@ -44,6 +56,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         PanelSalir = new javax.swing.JPanel();
         TextoSalir = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Contenido = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1200, 680));
@@ -346,22 +359,35 @@ public class MenuAdmin extends javax.swing.JPanel {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout ContenidoLayout = new javax.swing.GroupLayout(Contenido);
+        Contenido.setLayout(ContenidoLayout);
+        ContenidoLayout.setHorizontalGroup(
+            ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        ContenidoLayout.setVerticalGroup(
+            ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 900, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(Contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextoNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseClicked
-        //mostrarPanel(new ListaNotasAdmin());
+        mostrarPanel(new NotasAdmin());
     }//GEN-LAST:event_TextoNotasMouseClicked
 
     private void TextoNotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseEntered
@@ -391,7 +417,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoSalirMouseExited
 
     private void TextoSalonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseClicked
-        // TODO add your handling code here:
+        //mostrarPanel(new NotasAdmin());
     }//GEN-LAST:event_TextoSalonesMouseClicked
 
     private void TextoSalonesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseEntered
@@ -452,6 +478,7 @@ public class MenuAdmin extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Contenido;
     private javax.swing.JPanel PanelAlumnos;
     private javax.swing.JPanel PanelNotas;
     private javax.swing.JPanel PanelPagos;
