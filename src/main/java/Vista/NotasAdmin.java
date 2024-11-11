@@ -72,8 +72,6 @@ public class NotasAdmin extends javax.swing.JPanel {
             }
         });
 
-        jTextFieldSalon.setBackground(new java.awt.Color(255, 255, 255));
-
         jButtonBuscar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(151, 202, 219));
@@ -176,7 +174,7 @@ public class NotasAdmin extends javax.swing.JPanel {
                 .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -453,7 +453,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoProfesoresMouseExited
 
     private void TextoRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistroMouseClicked
-        // TODO add your handling code here:
+        mostrarPanel(new Registro());
     }//GEN-LAST:event_TextoRegistroMouseClicked
 
     private void TextoRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistroMouseEntered
@@ -496,4 +496,8 @@ public class MenuAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarFrame(Registro registro) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
