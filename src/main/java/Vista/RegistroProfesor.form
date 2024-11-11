@@ -240,9 +240,10 @@
             <Component class="javax.swing.JComboBox" name="jComboTipoUsuario">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="CONTRATADO"/>
-                    <StringItem index="1" value="ESTABLE"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value=""/>
+                    <StringItem index="1" value="CONTRATADO"/>
+                    <StringItem index="2" value="ESTABLE"/>
                   </StringArray>
                 </Property>
               </Properties>

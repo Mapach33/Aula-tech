@@ -17,6 +17,7 @@ public class RegistroProfesor extends javax.swing.JFrame {
         initComponents();
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,7 +79,7 @@ public class RegistroProfesor extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS:"));
         jPanel3.setForeground(new java.awt.Color(151, 202, 219));
 
-        jComboTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CONTRATADO", "ESTABLE" }));
+        jComboTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "CONTRATADO", "ESTABLE" }));
         jComboTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboTipoUsuarioActionPerformed(evt);
@@ -272,6 +273,12 @@ public class RegistroProfesor extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RegistroProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

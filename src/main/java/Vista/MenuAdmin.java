@@ -441,7 +441,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoPagosMouseExited
 
     private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
-        // TODO add your handling code here:
+        mostrarPanel(new ListaProfesores());
     }//GEN-LAST:event_TextoProfesoresMouseClicked
 
     private void TextoProfesoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseEntered
@@ -473,7 +473,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAlumnosMouseEntered
 
     private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
-        //mostrarPanel(new ListaAlumnos());
+        mostrarPanel(new ListaAlumnos());
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
 
