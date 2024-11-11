@@ -4,6 +4,13 @@
  */
 package Vista;
 
+import Modelo.DatabaseUtils;
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author MATHIAS
@@ -59,6 +66,11 @@ public class NotasAdmin extends javax.swing.JPanel {
 
         jComboCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "MATEMÁTICAS", "COMUNICACIÓN", "CIENCIAS", "EDU. FÍSICA", "RELIGIÓN", "ARTE", "INGLES", "HISTORIA", "COMPUTACIÓN " }));
         jComboCurso.setActionCommand("");
+        jComboCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboCursoActionPerformed(evt);
+            }
+        });
 
         jTextFieldSalon.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -66,6 +78,11 @@ public class NotasAdmin extends javax.swing.JPanel {
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(151, 202, 219));
         jButtonBuscar.setText("BUSCAR");
+        jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonBuscarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -122,7 +139,7 @@ public class NotasAdmin extends javax.swing.JPanel {
 
             },
             new String [] {
-                "APELLIDOS", "NOMBRES", "EX. MENSUAL", "EX. BIMESTRAL", "PROMEDIO NOTAS"
+                "APELLIDOS", "NOMBRES", "EX. MENSUAL", "EX. BIMESTRAL", "PROMEDIO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -174,6 +191,65 @@ public class NotasAdmin extends javax.swing.JPanel {
         //jTextFieldNota.setText(value);
         //esto no lo uses
     }//GEN-LAST:event_tableMouseClicked
+
+    private int getBimestreNumber(String bimestre) {
+        switch (bimestre) {
+            case "Bimestre I":
+                return 1;
+            case "Bimestre II":
+                return 2;
+            case "Bimestre III":
+                return 3;
+            case "Bimestre IV":
+                return 4;
+            default:
+                throw new IllegalArgumentException("Invalid bimestre: " + bimestre);
+        }
+    }
+
+    private void jComboCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboCursoActionPerformed
+
+    private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
+         String salon = jTextFieldSalon.getText(); 
+        String bimestre = jComboBimestre.getSelectedItem().toString();
+        String curso = jComboCurso.getSelectedItem().toString();
+
+        int bimestreNumber = getBimestreNumber(bimestre);
+
+        // Realiza la consulta a la base de datos
+        try (Connection conn = DatabaseUtils.getConnection();
+             Statement stmt = conn.createStatement()) {
+            String query = "SELECT u.nombre AS nombre, u.apellido AS apellido, n.nota_mensual AS nota_mensual, " +
+                    "n.nota_bimestral AS nota_bimestral, n.promedio AS promedio " +
+                    "FROM Alumnos a " +
+                    "JOIN Usuarios u ON a.alumno_id = u.usuario_id " +
+                    "JOIN Notas n ON a.alumno_id = n.alumno_id " +
+                    "JOIN Salones s ON a.salon_id = s.salon_id " +
+                    "JOIN Bimestres b ON n.bimestre_id = b.ciclo_id " +
+                    "JOIN Cursos c ON n.curso_id = c.curso_id " +
+                    "WHERE s.nombre = '" + salon + "' AND c.nombre = '" + curso + "' AND b.bimestre = " + bimestreNumber;
+            ResultSet rs = stmt.executeQuery(query);
+
+            // Limpia la tabla actual
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            model.setRowCount(0);
+
+            // Llena la tabla con los datos obtenidos
+            while (rs.next()) {
+                String apellidos = rs.getString("apellido");
+                String nombres = rs.getString("nombre");
+                String exMensual = rs.getString("nota_mensual");
+                String exBimestral = rs.getString("nota_bimestral");
+                String promedio = rs.getString("promedio");
+                model.addRow(new Object[]{apellidos, nombres, exMensual, exBimestral, promedio});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jButtonBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
