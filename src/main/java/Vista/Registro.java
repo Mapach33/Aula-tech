@@ -9,18 +9,25 @@ package Vista;
  * @author andy2
  */
 public class Registro extends javax.swing.JPanel {
+    
+    private MenuAdmin menuAdmin;
 
     /**
      * Creates new form Registro1
      */
-    public Registro() {
+    public Registro(MenuAdmin menuAdmin) {
+        this.menuAdmin = menuAdmin;
         initComponents();
         
-        RegistroAlumno RA = new RegistroAlumno();
-        RA.setSize(1200, 680);
-        RA.setLocation(0, 0);
+        jButtonAlumno.addActionListener(e -> {
+            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
+            menuAdmin.mostrarPanel(new RegistroAlumno());
+        });
         
-        content.removeAll();
+        jButtonProfesor.addActionListener(e -> {
+            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroProfesor
+            menuAdmin.mostrarPanel(new RegistroProfesor());
+        });
     }
 
     /**
@@ -38,8 +45,10 @@ public class Registro extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonAlumno = new javax.swing.JButton();
+        jButtonProfesor = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(900, 680));
 
         jPanel2.setBackground(new java.awt.Color(0, 27, 72));
 
@@ -91,20 +100,20 @@ public class Registro extends javax.swing.JPanel {
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
         );
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 27, 72));
-        jButton2.setText("ALUMNO");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAlumno.setBackground(new java.awt.Color(255, 255, 51));
+        jButtonAlumno.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonAlumno.setForeground(new java.awt.Color(0, 27, 72));
+        jButtonAlumno.setText("ALUMNO");
+        jButtonAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonAlumnoActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 27, 72));
-        jButton3.setText("PROFESOR");
+        jButtonProfesor.setBackground(new java.awt.Color(255, 255, 51));
+        jButtonProfesor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonProfesor.setForeground(new java.awt.Color(0, 27, 72));
+        jButtonProfesor.setText("PROFESOR");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -114,9 +123,9 @@ public class Registro extends javax.swing.JPanel {
                 .addContainerGap(166, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(162, 162, 162))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,8 +144,8 @@ public class Registro extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62))
         );
 
@@ -146,7 +155,7 @@ public class Registro extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(133, 133, 133)
@@ -166,14 +175,14 @@ public class Registro extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnoActionPerformed
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButtonAlumno;
+    public javax.swing.JButton jButtonProfesor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;

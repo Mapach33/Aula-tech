@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Vista;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -453,7 +450,8 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoProfesoresMouseExited
 
     private void TextoRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistroMouseClicked
-        mostrarPanel(new Registro());
+        Registro registro = new Registro(this); 
+        mostrarPanel(registro);
     }//GEN-LAST:event_TextoRegistroMouseClicked
 
     private void TextoRegistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoRegistroMouseEntered
