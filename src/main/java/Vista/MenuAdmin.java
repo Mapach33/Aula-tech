@@ -17,6 +17,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         panel.setSize(900, 680);
         panel.setLocation(0, 0);
 
+        Contenido.setLayout(new BorderLayout());
         Contenido.removeAll();
         Contenido.add(panel, BorderLayout.CENTER);
         Contenido.revalidate();
@@ -26,6 +27,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     public MenuAdmin(Principal principal) {
         this.principal = principal;
         initComponents();
+        addRoundedPanel();
     }
 
     /**
@@ -52,8 +54,10 @@ public class MenuAdmin extends javax.swing.JPanel {
         TextoPagos = new javax.swing.JLabel();
         PanelSalir = new javax.swing.JPanel();
         TextoSalir = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelLogo = new javax.swing.JPanel();
+        jLabelLogo = new javax.swing.JLabel();
         Contenido = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1200, 680));
@@ -317,7 +321,25 @@ public class MenuAdmin extends javax.swing.JPanel {
             .addComponent(TextoSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AULA LOGO ofi.png"))); // NOI18N
+        jPanelLogo.setBackground(new java.awt.Color(0, 68, 129));
+        jPanelLogo.setPreferredSize(new java.awt.Dimension(180, 180));
+
+        jLabelLogo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AULA LOGO ofi.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelLogoLayout = new javax.swing.GroupLayout(jPanelLogo);
+        jPanelLogo.setLayout(jPanelLogoLayout);
+        jPanelLogoLayout.setHorizontalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLogoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelLogoLayout.setVerticalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -329,16 +351,17 @@ public class MenuAdmin extends javax.swing.JPanel {
             .addComponent(PanelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1))
             .addComponent(PanelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -353,18 +376,20 @@ public class MenuAdmin extends javax.swing.JPanel {
                 .addComponent(PanelPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MarcaAula.png"))); // NOI18N
 
         javax.swing.GroupLayout ContenidoLayout = new javax.swing.GroupLayout(Contenido);
         Contenido.setLayout(ContenidoLayout);
         ContenidoLayout.setHorizontalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1398, Short.MAX_VALUE)
         );
         ContenidoLayout.setVerticalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -474,6 +499,30 @@ public class MenuAdmin extends javax.swing.JPanel {
         mostrarPanel(new ListaAlumnos());
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
+    private void addRoundedPanel(){
+        RoundedPanel roundedPanel = new RoundedPanel(30);
+        roundedPanel.setBackground(new Color(151, 202, 219));
+        roundedPanel.setPreferredSize(new java.awt.Dimension(180, 180));
+        
+        // Usamos GridBagLayout para centrar los componentes dentro del RoundedPanel
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+        roundedPanel.setLayout(layout);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        roundedPanel.add(jLabelLogo, gbc); // Logo centrado
+        
+        // Añadir el RoundedPanel al jPanelLogo
+        jPanelLogo.setLayout(new BorderLayout()); // Usar un layout adecuado en jPanelLogo
+        jPanelLogo.add(roundedPanel, BorderLayout.CENTER);
+        
+        // Revalidar y repintar para actualizar la interfaz
+        jPanelLogo.revalidate();
+        jPanelLogo.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contenido;
@@ -492,7 +541,9 @@ public class MenuAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel TextoSalir;
     private javax.swing.JLabel TextoSalones;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelLogo;
     // End of variables declaration//GEN-END:variables
 
     private void mostrarFrame(Registro registro) {
