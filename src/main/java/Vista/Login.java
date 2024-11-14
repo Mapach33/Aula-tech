@@ -140,10 +140,21 @@ public class Login extends javax.swing.JPanel {
         // Obtener los valores de usuario y contraseña
         String usuario = jTextFieldUsuario.getText();
         String password = new String(jTextFieldPassword.getPassword());
+        String tipo = DatabaseUtils.verifyLogin(usuario,password);
+        if (tipo != null) {
+            switch (tipo) {
+                case "administrativo":{
+                    MenuAdmin menuAdmin = new MenuAdmin(principal);
+                    principal.mostrarPanel(menuAdmin);
+                }
+                case "profesor":{
+                    // LLAMA AAL PANDEL DE PROFESOR
+                }
+                case "alumno":{
+                    // LLAMA AL PANEL DE ALUMNO
+                }
+            }
 
-        if (Modelo.DatabaseUtils.verifyLogin(usuario, password)){
-            MenuAdmin menuAdmin = new MenuAdmin(principal);
-            principal.mostrarPanel(menuAdmin);
         } else {
             JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
         }

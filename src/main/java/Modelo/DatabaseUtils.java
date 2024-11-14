@@ -17,18 +17,20 @@ public class DatabaseUtils {
         return connection;
     }
 
-    public static boolean verifyLogin(String usuario, String password) {
+    public static String verifyLogin(String usuario, String password) {
         String query = "SELECT * FROM Usuarios WHERE username = ? AND contraseña = ?";
         try (Connection connection = getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query); 
             preparedStatement.setString(1, usuario);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next();
+            if(resultSet.next()){
+                return resultSet.getString("tipo");
+            }
         } catch (SQLException ex) {
             System.out.println("Error al verificar el login: " + ex.getMessage());
         }
-        return false;
+        return null;
     }
 
     public static ResultSet notasBuscar(String salon, String bimestre, String curso) {
