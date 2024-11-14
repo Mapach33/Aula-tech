@@ -114,6 +114,11 @@ public class Registro extends javax.swing.JPanel {
         jButtonProfesor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButtonProfesor.setForeground(new java.awt.Color(0, 27, 72));
         jButtonProfesor.setText("PROFESOR");
+        jButtonProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProfesorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -178,6 +183,10 @@ public class Registro extends javax.swing.JPanel {
     private void jButtonAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnoActionPerformed
        
     }//GEN-LAST:event_jButtonAlumnoActionPerformed
+
+    private void jButtonProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfesorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonProfesorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
