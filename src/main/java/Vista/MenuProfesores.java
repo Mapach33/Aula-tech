@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
  *
  * @author MATHIAS
  */
-public class MenuAdmin extends javax.swing.JPanel {
+public class MenuProfesores extends javax.swing.JPanel {
 
     private Principal principal;
     
@@ -24,7 +24,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         Contenido.repaint();
     }
     
-    public MenuAdmin(Principal principal) {
+    public MenuProfesores(Principal principal) {
         this.principal = principal;
         initComponents();
         addRoundedPanel();
@@ -50,8 +50,6 @@ public class MenuAdmin extends javax.swing.JPanel {
         TextoSalones = new javax.swing.JLabel();
         PanelNotas = new javax.swing.JPanel();
         TextoNotas = new javax.swing.JLabel();
-        PanelPagos = new javax.swing.JPanel();
-        TextoPagos = new javax.swing.JLabel();
         PanelSalir = new javax.swing.JPanel();
         TextoSalir = new javax.swing.JLabel();
         jPanelLogo = new javax.swing.JPanel();
@@ -145,7 +143,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         TextoProfesores.setForeground(new java.awt.Color(151, 202, 219));
         TextoProfesores.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoProfesores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profesor.png"))); // NOI18N
-        TextoProfesores.setText("PROFESORES");
+        TextoProfesores.setText("INFORMACIÓN");
         TextoProfesores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TextoProfesores.setIconTextGap(10);
         TextoProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -182,7 +180,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         TextoSalones.setForeground(new java.awt.Color(151, 202, 219));
         TextoSalones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoSalones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salon-de-clases.png"))); // NOI18N
-        TextoSalones.setText("SALONES");
+        TextoSalones.setText("ASISTENCIAS");
         TextoSalones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TextoSalones.setIconTextGap(10);
         TextoSalones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,43 +244,6 @@ public class MenuAdmin extends javax.swing.JPanel {
         PanelNotasLayout.setVerticalGroup(
             PanelNotasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TextoNotas, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-        );
-
-        PanelPagos.setBackground(new java.awt.Color(0, 68, 129));
-        PanelPagos.setPreferredSize(new java.awt.Dimension(300, 42));
-
-        TextoPagos.setBackground(new java.awt.Color(0, 68, 129));
-        TextoPagos.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        TextoPagos.setForeground(new java.awt.Color(151, 202, 219));
-        TextoPagos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pagos.png"))); // NOI18N
-        TextoPagos.setText("PAGOS");
-        TextoPagos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TextoPagos.setIconTextGap(10);
-        TextoPagos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextoPagosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TextoPagosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextoPagosMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelPagosLayout = new javax.swing.GroupLayout(PanelPagos);
-        PanelPagos.setLayout(PanelPagosLayout);
-        PanelPagosLayout.setHorizontalGroup(
-            PanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPagosLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(TextoPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelPagosLayout.setVerticalGroup(
-            PanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoPagos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PanelSalir.setBackground(new java.awt.Color(0, 68, 129));
@@ -349,7 +310,6 @@ public class MenuAdmin extends javax.swing.JPanel {
             .addComponent(PanelProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelComunicados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -362,7 +322,7 @@ public class MenuAdmin extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(43, 43, 43)
                 .addComponent(PanelComunicados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,8 +332,6 @@ public class MenuAdmin extends javax.swing.JPanel {
                 .addComponent(PanelSalones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -389,7 +347,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         );
         ContenidoLayout.setVerticalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -449,18 +407,6 @@ public class MenuAdmin extends javax.swing.JPanel {
     private void TextoSalonesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseExited
         PanelSalones.setBackground(new Color(0, 68, 129));
     }//GEN-LAST:event_TextoSalonesMouseExited
-
-    private void TextoPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseClicked
-        mostrarPanel(new PagosAdmin());
-    }//GEN-LAST:event_TextoPagosMouseClicked
-
-    private void TextoPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseEntered
-        PanelPagos.setBackground(new Color(1, 138, 190));
-    }//GEN-LAST:event_TextoPagosMouseEntered
-
-    private void TextoPagosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseExited
-        PanelPagos.setBackground(new Color(0, 68, 129));
-    }//GEN-LAST:event_TextoPagosMouseExited
 
     private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
         mostrarPanel(new ListaProfesores());
@@ -529,14 +475,12 @@ public class MenuAdmin extends javax.swing.JPanel {
     private javax.swing.JPanel PanelAlumnos;
     private javax.swing.JPanel PanelComunicados;
     private javax.swing.JPanel PanelNotas;
-    private javax.swing.JPanel PanelPagos;
     private javax.swing.JPanel PanelProfesores;
     private javax.swing.JPanel PanelSalir;
     private javax.swing.JPanel PanelSalones;
     private javax.swing.JLabel TextoAlumnos;
     private javax.swing.JLabel TextoComunicados;
     private javax.swing.JLabel TextoNotas;
-    private javax.swing.JLabel TextoPagos;
     private javax.swing.JLabel TextoProfesores;
     private javax.swing.JLabel TextoSalir;
     private javax.swing.JLabel TextoSalones;
