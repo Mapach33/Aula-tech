@@ -1,7 +1,7 @@
 
 package Vista;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.BorderLayout;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 
@@ -28,6 +28,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         mostrarPanel(new Login(this));
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/logo-escritorio.png")).getImage());
     }
 
     /**
