@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  * @author andy2
  */
 
-public class RegistroAlumno extends javax.swing.JPanel {
+public class RegistroSalones extends javax.swing.JPanel {
 
     /**
      * Creates new form RegistroAlumno1
      */
-    public RegistroAlumno() {
+    public RegistroSalones() {
         initComponents();
     }
 
@@ -33,12 +33,10 @@ public class RegistroAlumno extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -47,7 +45,7 @@ public class RegistroAlumno extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(151, 202, 219));
-        jLabel1.setText("ALUMNOS");
+        jLabel1.setText("SALONES");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -71,19 +69,16 @@ public class RegistroAlumno extends javax.swing.JPanel {
         jPanel3.setForeground(new java.awt.Color(151, 202, 219));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setText("DNI:");
+        jLabel4.setText("Grado:");
         jLabel4.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel4.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel4.setPreferredSize(new java.awt.Dimension(40, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre:");
+        jLabel5.setText("Sección:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Apellido:");
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel7.setText("Correo:");
+        jLabel6.setText("Capacidad:");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +89,8 @@ public class RegistroAlumno extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AULA LOGO ofi.png"))); // NOI18N
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -101,20 +98,14 @@ public class RegistroAlumno extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel5)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel6))
-                                                .addGap(79, 79, 79)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(91, 91, 91)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(79, 79, 79)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(37, Short.MAX_VALUE))
@@ -127,7 +118,7 @@ public class RegistroAlumno extends javax.swing.JPanel {
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(33, 33, 33)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(jLabel5)
@@ -136,14 +127,10 @@ public class RegistroAlumno extends javax.swing.JPanel {
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(jLabel6)
                                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(39, 39, 39)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel7)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addContainerGap(58, Short.MAX_VALUE))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                                .addContainerGap(13, Short.MAX_VALUE))))
         );
 
         jButton2.setBackground(new java.awt.Color(255, 255, 51));
@@ -169,20 +156,20 @@ public class RegistroAlumno extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(185, 185, 185)
                                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(177, Short.MAX_VALUE)))
+                                        .addContainerGap(161, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75))
+                                .addGap(121, 121, 121))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(183, 183, 183)
                                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(167, Short.MAX_VALUE)))
+                                        .addContainerGap(241, Short.MAX_VALUE)))
         );
     }// </editor-fold>
 
@@ -191,32 +178,31 @@ public class RegistroAlumno extends javax.swing.JPanel {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // Mostrar mensaje de registro exitoso
-        JOptionPane.showMessageDialog(this, "ALUMNO REGISTRADO EXITOSAMENTE");
+        // Mostrar mensaje de confirmación
+        JOptionPane.showMessageDialog(this, "SALON REGISTRADO EXITOSAMENTE");
+
         // Limpiar campos
         limpiarCampos();
     }
 
     private void limpiarCampos() {
-        jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
-        jTextField4.setText("");
+        jComboBox1.setSelectedIndex(0);
     }
 
     // Variables declaration - do not modify
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration
 }
+

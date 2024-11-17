@@ -8,12 +8,12 @@ package Vista;
  *
  * @author MATHIAS
  */
-public class ListaProfesores extends javax.swing.JPanel {
+public class ListaSalones extends javax.swing.JPanel {
 
     /**
      * Creates new form Notas
      */
-    public ListaProfesores() {
+    public ListaSalones() {
         initComponents();
         
         
@@ -34,8 +34,8 @@ public class ListaProfesores extends javax.swing.JPanel {
         jLabelCurso = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -51,16 +51,16 @@ public class ListaProfesores extends javax.swing.JPanel {
 
         jLabelSalon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelSalon.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelSalon.setText("CURSO");
+        jLabelSalon.setText("SECCIÓN");
 
         jLabelBimestre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelBimestre.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelBimestre.setText("TIPO");
+        jLabelBimestre.setText("CAPACIDAD");
 
         jLabelCurso.setBackground(new java.awt.Color(151, 202, 219));
         jLabelCurso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelCurso.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelCurso.setText("NOMBRE");
+        jLabelCurso.setText("GRADO");
 
         jButtonBuscar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -75,24 +75,28 @@ public class ListaProfesores extends javax.swing.JPanel {
             }
         });
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
         jPanelFiltroLayout.setHorizontalGroup(
             jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCurso))
-                .addGap(70, 70, 70)
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSalon)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelFiltroLayout.createSequentialGroup()
+                        .addComponent(jLabelCurso)
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabelSalon))
+                    .addGroup(jPanelFiltroLayout.createSequentialGroup()
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(70, 70, 70)
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelBimestre)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
@@ -108,9 +112,9 @@ public class ListaProfesores extends javax.swing.JPanel {
                             .addComponent(jLabelCurso))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelFiltroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -120,13 +124,14 @@ public class ListaProfesores extends javax.swing.JPanel {
         scroll.setBackground(new java.awt.Color(1, 138, 190));
         scroll.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
+        table.setAutoCreateRowSorter(true);
         table.setBackground(new java.awt.Color(222, 232, 241));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "APELLIDOS", "NOMBRES", "CURSO", "TIPO"
+                "CÓDIGO", "GRADO", "SECCIÓN", "CAPACIDAD"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -148,7 +153,7 @@ public class ListaProfesores extends javax.swing.JPanel {
         scroll.setViewportView(table);
 
         jPanel1.setBackground(new java.awt.Color(0, 27, 72));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(153, 204, 255))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 27, 72));
 
         jButtonEditar.setBackground(new java.awt.Color(255, 255, 51));
@@ -210,7 +215,7 @@ public class ListaProfesores extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(scroll)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -260,12 +265,12 @@ public class ListaProfesores extends javax.swing.JPanel {
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabelBimestre;
     private javax.swing.JLabel jLabelCurso;
     private javax.swing.JLabel jLabelSalon;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;
