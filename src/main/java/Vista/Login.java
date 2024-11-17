@@ -146,6 +146,7 @@ public class Login extends javax.swing.JPanel {
                 case "administrativo":{
                     MenuAdmin menuAdmin = new MenuAdmin(principal);
                     principal.mostrarPanel(menuAdmin);
+                    break;
                 }
                 case "profesor":{
                     MenuProfesores menuProfesores = new MenuProfesores(principal);
