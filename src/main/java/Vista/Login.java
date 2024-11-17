@@ -148,15 +148,19 @@ public class Login extends javax.swing.JPanel {
                     principal.mostrarPanel(menuAdmin);
                 }
                 case "profesor":{
-                    // LLAMA AAL PANDEL DE PROFESOR
+                    MenuProfesores menuProfesores = new MenuProfesores(principal);
+                    principal.mostrarPanel(menuProfesores);
+                    break;
                 }
                 case "alumno":{
-                    // LLAMA AL PANEL DE ALUMNO
+                    MenuAlumnos menuAlumnos = new MenuAlumnos(principal);
+                    principal.mostrarPanel(menuAlumnos);
+                    break;
                 }
             }
 
         } else {
-            JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
+            JOptionPane.showMessageDialog(Login.this, "Email o password equivocado.");
         }
         
         
