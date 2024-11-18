@@ -15,16 +15,22 @@ import java.util.Map;
  * @author MATHIAS
  */
 public class Comunicados extends javax.swing.JPanel {
+    private MenuAdmin menuAdmin;
 
     /**
      * Creates new form Notas
      */
-    public Comunicados() {
+        public Comunicados(MenuAdmin menuAdmin) {
+        this.menuAdmin = menuAdmin;
         initComponents();
-        
-        
-    }
 
+        // Configurar el ActionListener para jButtonRegistrar
+        jButtonRegistrar.addActionListener(e -> {
+            // Cambiar al panel RegistroComunicados
+            menuAdmin.mostrarPanel(new RegistroComunicados());
+        });
+}
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,4 +217,6 @@ public class Comunicados extends javax.swing.JPanel {
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
+
+    
 }
