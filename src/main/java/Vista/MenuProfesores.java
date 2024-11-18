@@ -409,7 +409,7 @@ public class MenuProfesores extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoSalonesMouseExited
 
     private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
-        mostrarPanel(new ListaProfesores());
+        //mostrarPanel(new ListaProfesores());
     }//GEN-LAST:event_TextoProfesoresMouseClicked
 
     private void TextoProfesoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseEntered
@@ -442,7 +442,7 @@ public class MenuProfesores extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAlumnosMouseEntered
 
     private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
-        mostrarPanel(new ListaAlumnos());
+        //mostrarPanel(new ListaAlumnos());
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
     private void addRoundedPanel(){

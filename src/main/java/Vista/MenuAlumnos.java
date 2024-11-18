@@ -442,7 +442,7 @@ public class MenuAlumnos extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAlumnosMouseEntered
 
     private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
-        mostrarPanel(new ListaAlumnos());
+        //mostrarPanel(new ListaAlumnos());
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
     private void addRoundedPanel(){

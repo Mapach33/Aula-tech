@@ -17,13 +17,17 @@ import java.util.Map;
  * @author MATHIAS
  */
 public class ListaAlumnos extends javax.swing.JPanel {
+    private MenuAdmin menuAdmin;
 
     /**
      * Creates new form Notas
      */
-    public ListaAlumnos() {
+    public ListaAlumnos(MenuAdmin menuAdmin) {
         initComponents();
-        
+        jButtonRegistrar.addActionListener(e -> {
+            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
+            menuAdmin.mostrarPanel(new RegistroAlumno());
+        });
         
     }
 
