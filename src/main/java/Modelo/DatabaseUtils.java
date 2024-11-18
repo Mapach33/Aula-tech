@@ -195,10 +195,10 @@ public class DatabaseUtils {
 
             while (resultSet.next()) {
                 Map<String, String> comunicado = new HashMap<>();
-                comunicado.put("id", resultSet.getString("id"));
-                comunicado.put("titulo", resultSet.getString("titulo"));
+                comunicado.put("id", resultSet.getString("comunicado_id"));
+                comunicado.put("asunto", resultSet.getString("titulo"));
                 comunicado.put("contenido", resultSet.getString("contenido"));
-                comunicado.put("fecha_publicacion", resultSet.getString("fecha_publicacion"));
+                comunicado.put("fecha", resultSet.getString("fecha_publicacion"));
                 comunicado.put("emisor", resultSet.getString("emisor"));
                 comunicados.add(comunicado);
             }
@@ -296,6 +296,7 @@ public class DatabaseUtils {
             System.out.println("Error al cerrar la conexión: " + ex.getMessage());
         }
     }
+
 }
 
 

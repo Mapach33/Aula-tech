@@ -7,6 +7,7 @@ package Vista;
 import Modelo.DatabaseUtils;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ public class Comunicados extends javax.swing.JPanel {
         public Comunicados(MenuAdmin menuAdmin) {
         this.menuAdmin = menuAdmin;
         initComponents();
+        listarComunicados();
+        //lista todos los comunicados de la base de datos
 
         // Configurar el ActionListener para jButtonRegistrar
         jButtonRegistrar.addActionListener(e -> {
@@ -207,7 +210,22 @@ public class Comunicados extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarMouseClicked
 
+    private void listarComunicados(){
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+        List<Map<String, String>> comunicados = DatabaseUtils.obtenerComunicados();
+        for (Map<String, String> comunicado : comunicados) {
+            idComunicados.add(comunicado.get("id"));
+            model.addRow(new Object[]{
+                comunicado.get("fecha"),
+                comunicado.get("emisor"),
+                comunicado.get("asunto"),
+                comunicado.get("contenido")
+            });
+        }
+    }
 
+    private List<String> idComunicados = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
