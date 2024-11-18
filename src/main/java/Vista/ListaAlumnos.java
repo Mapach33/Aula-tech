@@ -80,7 +80,7 @@ public class ListaAlumnos extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ero", "2do", "3ero", "4to", "5to", "6to" }));
 
         jTextApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,6 +283,7 @@ public class ListaAlumnos extends javax.swing.JPanel {
                     alumno.get("seccion")
             });
         }
+        alumnos.clear();
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
 
