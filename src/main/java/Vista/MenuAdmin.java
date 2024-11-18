@@ -475,7 +475,8 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoProfesoresMouseExited
 
     private void TextoComunicadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseClicked
-        //Registro registro = new Registro(this); 
+        mostrarPanel(new Comunicados());
+//Registro registro = new Registro(this); 
         //mostrarPanel(registro);
     }//GEN-LAST:event_TextoComunicadosMouseClicked
 
