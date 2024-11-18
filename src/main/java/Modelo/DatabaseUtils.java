@@ -1,6 +1,7 @@
 package Modelo;
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 
 public class DatabaseUtils {
@@ -184,6 +185,28 @@ public class DatabaseUtils {
         return results;
     }
 
+    public static List<Map<String, String>> obtenerComunicados() {
+        String query = "SELECT * FROM Comunicados";
+        List<Map<String, String>> comunicados = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Map<String, String> comunicado = new HashMap<>();
+                comunicado.put("id", resultSet.getString("id"));
+                comunicado.put("titulo", resultSet.getString("titulo"));
+                comunicado.put("contenido", resultSet.getString("contenido"));
+                comunicado.put("fecha_publicacion", resultSet.getString("fecha_publicacion"));
+                comunicado.put("emisor", resultSet.getString("emisor"));
+                comunicados.add(comunicado);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener comunicados: " + ex.getMessage());
+        }
+        return comunicados;
+    }
 
     //insertar en la tabla de usuarios un alumno con los siguientes datos DNI, nombre apellido y correo
     public static Boolean insertarAlumno(String dni, String nombre, String apellido, String correo) {
@@ -240,6 +263,21 @@ public class DatabaseUtils {
             return true;
         } catch (SQLException ex) {
             System.out.println("Error al insertar profesor: " + ex.getMessage());
+            return false;
+        }
+    }
+
+    public static Boolean redactarComunicado(String titulo, String contenido) {
+        String query = "INSERT INTO Comunicados (titulo, contenido, fecha_publicacion, emisor) VALUES (?, ?, ?, 'admin')";
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, titulo);
+            preparedStatement.setString(2, contenido);
+            preparedStatement.setDate(3, new java.sql.Date(System.currentTimeMillis()));
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error al redactar comunicado: " + ex.getMessage());
             return false;
         }
     }

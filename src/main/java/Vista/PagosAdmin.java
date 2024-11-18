@@ -31,7 +31,7 @@ public class PagosAdmin extends javax.swing.JPanel {
         jButtonBuscar = new javax.swing.JButton();
         jTextDNI = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPanelMes = new javax.swing.JPanel();
+        jPanelEnero = new javax.swing.JPanel();
         jLabelMes = new javax.swing.JLabel();
         jPanelSi = new javax.swing.JPanel();
         jLabelSi = new javax.swing.JLabel();
@@ -160,8 +160,8 @@ public class PagosAdmin extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanelMes.setBackground(new java.awt.Color(0, 68, 129));
-        jPanelMes.setForeground(new java.awt.Color(0, 68, 129));
+        jPanelEnero.setBackground(new java.awt.Color(0, 68, 129));
+        jPanelEnero.setForeground(new java.awt.Color(0, 68, 129));
 
         jLabelMes.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabelMes.setForeground(new java.awt.Color(151, 202, 219));
@@ -220,16 +220,16 @@ public class PagosAdmin extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanelMesLayout = new javax.swing.GroupLayout(jPanelMes);
-        jPanelMes.setLayout(jPanelMesLayout);
-        jPanelMesLayout.setHorizontalGroup(
-            jPanelMesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelEneroLayout = new javax.swing.GroupLayout(jPanelEnero);
+        jPanelEnero.setLayout(jPanelEneroLayout);
+        jPanelEneroLayout.setHorizontalGroup(
+            jPanelEneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelSi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanelMesLayout.setVerticalGroup(
-            jPanelMesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMesLayout.createSequentialGroup()
+        jPanelEneroLayout.setVerticalGroup(
+            jPanelEneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEneroLayout.createSequentialGroup()
                 .addComponent(jLabelMes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jPanelSi, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -988,7 +988,7 @@ public class PagosAdmin extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                                 .addComponent(jPanelMes9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanelMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanelEnero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
                                 .addComponent(jPanelMes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76)
@@ -1024,7 +1024,7 @@ public class PagosAdmin extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanelMes6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanelMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelEnero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
                         .addComponent(jPanelMes5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
@@ -1083,8 +1083,8 @@ public class PagosAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelSi8;
     private javax.swing.JLabel jLabelSi9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelEnero;
     private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JPanel jPanelMes;
     private javax.swing.JPanel jPanelMes1;
     private javax.swing.JPanel jPanelMes2;
     private javax.swing.JPanel jPanelMes3;
