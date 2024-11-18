@@ -289,6 +289,36 @@ public class DatabaseUtils {
         return salones;
     }
 
+    public static List<Map<String, String>> buscarPagosPorDni(String dni) {
+        String query = "SELECT u.nombre, u.apellido, p.mes, p.estado " +
+                "FROM Usuarios u " +
+                "JOIN Alumnos a ON u.usuario_id = a.alumno_id " +
+                "JOIN Pagos p ON a.alumno_id = p.alumno_id " +
+                "WHERE u.dni = ?";
+
+        List<Map<String, String>> pagos = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, dni);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Map<String, String> pago = new HashMap<>();
+                    pago.put("nombre", resultSet.getString("nombre"));
+                    pago.put("apellido", resultSet.getString("apellido"));
+                    pago.put("mes", resultSet.getString("mes"));
+                    pago.put("estado", resultSet.getString("estado"));
+                    pagos.add(pago);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al buscar pagos: " + ex.getMessage());
+        }
+        return pagos;
+    }
+
+
+
 
 
     public static Boolean redactarComunicado(String titulo, String contenido) {
