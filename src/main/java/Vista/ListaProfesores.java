@@ -15,13 +15,17 @@ import java.util.Map;
  * @author MATHIAS
  */
 public class ListaProfesores extends javax.swing.JPanel {
+    private MenuAdmin menuAdmin;
 
     /**
      * Creates new form Notas
      */
-    public ListaProfesores() {
+    public ListaProfesores(MenuAdmin menuAdmin) {
         initComponents();
-        
+        jButtonRegistrar.addActionListener(e -> {
+            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
+            menuAdmin.mostrarPanel(new RegistroProfesor());
+        });
         
     }
 
@@ -296,6 +300,8 @@ public class ListaProfesores extends javax.swing.JPanel {
                     profesor.get("tipo")
             });
         }
+        profesores.clear();
+
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked

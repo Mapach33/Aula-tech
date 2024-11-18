@@ -439,7 +439,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoSalirMouseExited
 
     private void TextoSalonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseClicked
-        //mostrarPanel(new NotasAdmin());
+        mostrarPanel(new ListaSalones(this));
     }//GEN-LAST:event_TextoSalonesMouseClicked
 
     private void TextoSalonesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseEntered
@@ -463,7 +463,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoPagosMouseExited
 
     private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
-        mostrarPanel(new ListaProfesores());
+        mostrarPanel(new ListaProfesores(this));
     }//GEN-LAST:event_TextoProfesoresMouseClicked
 
     private void TextoProfesoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseEntered
@@ -497,7 +497,7 @@ public class MenuAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAlumnosMouseEntered
 
     private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
-        mostrarPanel(new ListaAlumnos());
+        mostrarPanel(new ListaAlumnos(this));
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
     private void addRoundedPanel(){
