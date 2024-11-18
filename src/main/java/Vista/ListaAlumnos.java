@@ -4,6 +4,14 @@
  */
 package Vista;
 
+import Modelo.DatabaseUtils;
+
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author MATHIAS
@@ -34,8 +42,8 @@ public class ListaAlumnos extends javax.swing.JPanel {
         jLabelCurso = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextNombre = new javax.swing.JTextField();
+        jTextApellido = new javax.swing.JTextField();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -66,12 +74,17 @@ public class ListaAlumnos extends javax.swing.JPanel {
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonBuscar.setText("BUSCAR");
+        jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonBuscarMouseClicked(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextApellidoActionPerformed(evt);
             }
         });
 
@@ -82,12 +95,12 @@ public class ListaAlumnos extends javax.swing.JPanel {
             .addGroup(jPanelFiltroLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCurso))
                 .addGap(70, 70, 70)
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelSalon)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70)
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelBimestre)
@@ -108,8 +121,8 @@ public class ListaAlumnos extends javax.swing.JPanel {
                             .addComponent(jLabelCurso))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelFiltroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -240,9 +253,9 @@ public class ListaAlumnos extends javax.swing.JPanel {
         //esto no lo uses
     }//GEN-LAST:event_tableMouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextApellidoActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
@@ -251,6 +264,26 @@ public class ListaAlumnos extends javax.swing.JPanel {
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
+
+    private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
+        // TODO add your handling code here:
+        String apellido = jTextApellido.getText();
+        String nombre = jTextNombre.getText();
+        String grado = jComboBox1.getSelectedItem().toString();
+
+        List<Map<String, String>> alumnos = DatabaseUtils.buscarAlumnos(apellido, nombre, grado);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+
+        for (Map<String, String> alumno : alumnos) {
+            model.addRow(new Object[]{
+                    alumno.get("apellido"),
+                    alumno.get("nombre"),
+                    alumno.get("grado"),
+                    alumno.get("seccion")
+            });
+        }
+    }//GEN-LAST:event_jButtonBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -265,8 +298,8 @@ public class ListaAlumnos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelSalon;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextApellido;
+    private javax.swing.JTextField jTextNombre;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables

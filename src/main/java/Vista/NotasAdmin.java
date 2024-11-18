@@ -191,18 +191,13 @@ public class NotasAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_tableMouseClicked
 
     private int getBimestreNumber(String bimestre) {
-        switch (bimestre) {
-            case "Bimestre I":
-                return 1;
-            case "Bimestre II":
-                return 2;
-            case "Bimestre III":
-                return 3;
-            case "Bimestre IV":
-                return 4;
-            default:
-                throw new IllegalArgumentException("Invalid bimestre: " + bimestre);
-        }
+        return switch (bimestre) {
+            case "Bimestre I" -> 1;
+            case "Bimestre II" -> 2;
+            case "Bimestre III" -> 3;
+            case "Bimestre IV" -> 4;
+            default -> throw new IllegalArgumentException("Invalid bimestre: " + bimestre);
+        };
     }
 
     private void jComboCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCursoActionPerformed

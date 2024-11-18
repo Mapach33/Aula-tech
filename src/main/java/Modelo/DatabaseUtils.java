@@ -1,5 +1,9 @@
 package Modelo;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class DatabaseUtils {
@@ -57,6 +61,106 @@ public class DatabaseUtils {
         return null;
     }
 
+    //para extraer alumnos
+    public static List<Map<String, String>> buscarAlumnos(String apellido, String nombre, String grado) {
+        StringBuilder query = new StringBuilder("SELECT u.apellido, u.nombre, s.grado, s.seccion " +
+                "FROM Usuarios u " +
+                "JOIN Alumnos a ON u.usuario_id = a.alumno_id " +
+                "JOIN Salones s ON a.salon_id = s.salon_id " +
+                "WHERE u.tipo = 'alumno'");
+
+        if (apellido != null && !apellido.isEmpty()) {
+            query.append(" AND u.apellido LIKE ?");
+        }
+        if (nombre != null && !nombre.isEmpty()) {
+            query.append(" AND u.nombre LIKE ?");
+        }
+        if (grado != null && !grado.isEmpty()) {
+            query.append(" AND s.grado = ?");
+        }
+
+        List<Map<String, String>> results = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
+
+            int paramIndex = 1;
+            if (apellido != null && !apellido.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + apellido + "%");
+            }
+            if (nombre != null && !nombre.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + nombre + "%");
+            }
+            if (grado != null && !grado.isEmpty()) {
+                preparedStatement.setString(paramIndex++, grado);
+            }
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Map<String, String> row = new HashMap<>();
+                    row.put("apellido", resultSet.getString("apellido"));
+                    row.put("nombre", resultSet.getString("nombre"));
+                    row.put("grado", resultSet.getString("grado"));
+                    row.put("seccion", resultSet.getString("seccion"));
+                    results.add(row);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al buscar alumnos: " + ex.getMessage());
+        }
+        return results;
+    }
+
+    // para extraer profesores
+    public static List<Map<String, String>> buscarProfesores(String nombre, String curso, String tipo) {
+        StringBuilder query = new StringBuilder("SELECT u.apellido, u.nombre, c.nombre AS curso, p.tipo " +
+                "FROM Usuarios u " +
+                "JOIN Profesores p ON u.usuario_id = p.profesor_id " +
+                "JOIN Cursos c ON p.curso_id = c.curso_id " +
+                "WHERE u.tipo = 'profesor'");
+
+        if (tipo != null && !tipo.isEmpty()) {
+            query.append(" AND p.tipo LIKE ?");
+        }
+        if (nombre != null && !nombre.isEmpty()) {
+            query.append(" AND u.nombre LIKE ?");
+        }
+        if (curso != null && !curso.isEmpty()) {
+            query.append(" AND c.nombre LIKE ?");
+        }
+
+        List<Map<String, String>> results = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
+
+            int paramIndex = 1;
+            if (tipo != null && !tipo.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + tipo + "%");
+            }
+            if (nombre != null && !nombre.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + nombre + "%");
+            }
+            if (curso != null && !curso.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + curso + "%");
+            }
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Map<String, String> row = new HashMap<>();
+                    row.put("apellido", resultSet.getString("apellido"));
+                    row.put("nombre", resultSet.getString("nombre"));
+                    row.put("curso", resultSet.getString("curso"));
+                    row.put("tipo", resultSet.getString("tipo"));
+                    results.add(row);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al buscar profesores: " + ex.getMessage());
+        }
+        return results;
+    }
+
 
     public static void closeConnection(Connection connection) {
         try {
@@ -67,15 +171,8 @@ public class DatabaseUtils {
             System.out.println("Error al cerrar la conexión: " + ex.getMessage());
         }
     }
-    
-//    public static ResultSet notasBuscar(String salon, String bimestre, String curso){
-//        //
-//    }
 }
-//    public static void main(String[] args) {
-//        // Test the connection
-//        Connection connection = DatabaseUtils.getConnection();
-//    }
+
 
 
 

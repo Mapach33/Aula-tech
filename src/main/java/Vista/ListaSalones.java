@@ -33,9 +33,9 @@ public class ListaSalones extends javax.swing.JPanel {
         jLabelBimestre = new javax.swing.JLabel();
         jLabelCurso = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBoxSeccion = new javax.swing.JComboBox<>();
+        jTextCapacidad = new javax.swing.JTextField();
+        jComboBoxGrado = new javax.swing.JComboBox<>();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -67,15 +67,15 @@ public class ListaSalones extends javax.swing.JPanel {
         jButtonBuscar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonBuscar.setText("BUSCAR");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBoxSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextCapacidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextCapacidadActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBoxGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -89,13 +89,13 @@ public class ListaSalones extends javax.swing.JPanel {
                         .addGap(143, 143, 143)
                         .addComponent(jLabelSalon))
                     .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBoxSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(70, 70, 70)
                 .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelBimestre)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
@@ -112,9 +112,9 @@ public class ListaSalones extends javax.swing.JPanel {
                             .addComponent(jLabelCurso))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxGrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelFiltroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -245,9 +245,9 @@ public class ListaSalones extends javax.swing.JPanel {
         //esto no lo uses
     }//GEN-LAST:event_tableMouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCapacidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextCapacidadActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
@@ -264,14 +264,14 @@ public class ListaSalones extends javax.swing.JPanel {
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBoxGrado;
+    private javax.swing.JComboBox<String> jComboBoxSeccion;
     private javax.swing.JLabel jLabelBimestre;
     private javax.swing.JLabel jLabelCurso;
     private javax.swing.JLabel jLabelSalon;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextCapacidad;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
