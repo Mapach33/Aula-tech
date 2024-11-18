@@ -6,7 +6,9 @@ package Vista;
 
 import Modelo.DatabaseUtils;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -291,8 +293,10 @@ public class ListaProfesores extends javax.swing.JPanel {
         List<Map<String,String>> profesores = DatabaseUtils.buscarProfesores(nombre, curso, tipo);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
+        profesorIds.clear();
 
         for (Map<String, String> profesor : profesores) {
+            profesorIds.add(profesor.get("id"));
             model.addRow(new Object[]{
                     profesor.get("apellido"),
                     profesor.get("nombre"),
@@ -310,13 +314,21 @@ public class ListaProfesores extends javax.swing.JPanel {
 
     private void jButtonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseClicked
         // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow != -1) {
+            String id = profesorIds.get(selectedRow); // Get the ID from the list
+            DatabaseUtils.eliminarProfesorPorId(id);
+            ((DefaultTableModel) table.getModel()).removeRow(selectedRow);
+            profesorIds.remove(selectedRow); // Remove the ID from the list
+        }
+        JOptionPane.showMessageDialog(this, "Profesor eliminado correctamente");
     }//GEN-LAST:event_jButtonEliminarMouseClicked
 
     private void jButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarMouseClicked
 
-
+    private List<String> profesorIds = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;

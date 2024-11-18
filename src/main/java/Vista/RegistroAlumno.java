@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+import Modelo.DatabaseUtils;
+
 import javax.swing.JOptionPane;
 /**
  *
@@ -191,8 +193,19 @@ public class RegistroAlumno extends javax.swing.JPanel {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        String correo = jTextField1.getText();
+        String apellido = jTextField2.getText();
+        String nombre = jTextField3.getText();
+        String dni = jTextField4.getText();
+
+        Boolean resulatdo = DatabaseUtils.insertarAlumno(dni, nombre, apellido, correo);
         // Mostrar mensaje de registro exitoso
-        JOptionPane.showMessageDialog(this, "ALUMNO REGISTRADO EXITOSAMENTE");
+
+        if(resulatdo){
+            JOptionPane.showMessageDialog(this, "ALUMNO REGISTRADO EXITOSAMENTE");
+        }else{
+            JOptionPane.showMessageDialog(this, "ERROR AL REGISTRAR ALUMNO");
+        }
         // Limpiar campos
         limpiarCampos();
     }

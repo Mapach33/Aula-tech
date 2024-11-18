@@ -1,9 +1,6 @@
 package Modelo;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class DatabaseUtils {
@@ -124,16 +121,28 @@ public class DatabaseUtils {
         }
     }
 
+    public static void eliminarProfesorPorId(String id){
+        String query = "DELETE FROM Usuarios WHERE usuario_id = ?";
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setString(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex){
+            System.out.println("Error al eliminar profesor: " + ex.getMessage());
+        }
+    }
+
     // para extraer profesores
-    public static List<Map<String, String>> buscarProfesores(String nombre, String curso, String tipo) {
-        StringBuilder query = new StringBuilder("SELECT u.apellido, u.nombre, c.nombre AS curso, p.tipo " +
+    public static List<Map<String, String>> buscarProfesores(String apellido, String nombre, String curso) {
+        StringBuilder query = new StringBuilder("SELECT u.usuario_id, u.apellido, u.nombre, c.nombre AS curso, p.tipo " +
                 "FROM Usuarios u " +
                 "JOIN Profesores p ON u.usuario_id = p.profesor_id " +
                 "JOIN Cursos c ON p.curso_id = c.curso_id " +
                 "WHERE u.tipo = 'profesor'");
 
-        if (tipo != null && !tipo.isEmpty()) {
-            query.append(" AND p.tipo LIKE ?");
+        if (apellido != null && !apellido.isEmpty()) {
+            query.append(" AND u.apellido LIKE ?");
         }
         if (nombre != null && !nombre.isEmpty()) {
             query.append(" AND u.nombre LIKE ?");
@@ -148,8 +157,8 @@ public class DatabaseUtils {
              PreparedStatement preparedStatement = connection.prepareStatement(query.toString())) {
 
             int paramIndex = 1;
-            if (tipo != null && !tipo.isEmpty()) {
-                preparedStatement.setString(paramIndex++, "%" + tipo + "%");
+            if (apellido != null && !apellido.isEmpty()) {
+                preparedStatement.setString(paramIndex++, "%" + apellido + "%");
             }
             if (nombre != null && !nombre.isEmpty()) {
                 preparedStatement.setString(paramIndex++, "%" + nombre + "%");
@@ -161,6 +170,7 @@ public class DatabaseUtils {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
                     Map<String, String> row = new HashMap<>();
+                    row.put("id", resultSet.getString("usuario_id"));
                     row.put("apellido", resultSet.getString("apellido"));
                     row.put("nombre", resultSet.getString("nombre"));
                     row.put("curso", resultSet.getString("curso"));
@@ -173,6 +183,68 @@ public class DatabaseUtils {
         }
         return results;
     }
+
+
+    //insertar en la tabla de usuarios un alumno con los siguientes datos DNI, nombre apellido y correo
+    public static Boolean insertarAlumno(String dni, String nombre, String apellido, String correo) {
+        String query = "INSERT INTO Usuarios (dni, nombre, apellido, email, tipo) VALUES (?, ?, ?, ?, 'alumno')";
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            connection.setAutoCommit(false);
+            preparedStatement.setString(1, dni);
+            preparedStatement.setString(2, nombre);
+            preparedStatement.setString(3, apellido);
+            preparedStatement.setString(4, correo);
+            preparedStatement.executeUpdate();
+
+            connection.commit();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error al insertar alumno: " + ex.getMessage());
+            return false;
+        }
+    }
+
+    //Insertar en la tabla de usuarios un profesor con los siguientes datos DNI, nombre, apellido y correo
+    public static Boolean insertarProfesor(String dni, String nombre, String apellido, String correo, String tipo) {
+        String queryUsuario = "INSERT INTO Usuarios (dni, nombre, apellido, email, tipo) VALUES (?, ?, ?, ?, 'profesor')";
+        String queryProfesor = "INSERT INTO Profesores (profesor_id, tipo, curso_id) VALUES (?, ?, ?)";
+        Random random = new Random();
+        int cursoId = random.nextInt(9) + 1; // Generates a random number between 1 and 9
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatementUsuario = connection.prepareStatement(queryUsuario, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement preparedStatementProfesor = connection.prepareStatement(queryProfesor)) {
+            connection.setAutoCommit(false);
+
+            // Insert into Usuarios table
+            preparedStatementUsuario.setString(1, dni);
+            preparedStatementUsuario.setString(2, nombre);
+            preparedStatementUsuario.setString(3, apellido);
+            preparedStatementUsuario.setString(4, correo);
+            preparedStatementUsuario.executeUpdate();
+
+            // Get the generated professor_id
+            ResultSet generatedKeys = preparedStatementUsuario.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int profesorId = generatedKeys.getInt(1);
+
+                // Insert into Profesores table
+                preparedStatementProfesor.setInt(1, profesorId);
+                preparedStatementProfesor.setString(2, tipo);
+                preparedStatementProfesor.setInt(3, cursoId);
+                preparedStatementProfesor.executeUpdate();
+            }
+
+            connection.commit();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error al insertar profesor: " + ex.getMessage());
+            return false;
+        }
+    }
+
+
 
 
 

@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.DatabaseUtils;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,7 +86,7 @@ public class ListaAlumnos extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ero", "2do", "3ero", "4to", "5to", "6to" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
 
         jTextApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +173,11 @@ public class ListaAlumnos extends javax.swing.JPanel {
         jButtonEditar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonEditar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonEditar.setText("EDITAR");
+        jButtonEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEditarMouseClicked(evt);
+            }
+        });
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
@@ -181,6 +187,11 @@ public class ListaAlumnos extends javax.swing.JPanel {
         jButtonEliminar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonEliminar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonEliminarMouseClicked(evt);
+            }
+        });
 
         jButtonSalir.setBackground(new java.awt.Color(255, 255, 51));
         jButtonSalir.setForeground(new java.awt.Color(0, 27, 72));
@@ -189,6 +200,11 @@ public class ListaAlumnos extends javax.swing.JPanel {
         jButtonRegistrar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonRegistrar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRegistrarMouseClicked(evt);
+            }
+        });
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -293,6 +309,26 @@ public class ListaAlumnos extends javax.swing.JPanel {
         }
         alumnos.clear();
     }//GEN-LAST:event_jButtonBuscarMouseClicked
+
+    private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarMouseClicked
+
+    private void jButtonEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEditarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditarMouseClicked
+
+    private void jButtonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow != -1) {
+            String id = alumnoIds.get(selectedRow); // Get the ID from the list
+            DatabaseUtils.eliminarAlumnoPorId(id);
+            ((DefaultTableModel) table.getModel()).removeRow(selectedRow);
+            alumnoIds.remove(selectedRow); // Remove the ID from the list
+        }
+        JOptionPane.showMessageDialog(this, "Alumno eliminado correctamente");
+    }//GEN-LAST:event_jButtonEliminarMouseClicked
 
 
 

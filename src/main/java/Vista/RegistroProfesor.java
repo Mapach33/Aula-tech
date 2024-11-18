@@ -5,6 +5,8 @@
 
 package Vista;
 
+import Modelo.DatabaseUtils;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,7 +64,7 @@ public class RegistroProfesor extends javax.swing.JPanel {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS:"));
         jPanel3.setForeground(new java.awt.Color(151, 202, 219));
 
-        jComboTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "CONTRATADO", "ESTABLE" }));
+        jComboTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "contratado", "estable" }));
         jComboTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboTipoUsuarioActionPerformed(evt);
@@ -199,7 +201,17 @@ public class RegistroProfesor extends javax.swing.JPanel {
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        JOptionPane.showMessageDialog(this, "PROFESOR REGISTRADO EXITOSAMENTE");
+        String dni = jTextField4.getText();
+        String nombre = jTextField3.getText();
+        String apellido = jTextField2.getText();
+        String correo = jTextField1.getText();
+        String tipo = jComboTipoUsuario.getSelectedItem().toString();
+        Boolean result = DatabaseUtils.insertarProfesor(dni, nombre, apellido, correo, tipo);
+        if(result){
+            JOptionPane.showMessageDialog(this, "PROFESOR REGISTRADO EXITOSAMENTE");
+        } else {
+            JOptionPane.showMessageDialog(this, "ERROR AL REGISTRAR PROFESOR");
+        }
         limpiarCampos();
     }
 
