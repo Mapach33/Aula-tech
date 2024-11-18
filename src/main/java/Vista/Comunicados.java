@@ -184,7 +184,7 @@ public class Comunicados extends javax.swing.JPanel {
 
         //String value = table.getValueAt(row, column).toString();
         //jTextFieldNota.setText(value);
-        //esto no lo uses
+        //esto no lo uses..r 32
     }//GEN-LAST:event_tableMouseClicked
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
