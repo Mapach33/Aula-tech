@@ -4,6 +4,13 @@
  */
 package Vista;
 
+import Modelo.DatabaseUtils;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author MATHIAS
@@ -16,6 +23,7 @@ public class ListaSalones extends javax.swing.JPanel {
      */
     public ListaSalones(MenuAdmin menuAdmin) {
         initComponents();
+        listarSalones();
         jButtonRegistrar.addActionListener(e -> {
             // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
             menuAdmin.mostrarPanel(new RegistroSalones());
@@ -72,7 +80,7 @@ public class ListaSalones extends javax.swing.JPanel {
         jButtonBuscar.setForeground(new java.awt.Color(0, 27, 72));
         jButtonBuscar.setText("BUSCAR");
 
-        jComboBoxSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBoxSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "A", "B", "C", "D", "F", "G" }));
 
         jTextCapacidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +88,7 @@ public class ListaSalones extends javax.swing.JPanel {
             }
         });
 
-        jComboBoxGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBoxGrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ero", "2do", "3ero", "4to", "5to", "6to" }));
 
         javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
         jPanelFiltro.setLayout(jPanelFiltroLayout);
@@ -262,6 +270,19 @@ public class ListaSalones extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
+    private void listarSalones(){
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+        List<Map<String, String>> salones = DatabaseUtils.listarSalones();
+        for (Map<String, String> salon : salones) {
+            model.addRow(new Object[]{
+                    salon.get("id"),
+                    salon.get("grado"),
+                    salon.get("seccion"),
+                    salon.get("capacidad")
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;

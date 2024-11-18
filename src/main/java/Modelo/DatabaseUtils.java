@@ -267,6 +267,30 @@ public class DatabaseUtils {
         }
     }
 
+    public static List<Map<String, String>> listarSalones() {
+        String query = "SELECT * FROM Salones order by nombre";
+        List<Map<String, String>> salones = new ArrayList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Map<String, String> salon = new HashMap<>();
+                salon.put("id", resultSet.getString("salon_id"));
+                salon.put("grado", resultSet.getString("grado"));
+                salon.put("seccion", resultSet.getString("seccion"));
+                salon.put("capacidad", resultSet.getString("capacidad"));
+                salones.add(salon);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al listar salones: " + ex.getMessage());
+        }
+        return salones;
+    }
+
+
+
     public static Boolean redactarComunicado(String titulo, String contenido) {
         String query = "INSERT INTO Comunicados (titulo, contenido, fecha_publicacion, emisor) VALUES (?, ?, ?, 'admin')";
         try (Connection connection = getConnection();
