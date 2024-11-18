@@ -63,7 +63,7 @@ public class DatabaseUtils {
 
     //para extraer alumnos
     public static List<Map<String, String>> buscarAlumnos(String apellido, String nombre, String grado) {
-        StringBuilder query = new StringBuilder("SELECT u.apellido, u.nombre, s.grado, s.seccion " +
+        StringBuilder query = new StringBuilder("SELECT u.usuario_id, u.apellido, u.nombre, s.grado, s.seccion " +
                 "FROM Usuarios u " +
                 "JOIN Alumnos a ON u.usuario_id = a.alumno_id " +
                 "JOIN Salones s ON a.salon_id = s.salon_id " +
@@ -98,6 +98,7 @@ public class DatabaseUtils {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
                     Map<String, String> row = new HashMap<>();
+                    row.put("id", resultSet.getString("usuario_id"));
                     row.put("apellido", resultSet.getString("apellido"));
                     row.put("nombre", resultSet.getString("nombre"));
                     row.put("grado", resultSet.getString("grado"));
@@ -109,6 +110,18 @@ public class DatabaseUtils {
             System.out.println("Error al buscar alumnos: " + ex.getMessage());
         }
         return results;
+    }
+
+    public static void eliminarAlumnoPorId(String id) {
+        String query = "DELETE FROM Usuarios WHERE usuario_id = ?";
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Error al eliminar alumno: " + ex.getMessage());
+        }
     }
 
     // para extraer profesores
@@ -160,6 +173,8 @@ public class DatabaseUtils {
         }
         return results;
     }
+
+
 
 
     public static void closeConnection(Connection connection) {

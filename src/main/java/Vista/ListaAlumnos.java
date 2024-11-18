@@ -9,6 +9,7 @@ import Modelo.DatabaseUtils;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -271,11 +272,14 @@ public class ListaAlumnos extends javax.swing.JPanel {
         String nombre = jTextNombre.getText();
         String grado = jComboBox1.getSelectedItem().toString();
 
+
         List<Map<String, String>> alumnos = DatabaseUtils.buscarAlumnos(apellido, nombre, grado);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
+        alumnoIds.clear(); // Clear the list before adding new IDs
 
         for (Map<String, String> alumno : alumnos) {
+            alumnoIds.add(alumno.get("id"));
             model.addRow(new Object[]{
                     alumno.get("apellido"),
                     alumno.get("nombre"),
@@ -286,6 +290,9 @@ public class ListaAlumnos extends javax.swing.JPanel {
         alumnos.clear();
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
+
+
+    private List<String> alumnoIds = new ArrayList<>();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
