@@ -14,18 +14,14 @@ import java.util.Map;
  *
  * @author MATHIAS
  */
-public class ListaProfesores extends javax.swing.JPanel {
-    private MenuAdmin menuAdmin;
+public class Comunicados extends javax.swing.JPanel {
 
     /**
      * Creates new form Notas
      */
-    public ListaProfesores(MenuAdmin menuAdmin) {
+    public Comunicados() {
         initComponents();
-        jButtonRegistrar.addActionListener(e -> {
-            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
-            menuAdmin.mostrarPanel(new RegistroProfesor());
-        });
+        
         
     }
 
@@ -38,14 +34,6 @@ public class ListaProfesores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelFiltro = new javax.swing.JPanel();
-        jLabelSalon = new javax.swing.JLabel();
-        jLabelBimestre = new javax.swing.JLabel();
-        jLabelCurso = new javax.swing.JLabel();
-        jButtonBuscar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextCurso = new javax.swing.JTextField();
-        jTextNombre = new javax.swing.JTextField();
         scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -57,81 +45,6 @@ public class ListaProfesores extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 27, 72));
         setPreferredSize(new java.awt.Dimension(900, 680));
 
-        jPanelFiltro.setBackground(new java.awt.Color(0, 27, 72));
-
-        jLabelSalon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelSalon.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelSalon.setText("CURSO");
-
-        jLabelBimestre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelBimestre.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelBimestre.setText("TIPO");
-
-        jLabelCurso.setBackground(new java.awt.Color(151, 202, 219));
-        jLabelCurso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCurso.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelCurso.setText("NOMBRE");
-
-        jButtonBuscar.setBackground(new java.awt.Color(255, 255, 51));
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonBuscar.setForeground(new java.awt.Color(0, 27, 72));
-        jButtonBuscar.setText("BUSCAR");
-        jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonBuscarMouseClicked(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
-
-        jTextNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextNombreActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelFiltroLayout = new javax.swing.GroupLayout(jPanelFiltro);
-        jPanelFiltro.setLayout(jPanelFiltroLayout);
-        jPanelFiltroLayout.setHorizontalGroup(
-            jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCurso))
-                .addGap(70, 70, 70)
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSalon)
-                    .addComponent(jTextCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelBimestre)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-        );
-        jPanelFiltroLayout.setVerticalGroup(
-            jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelSalon)
-                            .addComponent(jLabelBimestre)
-                            .addComponent(jLabelCurso))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelFiltroLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-
         scroll.setBackground(new java.awt.Color(1, 138, 190));
         scroll.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
@@ -141,7 +54,7 @@ public class ListaProfesores extends javax.swing.JPanel {
 
             },
             new String [] {
-                "APELLIDOS", "NOMBRES", "CURSO", "TIPO"
+                "Fecha", "Emisor", "Asunto", "Contenido"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -195,7 +108,7 @@ public class ListaProfesores extends javax.swing.JPanel {
 
         jButtonRegistrar.setBackground(new java.awt.Color(255, 255, 51));
         jButtonRegistrar.setForeground(new java.awt.Color(0, 27, 72));
-        jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.setText("Redactar");
         jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonRegistrarMouseClicked(evt);
@@ -238,23 +151,21 @@ public class ListaProfesores extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(scroll)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 866, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -270,10 +181,6 @@ public class ListaProfesores extends javax.swing.JPanel {
         //esto no lo uses
     }//GEN-LAST:event_tableMouseClicked
 
-    private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNombreActionPerformed
-
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarActionPerformed
@@ -281,28 +188,6 @@ public class ListaProfesores extends javax.swing.JPanel {
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
-    private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
-        // TODO add your handling code here:
-        String nombre = jTextNombre.getText();
-        String curso = jTextCurso.getText();
-        String tipo = jComboBox1.getSelectedItem().toString();
-
-        List<Map<String,String>> profesores = DatabaseUtils.buscarProfesores(nombre, curso, tipo);
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        model.setRowCount(0);
-
-        for (Map<String, String> profesor : profesores) {
-            model.addRow(new Object[]{
-                    profesor.get("apellido"),
-                    profesor.get("nombre"),
-                    profesor.get("curso"),
-                    profesor.get("tipo")
-            });
-        }
-        profesores.clear();
-
-    }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked
         // TODO add your handling code here:
@@ -318,19 +203,11 @@ public class ListaProfesores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabelBimestre;
-    private javax.swing.JLabel jLabelCurso;
-    private javax.swing.JLabel jLabelSalon;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelFiltro;
-    private javax.swing.JTextField jTextCurso;
-    private javax.swing.JTextField jTextNombre;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables

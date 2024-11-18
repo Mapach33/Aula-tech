@@ -9,13 +9,18 @@ package Vista;
  * @author MATHIAS
  */
 public class ListaSalones extends javax.swing.JPanel {
+    private MenuAdmin menuAdmin;
 
     /**
      * Creates new form Notas
      */
-    public ListaSalones() {
+    public ListaSalones(MenuAdmin menuAdmin) {
         initComponents();
-        
+        jButtonRegistrar.addActionListener(e -> {
+            // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
+            menuAdmin.mostrarPanel(new RegistroSalones());
+        });
+
         
     }
 
