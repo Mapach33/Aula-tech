@@ -5,6 +5,8 @@
 package Vista;
 
 import Modelo.DatabaseUtils;
+import Modelo.dao.ComunicadoDAO;
+import Modelo.entities.Comunicado;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -213,15 +215,11 @@ public class Comunicados extends javax.swing.JPanel {
     private void listarComunicados(){
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
-        List<Map<String, String>> comunicados = DatabaseUtils.obtenerComunicados();
-        for (Map<String, String> comunicado : comunicados) {
-            idComunicados.add(comunicado.get("id"));
-            model.addRow(new Object[]{
-                comunicado.get("fecha"),
-                comunicado.get("emisor"),
-                comunicado.get("asunto"),
-                comunicado.get("contenido")
-            });
+
+        List<Comunicado> comunicados = ComunicadoDAO.obtenerComunicados();
+        for(Comunicado comunicado : comunicados){
+            model.addRow(new Object[]{comunicado.getFecha(), comunicado.getEmisor(), comunicado.getTitulo(), comunicado.getContenido()});
+            idComunicados.add(String.valueOf(comunicado.getCominacado_id()));
         }
     }
 

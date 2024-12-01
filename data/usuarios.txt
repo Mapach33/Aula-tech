@@ -1,3 +1,0 @@
-12121212,asdfasf,asdf,asdf,12121212,12121212,PROFESOR,CONTRATADO
-0001,Admin,Principal,admin@email.com,admin,admin,ADMIN
-2314,dsvf,asdf,adsf,2314,2314,ALUMNO

@@ -7,9 +7,7 @@ package Vista;
 import Modelo.DatabaseUtils;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.util.List;
-import java.util.Map;
+import Modelo.dao.ComunicadoDAO;
 
 /**
  *
@@ -168,7 +166,7 @@ public class RegistroComunicados extends javax.swing.JPanel {
         // TODO add your handling code here:
         String asunto = jTextFieldAsunto.getText();
         String contenido = jTextFieldContenido.getText();
-        Boolean enviado = DatabaseUtils.redactarComunicado(asunto, contenido);
+        Boolean enviado = ComunicadoDAO.redactarComunicado(asunto, contenido);
         if(enviado){
             jTextFieldAsunto.setText("");
             jTextFieldContenido.setText("");

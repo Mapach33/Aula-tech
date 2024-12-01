@@ -5,6 +5,8 @@
 package Vista;
 
 import Modelo.DatabaseUtils;
+import Modelo.dao.SalonDAO;
+import Modelo.entities.Salon;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -273,14 +275,10 @@ public class ListaSalones extends javax.swing.JPanel {
     private void listarSalones(){
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
-        List<Map<String, String>> salones = DatabaseUtils.listarSalones();
-        for (Map<String, String> salon : salones) {
-            model.addRow(new Object[]{
-                    salon.get("id"),
-                    salon.get("grado"),
-                    salon.get("seccion"),
-                    salon.get("capacidad")
-            });
+        SalonDAO salonDAO = new SalonDAO();
+        List<Salon> salones = salonDAO.getAllSalones();
+        for(Salon salon : salones){
+            model.addRow(new Object[]{salon.getId(), salon.getGrado(), salon.getSeccion(), salon.getCapacidad()});
         }
     }
 
