@@ -129,7 +129,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="db" green="ca" red="97" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="TIPO"/>
+            <Property name="text" type="java.lang.String" value="GRADO"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCurso">
@@ -217,7 +217,7 @@
                 <Column editable="false" title="APELLIDOS" type="java.lang.Object"/>
                 <Column editable="false" title="NOMBRES" type="java.lang.Object"/>
                 <Column editable="false" title="CURSO" type="java.lang.Object"/>
-                <Column editable="false" title="TIPO" type="java.lang.Object"/>
+                <Column editable="false" title="GRADO" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
