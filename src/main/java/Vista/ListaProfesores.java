@@ -26,7 +26,7 @@ public class ListaProfesores extends javax.swing.JPanel {
         initComponents();
         jButtonRegistrar.addActionListener(e -> {
             // Usar la referencia de MenuAdmin para mostrar el panel de RegistroAlumno
-            menuAdmin.mostrarPanel(new RegistroProfesor());
+            menuAdmin.mostrarPanel(new RegistroProfesores());
         });
         
     }
