@@ -67,7 +67,7 @@ public class ListaProfesores extends javax.swing.JPanel {
 
         jLabelBimestre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelBimestre.setForeground(new java.awt.Color(151, 202, 219));
-        jLabelBimestre.setText("TIPO");
+        jLabelBimestre.setText("GRADO");
 
         jLabelCurso.setBackground(new java.awt.Color(151, 202, 219));
         jLabelCurso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -84,7 +84,7 @@ public class ListaProfesores extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "contratado", "estable" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
 
         jTextNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class ListaProfesores extends javax.swing.JPanel {
 
             },
             new String [] {
-                "APELLIDOS", "NOMBRES", "CURSO", "TIPO"
+                "APELLIDOS", "NOMBRES", "CURSO", "GRADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
