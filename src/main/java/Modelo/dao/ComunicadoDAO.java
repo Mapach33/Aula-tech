@@ -32,7 +32,7 @@ public class ComunicadoDAO {
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 Comunicado comunicado = new Comunicado();
-                comunicado.setCominacado_id(resultSet.getInt("id"));
+                comunicado.setCominacado_id(resultSet.getInt("comunicado_id"));
                 comunicado.setTitulo(resultSet.getString("titulo"));
                 comunicado.setContenido(resultSet.getString("contenido"));
                 comunicado.setFecha(resultSet.getString("fecha_publicacion"));

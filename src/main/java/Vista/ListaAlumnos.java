@@ -5,6 +5,8 @@
 package Vista;
 
 import Modelo.DatabaseUtils;
+import Modelo.dao.AlumnoDAO;
+import Modelo.entities.Alumno;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -86,7 +88,7 @@ public class ListaAlumnos extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ro", "2do", "3ro", "4to", "5to", "6to" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "1ero", "2do", "3ero", "4to", "5to", "6to" }));
 
         jTextApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,19 +295,14 @@ public class ListaAlumnos extends javax.swing.JPanel {
         String grado = jComboBox1.getSelectedItem().toString();
 
 
-        List<Map<String, String>> alumnos = DatabaseUtils.buscarAlumnos(apellido, nombre, grado);
+        List<Alumno> alumnos = AlumnoDAO.getAlumnosPorFiltros(apellido, nombre, grado);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
         alumnoIds.clear(); // Clear the list before adding new IDs
 
-        for (Map<String, String> alumno : alumnos) {
-            alumnoIds.add(alumno.get("id"));
-            model.addRow(new Object[]{
-                    alumno.get("apellido"),
-                    alumno.get("nombre"),
-                    alumno.get("grado"),
-                    alumno.get("seccion")
-            });
+        for(Alumno alumno : alumnos){
+            model.addRow(new Object[]{alumno.getApellido(), alumno.getNombre(), alumno.getGrado(), alumno.getSeccion()});
+            alumnoIds.add(String.valueOf(alumno.getAlumno_id())); // Add the ID to the list
         }
         alumnos.clear();
     }//GEN-LAST:event_jButtonBuscarMouseClicked

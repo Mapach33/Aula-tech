@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Modelo.dao.PagoDAO;
+import Modelo.entities.Pago;
+
 /**
  *
  * @author MATHIAS
@@ -1042,9 +1045,20 @@ public class PagosAdmin extends javax.swing.JPanel {
 
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
         // TODO add your handling code here:
+        buscarPagosPorDNI();
+
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
+    private void buscarPagosPorDNI(){
+        String dni = jTextDNI.getText();
+        Pago pago = PagoDAO.buscarPagosPorDni(dni);
+        if(pago != null) {
+            this.pago = pago;
+            jTextNombre.setText(pago.getNombre_alumno());
+        }
+    }
 
+    private Pago pago;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonNo;
