@@ -51,7 +51,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="PanelAlumnos" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelProfesores" alignment="0" max="32767" attributes="0"/>
-              <Component id="PanelSalones" alignment="0" max="32767" attributes="0"/>
+              <Component id="PanelAsistencias" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelNotas" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelSalir" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelComunicados" alignment="0" max="32767" attributes="0"/>
@@ -74,7 +74,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PanelProfesores" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="PanelSalones" min="-2" max="-2" attributes="0"/>
+                  <Component id="PanelAsistencias" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PanelNotas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -129,7 +129,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="ALUMNOS"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
@@ -182,7 +182,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="COMUNICADOS"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
@@ -238,7 +238,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
@@ -250,7 +250,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="PanelSalones">
+        <Container class="javax.swing.JPanel" name="PanelAsistencias">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="81" green="44" red="0" type="rgb"/>
@@ -265,19 +265,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="TextoSalones" min="-2" pref="247" max="-2" attributes="0"/>
+                      <Component id="TextoAsistencias" min="-2" pref="247" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TextoSalones" alignment="0" pref="42" max="32767" attributes="0"/>
+                  <Component id="TextoAsistencias" alignment="0" pref="42" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="TextoSalones">
+            <Component class="javax.swing.JLabel" name="TextoAsistencias">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="81" green="44" red="0" type="rgb"/>
@@ -294,14 +294,14 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="ASISTENCIAS"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoSalonesMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoSalonesMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoSalonesMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoAsistenciasMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoAsistenciasMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoAsistenciasMouseExited"/>
               </Events>
             </Component>
           </SubComponents>
@@ -350,7 +350,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="REPORTE DE NOTAS"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
@@ -403,7 +403,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="SALIR"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>

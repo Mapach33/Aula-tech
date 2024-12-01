@@ -46,8 +46,8 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoComunicados = new javax.swing.JLabel();
         PanelProfesores = new javax.swing.JPanel();
         TextoProfesores = new javax.swing.JLabel();
-        PanelSalones = new javax.swing.JPanel();
-        TextoSalones = new javax.swing.JLabel();
+        PanelAsistencias = new javax.swing.JPanel();
+        TextoAsistencias = new javax.swing.JLabel();
         PanelNotas = new javax.swing.JPanel();
         TextoNotas = new javax.swing.JLabel();
         PanelSalir = new javax.swing.JPanel();
@@ -71,7 +71,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoAlumnos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumnos.png"))); // NOI18N
         TextoAlumnos.setText("ALUMNOS");
-        TextoAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoAlumnos.setIconTextGap(10);
         TextoAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -107,7 +107,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoComunicados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoComunicados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/informacion.png"))); // NOI18N
         TextoComunicados.setText("COMUNICADOS");
-        TextoComunicados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoComunicados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoComunicados.setIconTextGap(10);
         TextoComunicados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -144,7 +144,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoProfesores.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoProfesores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profesor.png"))); // NOI18N
         TextoProfesores.setText("INFORMACIÓN");
-        TextoProfesores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoProfesores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoProfesores.setIconTextGap(10);
         TextoProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,41 +172,41 @@ public class MenuProfesores extends javax.swing.JPanel {
             .addComponent(TextoProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
-        PanelSalones.setBackground(new java.awt.Color(0, 68, 129));
-        PanelSalones.setPreferredSize(new java.awt.Dimension(300, 42));
+        PanelAsistencias.setBackground(new java.awt.Color(0, 68, 129));
+        PanelAsistencias.setPreferredSize(new java.awt.Dimension(300, 42));
 
-        TextoSalones.setBackground(new java.awt.Color(0, 68, 129));
-        TextoSalones.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        TextoSalones.setForeground(new java.awt.Color(151, 202, 219));
-        TextoSalones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoSalones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salon-de-clases.png"))); // NOI18N
-        TextoSalones.setText("ASISTENCIAS");
-        TextoSalones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TextoSalones.setIconTextGap(10);
-        TextoSalones.addMouseListener(new java.awt.event.MouseAdapter() {
+        TextoAsistencias.setBackground(new java.awt.Color(0, 68, 129));
+        TextoAsistencias.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        TextoAsistencias.setForeground(new java.awt.Color(151, 202, 219));
+        TextoAsistencias.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TextoAsistencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salon-de-clases.png"))); // NOI18N
+        TextoAsistencias.setText("ASISTENCIAS");
+        TextoAsistencias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TextoAsistencias.setIconTextGap(10);
+        TextoAsistencias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseClicked(evt);
+                TextoAsistenciasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseEntered(evt);
+                TextoAsistenciasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseExited(evt);
+                TextoAsistenciasMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelSalonesLayout = new javax.swing.GroupLayout(PanelSalones);
-        PanelSalones.setLayout(PanelSalonesLayout);
-        PanelSalonesLayout.setHorizontalGroup(
-            PanelSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelSalonesLayout.createSequentialGroup()
+        javax.swing.GroupLayout PanelAsistenciasLayout = new javax.swing.GroupLayout(PanelAsistencias);
+        PanelAsistencias.setLayout(PanelAsistenciasLayout);
+        PanelAsistenciasLayout.setHorizontalGroup(
+            PanelAsistenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAsistenciasLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(TextoSalones, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextoAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelSalonesLayout.setVerticalGroup(
-            PanelSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoSalones, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        PanelAsistenciasLayout.setVerticalGroup(
+            PanelAsistenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TextoAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PanelNotas.setBackground(new java.awt.Color(0, 68, 129));
@@ -218,7 +218,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoNotas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/notas.png"))); // NOI18N
         TextoNotas.setText("REPORTE DE NOTAS");
-        TextoNotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoNotas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoNotas.setIconTextGap(10);
         TextoNotas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -254,7 +254,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TextoSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit-door.png"))); // NOI18N
         TextoSalir.setText("SALIR");
-        TextoSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TextoSalir.setIconTextGap(10);
         TextoSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -308,7 +308,7 @@ public class MenuProfesores extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelComunicados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -329,7 +329,7 @@ public class MenuProfesores extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(PanelProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PanelSalones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -396,17 +396,17 @@ public class MenuProfesores extends javax.swing.JPanel {
         PanelSalir.setBackground(new Color(0, 68, 129));
     }//GEN-LAST:event_TextoSalirMouseExited
 
-    private void TextoSalonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseClicked
-        //mostrarPanel(new NotasAdmin());
-    }//GEN-LAST:event_TextoSalonesMouseClicked
+    private void TextoAsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseClicked
+        mostrarPanel(new AsistenciaProfesor());
+    }//GEN-LAST:event_TextoAsistenciasMouseClicked
 
-    private void TextoSalonesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseEntered
-        PanelSalones.setBackground(new Color(1, 138, 190));
-    }//GEN-LAST:event_TextoSalonesMouseEntered
+    private void TextoAsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseEntered
+        PanelAsistencias.setBackground(new Color(1, 138, 190));
+    }//GEN-LAST:event_TextoAsistenciasMouseEntered
 
-    private void TextoSalonesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseExited
-        PanelSalones.setBackground(new Color(0, 68, 129));
-    }//GEN-LAST:event_TextoSalonesMouseExited
+    private void TextoAsistenciasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseExited
+        PanelAsistencias.setBackground(new Color(0, 68, 129));
+    }//GEN-LAST:event_TextoAsistenciasMouseExited
 
     private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
         //mostrarPanel(new ListaProfesores());
@@ -472,17 +472,17 @@ public class MenuProfesores extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contenido;
     private javax.swing.JPanel PanelAlumnos;
+    private javax.swing.JPanel PanelAsistencias;
     private javax.swing.JPanel PanelComunicados;
     private javax.swing.JPanel PanelNotas;
     private javax.swing.JPanel PanelProfesores;
     private javax.swing.JPanel PanelSalir;
-    private javax.swing.JPanel PanelSalones;
     private javax.swing.JLabel TextoAlumnos;
+    private javax.swing.JLabel TextoAsistencias;
     private javax.swing.JLabel TextoComunicados;
     private javax.swing.JLabel TextoNotas;
     private javax.swing.JLabel TextoProfesores;
     private javax.swing.JLabel TextoSalir;
-    private javax.swing.JLabel TextoSalones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
