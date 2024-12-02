@@ -1,0 +1,180 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="ReporteNotas" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba72f2f7-9b6c-43b4-9a8d-4f6a83277526">
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="Informacion" uuid="b1cccb44-dfec-4be6-849c-71c377f5a686">
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<dataset name="dsReporteNotas" uuid="ec5af97a-ce89-4b9c-bbe4-dc3519d9f268">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<query language="sql"><![CDATA[]]></query>
+		<field name="nombreCurso" class="java.lang.String"/>
+		<field name="notaBimestre1" class="java.lang.String"/>
+		<field name="notaBimestre2" class="java.lang.String"/>
+		<field name="notaBimestre3" class="java.lang.String"/>
+		<field name="notaBimestre4" class="java.lang.String"/>
+		<field name="notaFinal" class="java.lang.String"/>
+	</dataset>
+	<parameter name="logoAulaTech" class="java.io.InputStream"/>
+	<parameter name="NombreAlumno" class="java.lang.String"/>
+	<parameter name="Grado" class="java.lang.String"/>
+	<parameter name="Seccion" class="java.lang.String"/>
+	<parameter name="DNI" class="java.lang.String"/>
+	<parameter name="ds" class="net.sf.jasperreports.engine.data.JRBeanArrayDataSource"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<title height="111" splitType="Stretch">
+		<element kind="image" uuid="8afbe375-4d59-48ba-bd46-b012925bc607" x="10" y="20" width="60" height="60" onErrorType="Blank">
+			<expression><![CDATA[$P{logoAulaTech}]]></expression>
+		</element>
+		<element kind="staticText" uuid="27a80768-76ac-4886-bd77-6213c9eb1b4f" x="230" y="0" width="103" height="20" bold="true">
+			<text><![CDATA[REPORTE DE NOTAS]]></text>
+		</element>
+		<element kind="staticText" uuid="f8ae9976-7ade-41a0-95b9-622fa9005e51" x="118" y="40" width="56" height="14">
+			<text><![CDATA[Nombre: ]]></text>
+		</element>
+		<element kind="staticText" uuid="f1259a49-8d8b-4457-8e1c-0be7ded79399" x="120" y="60" width="56" height="18">
+			<text><![CDATA[Grado: ]]></text>
+		</element>
+		<element kind="staticText" uuid="03e63698-8f7f-4b0b-87bc-50531824301d" x="120" y="80" width="52" height="20">
+			<text><![CDATA[Seccion:]]></text>
+		</element>
+		<element kind="staticText" uuid="f9c374fd-b08b-4e31-bc5f-fd9dbf4596de" x="300" y="70" width="62" height="22">
+			<text><![CDATA[DNI:]]></text>
+		</element>
+		<element kind="textField" uuid="c0ecdc18-891d-4154-a75c-c2b1422dfa8e" x="176" y="40" width="140" height="14">
+			<expression><![CDATA[$P{NombreAlumno}]]></expression>
+		</element>
+		<element kind="textField" uuid="19c837aa-8ac1-42d3-995f-bd7bb7d52e74" x="180" y="62" width="90" height="14">
+			<expression><![CDATA[$P{Grado}]]></expression>
+		</element>
+		<element kind="textField" uuid="9553fe60-f0f2-491e-9a13-07914626039c" x="180" y="83" width="90" height="14">
+			<expression><![CDATA[$P{Seccion}]]></expression>
+		</element>
+		<element kind="textField" uuid="cd22e9fb-effa-4b21-b591-5942a5c05f68" x="370" y="74" width="100" height="14">
+			<expression><![CDATA[$P{DNI}]]></expression>
+		</element>
+		<element kind="line" uuid="87764324-e404-41fd-acb3-419bf1b6cac2" x="10" y="100" width="540" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+	</title>
+	<detail>
+		<band height="264" splitType="Stretch">
+			<element kind="component" uuid="4b710424-c265-4a2b-b455-7bde503c5210" x="27" y="10" width="499" height="200">
+				<component kind="table">
+					<datasetRun uuid="fb345542-83de-4668-977e-2ddf6f9bcf91" subDataset="dsReporteNotas">
+						<dataSourceExpression><![CDATA[$P{ds}]]></dataSourceExpression>
+					</datasetRun>
+					<column kind="single" uuid="8d367be2-f93d-4cbf-a07a-20bd3fee29fe" width="110">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="42f516f9-405a-468a-bb7b-26d85d36619d" x="0" y="0" width="110" height="30" hTextAlign="Center">
+								<text><![CDATA[CURSO]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="cc532dd0-6a6b-44c6-8e71-8dc67323ed28" x="0" y="0" width="110" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{nombreCurso}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+					</column>
+					<column kind="single" uuid="e352c942-0c6b-460f-b64b-4bca7b2e0f2b" width="79">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="12a167ab-2935-45c8-886b-ccbdee6a559d" x="0" y="0" width="79" height="30" hTextAlign="Center">
+								<text><![CDATA[BIMESTRE 1]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="f7049811-597f-40a4-a46a-f850f0e19d93" x="0" y="0" width="79" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{notaBimestre1}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+					</column>
+					<column kind="single" uuid="ff80a9b9-3ef1-421e-bcbe-bbd693de2a3e" width="80">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="44a12edd-5294-428b-b90c-799c0647e1ce" x="0" y="0" width="80" height="30" hTextAlign="Center">
+								<text><![CDATA[BIMESTRE 2]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="383a1c7e-c02e-43e8-ba80-0cde9d5e001d" x="0" y="0" width="80" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{notaBimestre2}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+					</column>
+					<column kind="single" uuid="c7f10dcd-66cf-48f5-bbd2-894297c27a6a" width="70">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="5ea6596a-93a6-4993-b51f-2ef9d34a7563" x="0" y="0" width="70" height="30" hTextAlign="Center">
+								<text><![CDATA[BIMESTRE 3]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="0a54f1b2-eba8-450a-8498-112213f6d283" x="0" y="0" width="70" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{notaBimestre3}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+					</column>
+					<column kind="single" uuid="c709a985-6d07-4fb2-9c11-b861ccbe04de" width="70">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="b19ad25e-2574-4a0e-a2b7-49ffaa3d6ba1" x="0" y="0" width="70" height="30" hTextAlign="Center">
+								<text><![CDATA[BIMESTRE 4]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="5d780363-ee37-439f-b195-cce36e78b604" x="0" y="0" width="70" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{notaBimestre4}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+					</column>
+					<column kind="single" uuid="95af89a3-b342-4faf-b10f-7b037a12fedc" width="80">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="47b6809d-7d16-448d-a3cc-c500a66dbdb4" x="0" y="0" width="80" height="30" hTextAlign="Center">
+								<text><![CDATA[NOTA FINAL]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="637a0712-37b6-4447-962e-afafc9e5db38" x="0" y="0" width="80" height="30" hTextAlign="Center" vTextAlign="Middle">
+								<expression><![CDATA[$F{notaFinal}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+					</column>
+				</component>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+				<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+				<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="54" splitType="Stretch"/>
+</jasperReport>

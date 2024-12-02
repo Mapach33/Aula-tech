@@ -36,4 +36,7 @@ public class Alumno extends Usuario{
     public void setGrado(String grado) {
         this.grado = grado;
     }
+    public String getNombreCompleto(){
+        return this.getNombre() + " " + this.getApellido();
+    }
 }

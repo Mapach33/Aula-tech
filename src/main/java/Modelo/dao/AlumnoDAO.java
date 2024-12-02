@@ -92,6 +92,31 @@ public class AlumnoDAO {
         return results;
     }
 
+    public static Alumno getAlumnoPorID(int id){
+        String query = "SELECT u.usuario_id, u.apellido, u.nombre, s.grado, s.seccion " +
+                "FROM Usuarios u " +
+                "JOIN Alumnos a ON u.usuario_id = a.alumno_id " +
+                "JOIN Salones s ON a.salon_id = s.salon_id " +
+                "WHERE u.tipo = 'alumno' AND u.usuario_id = ?";
+        Alumno alumno = new Alumno();
+        try(Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query)){
+            preparedStatement.setInt(1,id);
+            try(ResultSet resultSet = preparedStatement.executeQuery()){
+                while(resultSet.next()){
+                    alumno.setAlumno_id(resultSet.getInt("usuario_id"));
+                    alumno.setApellido(resultSet.getString("apellido"));
+                    alumno.setNombre(resultSet.getString("nombre"));
+                    alumno.setGrado(resultSet.getString("grado"));
+                    alumno.setSeccion(resultSet.getString("seccion"));
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Error al obtener alumno: " + e.getMessage());
+        }
+        return alumno;
+    }
+
 
 
 }
