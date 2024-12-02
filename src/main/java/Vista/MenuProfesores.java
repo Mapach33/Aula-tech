@@ -421,7 +421,8 @@ public class MenuProfesores extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoInformacionMouseExited
 
     private void TextoComunicadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseClicked
-     
+        mostrarPanel(new ComunicadosProfe(this));
+//Registro registro = new Registro(this); 
     }//GEN-LAST:event_TextoComunicadosMouseClicked
 
     private void TextoComunicadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseEntered
