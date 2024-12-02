@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
  *
  * @author MATHIAS
  */
-public class Comunicados extends javax.swing.JPanel {
-    private MenuAdmin menuAdmin;
+public class ComunicadosProfe extends javax.swing.JPanel {
+    private MenuProfesores menuProfesores;
 
     /**
      * Creates new form Notas
      */
-        public Comunicados(MenuAdmin menuAdmin) {
-        this.menuAdmin = menuAdmin;
+        public ComunicadosProfe(MenuProfesores menuProfesores) {
+        this.menuProfesores = menuProfesores;
         initComponents();
         listarComunicados();
         //lista todos los comunicados de la base de datos
@@ -33,7 +33,7 @@ public class Comunicados extends javax.swing.JPanel {
         // Configurar el ActionListener para jButtonRegistrar
         jButtonRegistrar.addActionListener(e -> {
             // Cambiar al panel RegistroComunicados
-            menuAdmin.mostrarPanel(new RegistroComunicados());
+            menuProfesores.mostrarPanel(new RegistroComunicados());
         });
 }
         
@@ -203,7 +203,7 @@ public class Comunicados extends javax.swing.JPanel {
 
         // Crear y mostrar el VisorComunicados con los datos
         VisorComunicados visor = new VisorComunicados(asunto, contenido);
-        menuAdmin.mostrarPanel(visor);
+        menuProfesores.mostrarPanel(visor);
     } else {
         JOptionPane.showMessageDialog(this, "Seleccione un comunicado para abrir.", "Advertencia", JOptionPane.WARNING_MESSAGE);
     }

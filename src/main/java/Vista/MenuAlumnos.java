@@ -409,7 +409,7 @@ public class MenuAlumnos extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAsistenciasMouseExited
 
     private void TextoPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseClicked
-        //mostrarPanel(new AsistenciaAlumno());
+        mostrarPanel(new PagosAlumno());
     }//GEN-LAST:event_TextoPagosMouseClicked
 
     private void TextoPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseEntered
@@ -421,8 +421,8 @@ public class MenuAlumnos extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoPagosMouseExited
 
     private void TextoComunicadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseClicked
-        //Registro registro = new Registro(this); 
-        //mostrarPanel(registro);
+        mostrarPanel(new ComunicadosAlumnos(this));
+//Registro registro = new Registro(this); 
     }//GEN-LAST:event_TextoComunicadosMouseClicked
 
     private void TextoComunicadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseEntered
@@ -442,7 +442,7 @@ public class MenuAlumnos extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoInformacionMouseEntered
 
     private void TextoInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseClicked
-        //mostrarPanel(new ListaAlumnos());
+        mostrarPanel(new InformaciónPersonalAlumno());
     }//GEN-LAST:event_TextoInformacionMouseClicked
 
     private void addRoundedPanel(){

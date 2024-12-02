@@ -44,8 +44,8 @@ public class MenuProfesores extends javax.swing.JPanel {
         TextoAlumnos = new javax.swing.JLabel();
         PanelComunicados = new javax.swing.JPanel();
         TextoComunicados = new javax.swing.JLabel();
-        PanelProfesores = new javax.swing.JPanel();
-        TextoProfesores = new javax.swing.JLabel();
+        PanelInformacion = new javax.swing.JPanel();
+        TextoInformacion = new javax.swing.JLabel();
         PanelAsistencias = new javax.swing.JPanel();
         TextoAsistencias = new javax.swing.JLabel();
         PanelNotas = new javax.swing.JPanel();
@@ -135,41 +135,41 @@ public class MenuProfesores extends javax.swing.JPanel {
             .addComponent(TextoComunicados, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
-        PanelProfesores.setBackground(new java.awt.Color(0, 68, 129));
-        PanelProfesores.setPreferredSize(new java.awt.Dimension(300, 42));
+        PanelInformacion.setBackground(new java.awt.Color(0, 68, 129));
+        PanelInformacion.setPreferredSize(new java.awt.Dimension(300, 42));
 
-        TextoProfesores.setBackground(new java.awt.Color(0, 68, 129));
-        TextoProfesores.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        TextoProfesores.setForeground(new java.awt.Color(151, 202, 219));
-        TextoProfesores.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoProfesores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profesor.png"))); // NOI18N
-        TextoProfesores.setText("INFORMACIÓN");
-        TextoProfesores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TextoProfesores.setIconTextGap(10);
-        TextoProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
+        TextoInformacion.setBackground(new java.awt.Color(0, 68, 129));
+        TextoInformacion.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        TextoInformacion.setForeground(new java.awt.Color(151, 202, 219));
+        TextoInformacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TextoInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profesor.png"))); // NOI18N
+        TextoInformacion.setText("INFORMACIÓN");
+        TextoInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TextoInformacion.setIconTextGap(10);
+        TextoInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextoProfesoresMouseClicked(evt);
+                TextoInformacionMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TextoProfesoresMouseEntered(evt);
+                TextoInformacionMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextoProfesoresMouseExited(evt);
+                TextoInformacionMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelProfesoresLayout = new javax.swing.GroupLayout(PanelProfesores);
-        PanelProfesores.setLayout(PanelProfesoresLayout);
-        PanelProfesoresLayout.setHorizontalGroup(
-            PanelProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelProfesoresLayout.createSequentialGroup()
+        javax.swing.GroupLayout PanelInformacionLayout = new javax.swing.GroupLayout(PanelInformacion);
+        PanelInformacion.setLayout(PanelInformacionLayout);
+        PanelInformacionLayout.setHorizontalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInformacionLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(TextoProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextoInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelProfesoresLayout.setVerticalGroup(
-            PanelProfesoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        PanelInformacionLayout.setVerticalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TextoInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PanelAsistencias.setBackground(new java.awt.Color(0, 68, 129));
@@ -307,7 +307,7 @@ public class MenuProfesores extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -327,7 +327,7 @@ public class MenuProfesores extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(PanelAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PanelProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -408,20 +408,21 @@ public class MenuProfesores extends javax.swing.JPanel {
         PanelAsistencias.setBackground(new Color(0, 68, 129));
     }//GEN-LAST:event_TextoAsistenciasMouseExited
 
-    private void TextoProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseClicked
-        //mostrarPanel(new ListaProfesores());
-    }//GEN-LAST:event_TextoProfesoresMouseClicked
+    private void TextoInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseClicked
+        mostrarPanel(new InformaciónPersonalProfesor());
+    }//GEN-LAST:event_TextoInformacionMouseClicked
 
-    private void TextoProfesoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseEntered
-        PanelProfesores.setBackground(new Color(1, 138, 190));
-    }//GEN-LAST:event_TextoProfesoresMouseEntered
+    private void TextoInformacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseEntered
+        PanelInformacion.setBackground(new Color(1, 138, 190));
+    }//GEN-LAST:event_TextoInformacionMouseEntered
 
-    private void TextoProfesoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoProfesoresMouseExited
-        PanelProfesores.setBackground(new Color(0, 68, 129));
-    }//GEN-LAST:event_TextoProfesoresMouseExited
+    private void TextoInformacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseExited
+        PanelInformacion.setBackground(new Color(0, 68, 129));
+    }//GEN-LAST:event_TextoInformacionMouseExited
 
     private void TextoComunicadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseClicked
-     
+        mostrarPanel(new ComunicadosProfe(this));
+//Registro registro = new Registro(this); 
     }//GEN-LAST:event_TextoComunicadosMouseClicked
 
     private void TextoComunicadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoComunicadosMouseEntered
@@ -441,7 +442,7 @@ public class MenuProfesores extends javax.swing.JPanel {
     }//GEN-LAST:event_TextoAlumnosMouseEntered
 
     private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
-        //mostrarPanel(new ListaAlumnos());
+        mostrarPanel(new AlumnosProfesor());
     }//GEN-LAST:event_TextoAlumnosMouseClicked
 
     private void addRoundedPanel(){
@@ -474,14 +475,14 @@ public class MenuProfesores extends javax.swing.JPanel {
     private javax.swing.JPanel PanelAlumnos;
     private javax.swing.JPanel PanelAsistencias;
     private javax.swing.JPanel PanelComunicados;
+    private javax.swing.JPanel PanelInformacion;
     private javax.swing.JPanel PanelNotas;
-    private javax.swing.JPanel PanelProfesores;
     private javax.swing.JPanel PanelSalir;
     private javax.swing.JLabel TextoAlumnos;
     private javax.swing.JLabel TextoAsistencias;
     private javax.swing.JLabel TextoComunicados;
+    private javax.swing.JLabel TextoInformacion;
     private javax.swing.JLabel TextoNotas;
-    private javax.swing.JLabel TextoProfesores;
     private javax.swing.JLabel TextoSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelLogo;
