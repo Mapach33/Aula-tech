@@ -4,8 +4,6 @@ public class Pago {
     //private int pago_id;
     private String nombre_alumno;
     private String DNI;
-    private String enero;
-    private String febrero;
     private String marzo;
     private String abril;
     private String mayo;
@@ -18,7 +16,6 @@ public class Pago {
     private String diciembre;
 
 
-
     public void setNombre_alumno(String nombre_alumno) {
         this.nombre_alumno = nombre_alumno;
     }
@@ -27,13 +24,7 @@ public class Pago {
         this.DNI = DNI;
     }
 
-    public void setEnero(String enero) {
-        this.enero = enero;
-    }
 
-    public void setFebrero(String febrero) {
-        this.febrero = febrero;
-    }
 
     public void setMarzo(String marzo) {
         this.marzo = marzo;
@@ -84,13 +75,6 @@ public class Pago {
         return DNI;
     }
 
-    public String getEnero() {
-        return enero;
-    }
-
-    public String getFebrero() {
-        return febrero;
-    }
 
     public String getMarzo() {
         return marzo;

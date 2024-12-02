@@ -4,6 +4,11 @@
  */
 package Vista;
 
+import Modelo.dao.PagoDAO;
+import Modelo.entities.Pago;
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MATHIAS
@@ -15,6 +20,7 @@ public class PagosAlumno extends javax.swing.JPanel {
      */
     public PagosAlumno() {
         initComponents();
+        cargarPagos("12344678");
     }
 
     /**
@@ -142,6 +148,33 @@ public class PagosAlumno extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_table1MouseClicked
 
+    private void cargarPagos(String dni) {
+        Pago pagos = PagoDAO.buscarPagosPorDni(dni);
+
+        DefaultTableModel model1 = (DefaultTableModel) table.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) table1.getModel();
+        model1.setRowCount(0); // Clear existing rows
+        model2.setRowCount(0); // Clear existing rows
+
+        model1.addRow(new Object[]{
+                pagos.getMarzo(),
+                pagos.getAbril(),
+                pagos.getMayo(),
+                pagos.getJunio(),
+                pagos.getJulio()
+        });
+
+        model2.addRow(new Object[]{
+                pagos.getAgosto(),
+                pagos.getSeptiembre(),
+                pagos.getOctubre(),
+                pagos.getNoviembre(),
+                pagos.getDiciembre()
+        });
+
+        table.setDefaultRenderer(Object.class, new PagoCellRenderer());
+        table1.setDefaultRenderer(Object.class, new PagoCellRenderer());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

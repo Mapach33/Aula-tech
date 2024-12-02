@@ -41,8 +41,6 @@ public class PagoDAO {
             while(resultSet.next()){
                 pagos.setNombre_alumno(resultSet.getString("nombre"));
                 pagos.setDNI(resultSet.getString("dni"));
-                pagos.setEnero(resultSet.getString("enero"));
-                pagos.setFebrero(resultSet.getString("febrero"));
                 pagos.setMarzo(resultSet.getString("marzo"));
                 pagos.setAbril(resultSet.getString("abril"));
                 pagos.setMayo(resultSet.getString("mayo"));

@@ -10,6 +10,7 @@ import Modelo.dao.CursoNotaDAO;
 import Modelo.entities.CursoNota;
 import org.apache.poi.ddf.NullEscherSerializationListener;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
@@ -161,6 +162,7 @@ public class NotasAlumno extends javax.swing.JPanel {
         ReporteNotasPDF reporte = new ReporteNotasPDF();
         int usuarioId = Session.getUsuarioId();
         reporte.generarReporteExcel(usuarioId);
+        JOptionPane.showMessageDialog(this, "Reporte generado exitosamente.");
     }//GEN-LAST:event_jButtonReporteActionPerformed
 
     private void cargarNotas(){
