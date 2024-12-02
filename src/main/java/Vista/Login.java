@@ -2,6 +2,8 @@
 package Vista;
 import java.awt.Color;
 import Modelo.DatabaseUtils;
+import Modelo.Session;
+import Modelo.entities.Usuario;
 
 import javax.swing.*;
 
@@ -150,9 +152,12 @@ public class Login extends javax.swing.JPanel {
         // Obtener los valores de usuario y contraseña
         String usuario = jTextFieldUsuario.getText();
         String password = new String(jTextFieldPassword.getPassword());
-        String tipo = DatabaseUtils.verifyLogin(usuario,password);
-        if (tipo != null) {
-            switch (tipo) {
+        Usuario user = DatabaseUtils.verifyLogin(usuario,password);
+        assert user != null;
+        if (user.getTipo() != null) {
+            Session.setUsuarioId(user.getId());
+            switch (user.getTipo()) {
+
                 case "administrativo":{
                     MenuAdmin menuAdmin = new MenuAdmin(principal);
                     principal.mostrarPanel(menuAdmin);

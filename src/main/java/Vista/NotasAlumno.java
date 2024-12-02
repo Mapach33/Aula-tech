@@ -4,6 +4,15 @@
  */
 package Vista;
 
+import Modelo.ReporteNotasPDF;
+import Modelo.Session;
+import Modelo.dao.CursoNotaDAO;
+import Modelo.entities.CursoNota;
+import org.apache.poi.ddf.NullEscherSerializationListener;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+
 /**
  *
  * @author MATHIAS
@@ -15,6 +24,7 @@ public class NotasAlumno extends javax.swing.JPanel {
      */
     public NotasAlumno() {
         initComponents();
+        cargarNotas();
     }
 
     /**
@@ -148,8 +158,29 @@ public class NotasAlumno extends javax.swing.JPanel {
 
     private void jButtonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporteActionPerformed
         // TODO add your handling code here:
+        ReporteNotasPDF reporte = new ReporteNotasPDF();
+        int usuarioId = Session.getUsuarioId();
+        reporte.generarReporteExcel(usuarioId);
     }//GEN-LAST:event_jButtonReporteActionPerformed
 
+    private void cargarNotas(){
+        int alumnoId = Session.getUsuarioId();
+        List<CursoNota> notas = CursoNotaDAO.getCursoNotaPorID(alumnoId);
+
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0); // Clear existing rows
+
+        for (CursoNota nota : notas) {
+            model.addRow(new Object[]{
+                    nota.getNombreCurso(),
+                    nota.getNotaBimestre1(),
+                    nota.getNotaBimestre2(),
+                    nota.getNotaBimestre3(),
+                    nota.getNotaBimestre4(),
+                    nota.getNotaFinal()
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonReporte;

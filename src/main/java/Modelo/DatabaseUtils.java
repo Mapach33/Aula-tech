@@ -1,4 +1,6 @@
 package Modelo;
+import Modelo.entities.Usuario;
+
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -19,15 +21,18 @@ public class DatabaseUtils {
         return connection;
     }
 
-    public static String verifyLogin(String usuario, String password) {
-        String query = "SELECT * FROM Usuarios WHERE username = ? AND contraseña = ?";
+    public static Usuario verifyLogin(String usuario, String password) {
+        String query = "SELECT tipo,usuario_id FROM Usuarios WHERE username = ? AND contraseña = ?";
         try (Connection connection = getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query); 
             preparedStatement.setString(1, usuario);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                return resultSet.getString("tipo");
+                Usuario usuario1 = new Usuario();
+                usuario1.setTipo(resultSet.getString("tipo"));
+                usuario1.setId(resultSet.getInt("usuario_id"));
+                return usuario1;
             }
         } catch (SQLException ex) {
             System.out.println("Error al verificar el login: " + ex.getMessage());

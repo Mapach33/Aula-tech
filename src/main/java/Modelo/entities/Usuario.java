@@ -7,7 +7,24 @@ public class Usuario {
     private String contraseña;
     private String dni;
     private String username;
-    
+    private String tipo;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
