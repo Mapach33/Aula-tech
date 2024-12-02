@@ -48,6 +48,11 @@ public class RegistroProfesores extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 27, 72));
         jButton2.setText("REGISTRAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(0, 27, 72));
 
@@ -226,6 +231,23 @@ public class RegistroProfesores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxGRADOActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        // Show success message
+        javax.swing.JOptionPane.showMessageDialog(this, "Profesor registrado exitosamente");
+
+        // Clear the fields
+        limpiarCampos();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void limpiarCampos() {
+        jTextFieldDNI.setText("");
+        jTextFieldNOMBRE.setText("");
+        jTextFieldAPELLIDOS.setText("");
+        jTextFieldCORREO.setText("");
+        jComboBoxCURSO.setSelectedIndex(0);
+        jComboBoxGRADO.setSelectedIndex(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

@@ -163,6 +163,11 @@ public class RegistroAlumno extends javax.swing.JPanel {
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 27, 72));
         jButton3.setText("REGISTRAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 255, 51));
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -212,6 +217,22 @@ public class RegistroAlumno extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAPELLIDOActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        // Show success message
+        javax.swing.JOptionPane.showMessageDialog(this, "Alumno registrado exitosamente");
+
+        // Clear the fields
+        limpiarCampos();
+    }//GEN-LAST:event_jButton3ActionPerformed
+   
+    private void limpiarCampos() {
+       jTextFieldDNI.setText("");
+        jTextFieldNOMBRE.setText("");
+        jTextFieldAPELLIDO.setText("");
+        jTextFieldCORREO.setText("");
+        jTextFieldGRADOySeccion.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DNI;
