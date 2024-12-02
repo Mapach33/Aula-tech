@@ -50,7 +50,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="PanelAlumnos" alignment="0" max="32767" attributes="0"/>
-              <Component id="PanelProfesores" alignment="0" max="32767" attributes="0"/>
+              <Component id="PanelInformacion" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelAsistencias" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelNotas" alignment="0" max="32767" attributes="0"/>
               <Component id="PanelSalir" alignment="0" max="32767" attributes="0"/>
@@ -72,7 +72,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PanelAlumnos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="PanelProfesores" min="-2" max="-2" attributes="0"/>
+                  <Component id="PanelInformacion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PanelAsistencias" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="PanelProfesores">
+        <Container class="javax.swing.JPanel" name="PanelInformacion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="81" green="44" red="0" type="rgb"/>
@@ -209,19 +209,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="TextoProfesores" min="-2" pref="247" max="-2" attributes="0"/>
+                      <Component id="TextoInformacion" min="-2" pref="247" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TextoProfesores" alignment="0" pref="42" max="32767" attributes="0"/>
+                  <Component id="TextoInformacion" alignment="0" pref="42" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="TextoProfesores">
+            <Component class="javax.swing.JLabel" name="TextoInformacion">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="81" green="44" red="0" type="rgb"/>
@@ -243,9 +243,9 @@
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoProfesoresMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoProfesoresMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoProfesoresMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoInformacionMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoInformacionMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TextoInformacionMouseExited"/>
               </Events>
             </Component>
           </SubComponents>
