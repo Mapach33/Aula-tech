@@ -40,12 +40,12 @@ public class MenuAlumnos extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        PanelAlumnos = new javax.swing.JPanel();
-        TextoAlumnos = new javax.swing.JLabel();
+        PanelInformacion = new javax.swing.JPanel();
+        TextoInformacion = new javax.swing.JLabel();
         PanelComunicados = new javax.swing.JPanel();
         TextoComunicados = new javax.swing.JLabel();
-        PanelSalones = new javax.swing.JPanel();
-        TextoSalones = new javax.swing.JLabel();
+        PanelAsistencias = new javax.swing.JPanel();
+        TextoAsistencias = new javax.swing.JLabel();
         PanelNotas = new javax.swing.JPanel();
         TextoNotas = new javax.swing.JLabel();
         PanelPagos = new javax.swing.JPanel();
@@ -62,41 +62,41 @@ public class MenuAlumnos extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(0, 68, 129));
 
-        PanelAlumnos.setBackground(new java.awt.Color(0, 68, 129));
-        PanelAlumnos.setPreferredSize(new java.awt.Dimension(300, 42));
+        PanelInformacion.setBackground(new java.awt.Color(0, 68, 129));
+        PanelInformacion.setPreferredSize(new java.awt.Dimension(300, 42));
 
-        TextoAlumnos.setBackground(new java.awt.Color(0, 68, 129));
-        TextoAlumnos.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        TextoAlumnos.setForeground(new java.awt.Color(151, 202, 219));
-        TextoAlumnos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumnos.png"))); // NOI18N
-        TextoAlumnos.setText("INFORMACIÓN");
-        TextoAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TextoAlumnos.setIconTextGap(10);
-        TextoAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+        TextoInformacion.setBackground(new java.awt.Color(0, 68, 129));
+        TextoInformacion.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        TextoInformacion.setForeground(new java.awt.Color(151, 202, 219));
+        TextoInformacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TextoInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alumnos.png"))); // NOI18N
+        TextoInformacion.setText("INFORMACIÓN");
+        TextoInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoInformacion.setIconTextGap(10);
+        TextoInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextoAlumnosMouseClicked(evt);
+                TextoInformacionMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TextoAlumnosMouseEntered(evt);
+                TextoInformacionMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextoAlumnosMouseExited(evt);
+                TextoInformacionMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelAlumnosLayout = new javax.swing.GroupLayout(PanelAlumnos);
-        PanelAlumnos.setLayout(PanelAlumnosLayout);
-        PanelAlumnosLayout.setHorizontalGroup(
-            PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAlumnosLayout.createSequentialGroup()
+        javax.swing.GroupLayout PanelInformacionLayout = new javax.swing.GroupLayout(PanelInformacion);
+        PanelInformacion.setLayout(PanelInformacionLayout);
+        PanelInformacionLayout.setHorizontalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelInformacionLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(TextoAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextoInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelAlumnosLayout.setVerticalGroup(
-            PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        PanelInformacionLayout.setVerticalGroup(
+            PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TextoInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PanelComunicados.setBackground(new java.awt.Color(0, 68, 129));
@@ -135,41 +135,41 @@ public class MenuAlumnos extends javax.swing.JPanel {
             .addComponent(TextoComunicados, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
-        PanelSalones.setBackground(new java.awt.Color(0, 68, 129));
-        PanelSalones.setPreferredSize(new java.awt.Dimension(300, 42));
+        PanelAsistencias.setBackground(new java.awt.Color(0, 68, 129));
+        PanelAsistencias.setPreferredSize(new java.awt.Dimension(300, 42));
 
-        TextoSalones.setBackground(new java.awt.Color(0, 68, 129));
-        TextoSalones.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        TextoSalones.setForeground(new java.awt.Color(151, 202, 219));
-        TextoSalones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoSalones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salon-de-clases.png"))); // NOI18N
-        TextoSalones.setText("ASISTENCIAS");
-        TextoSalones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TextoSalones.setIconTextGap(10);
-        TextoSalones.addMouseListener(new java.awt.event.MouseAdapter() {
+        TextoAsistencias.setBackground(new java.awt.Color(0, 68, 129));
+        TextoAsistencias.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        TextoAsistencias.setForeground(new java.awt.Color(151, 202, 219));
+        TextoAsistencias.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TextoAsistencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salon-de-clases.png"))); // NOI18N
+        TextoAsistencias.setText("ASISTENCIAS");
+        TextoAsistencias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TextoAsistencias.setIconTextGap(10);
+        TextoAsistencias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseClicked(evt);
+                TextoAsistenciasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseEntered(evt);
+                TextoAsistenciasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                TextoSalonesMouseExited(evt);
+                TextoAsistenciasMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout PanelSalonesLayout = new javax.swing.GroupLayout(PanelSalones);
-        PanelSalones.setLayout(PanelSalonesLayout);
-        PanelSalonesLayout.setHorizontalGroup(
-            PanelSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelSalonesLayout.createSequentialGroup()
+        javax.swing.GroupLayout PanelAsistenciasLayout = new javax.swing.GroupLayout(PanelAsistencias);
+        PanelAsistencias.setLayout(PanelAsistenciasLayout);
+        PanelAsistenciasLayout.setHorizontalGroup(
+            PanelAsistenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAsistenciasLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(TextoSalones, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextoAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        PanelSalonesLayout.setVerticalGroup(
-            PanelSalonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TextoSalones, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+        PanelAsistenciasLayout.setVerticalGroup(
+            PanelAsistenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TextoAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PanelNotas.setBackground(new java.awt.Color(0, 68, 129));
@@ -306,8 +306,8 @@ public class MenuAlumnos extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PanelSalones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelPagos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(PanelSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -325,9 +325,9 @@ public class MenuAlumnos extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addComponent(PanelComunicados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PanelAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(PanelSalones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelAsistencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PanelNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -367,7 +367,7 @@ public class MenuAlumnos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextoNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseClicked
-        mostrarPanel(new NotasAdmin());
+        mostrarPanel(new NotasAlumno());
     }//GEN-LAST:event_TextoNotasMouseClicked
 
     private void TextoNotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseEntered
@@ -396,20 +396,20 @@ public class MenuAlumnos extends javax.swing.JPanel {
         PanelSalir.setBackground(new Color(0, 68, 129));
     }//GEN-LAST:event_TextoSalirMouseExited
 
-    private void TextoSalonesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseClicked
-        //mostrarPanel(new NotasAdmin());
-    }//GEN-LAST:event_TextoSalonesMouseClicked
+    private void TextoAsistenciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseClicked
+        mostrarPanel(new AsistenciaAlumno());
+    }//GEN-LAST:event_TextoAsistenciasMouseClicked
 
-    private void TextoSalonesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseEntered
-        PanelSalones.setBackground(new Color(1, 138, 190));
-    }//GEN-LAST:event_TextoSalonesMouseEntered
+    private void TextoAsistenciasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseEntered
+        PanelAsistencias.setBackground(new Color(1, 138, 190));
+    }//GEN-LAST:event_TextoAsistenciasMouseEntered
 
-    private void TextoSalonesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoSalonesMouseExited
-        PanelSalones.setBackground(new Color(0, 68, 129));
-    }//GEN-LAST:event_TextoSalonesMouseExited
+    private void TextoAsistenciasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAsistenciasMouseExited
+        PanelAsistencias.setBackground(new Color(0, 68, 129));
+    }//GEN-LAST:event_TextoAsistenciasMouseExited
 
     private void TextoPagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseClicked
-        // TODO add your handling code here:
+        //mostrarPanel(new AsistenciaAlumno());
     }//GEN-LAST:event_TextoPagosMouseClicked
 
     private void TextoPagosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoPagosMouseEntered
@@ -433,17 +433,17 @@ public class MenuAlumnos extends javax.swing.JPanel {
         PanelComunicados.setBackground(new Color(0, 68, 129));
     }//GEN-LAST:event_TextoComunicadosMouseExited
 
-    private void TextoAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseExited
-        PanelAlumnos.setBackground(new Color(0, 68, 129));
-    }//GEN-LAST:event_TextoAlumnosMouseExited
+    private void TextoInformacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseExited
+        PanelInformacion.setBackground(new Color(0, 68, 129));
+    }//GEN-LAST:event_TextoInformacionMouseExited
 
-    private void TextoAlumnosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseEntered
-        PanelAlumnos.setBackground(new Color(1, 138, 190));
-    }//GEN-LAST:event_TextoAlumnosMouseEntered
+    private void TextoInformacionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseEntered
+        PanelInformacion.setBackground(new Color(1, 138, 190));
+    }//GEN-LAST:event_TextoInformacionMouseEntered
 
-    private void TextoAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoAlumnosMouseClicked
+    private void TextoInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoInformacionMouseClicked
         //mostrarPanel(new ListaAlumnos());
-    }//GEN-LAST:event_TextoAlumnosMouseClicked
+    }//GEN-LAST:event_TextoInformacionMouseClicked
 
     private void addRoundedPanel(){
         RoundedPanel roundedPanel = new RoundedPanel(30);
@@ -472,18 +472,18 @@ public class MenuAlumnos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contenido;
-    private javax.swing.JPanel PanelAlumnos;
+    private javax.swing.JPanel PanelAsistencias;
     private javax.swing.JPanel PanelComunicados;
+    private javax.swing.JPanel PanelInformacion;
     private javax.swing.JPanel PanelNotas;
     private javax.swing.JPanel PanelPagos;
     private javax.swing.JPanel PanelSalir;
-    private javax.swing.JPanel PanelSalones;
-    private javax.swing.JLabel TextoAlumnos;
+    private javax.swing.JLabel TextoAsistencias;
     private javax.swing.JLabel TextoComunicados;
+    private javax.swing.JLabel TextoInformacion;
     private javax.swing.JLabel TextoNotas;
     private javax.swing.JLabel TextoPagos;
     private javax.swing.JLabel TextoSalir;
-    private javax.swing.JLabel TextoSalones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;

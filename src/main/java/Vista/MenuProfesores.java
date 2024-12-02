@@ -367,7 +367,7 @@ public class MenuProfesores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextoNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseClicked
-        //mostrarPanel(new NotasAdmin());
+        mostrarPanel(new NotasProfesor());
     }//GEN-LAST:event_TextoNotasMouseClicked
 
     private void TextoNotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextoNotasMouseEntered
