@@ -91,7 +91,7 @@ public class DatabaseUtils {
 
     // para extraer profesores
     public static List<Map<String, String>> buscarProfesores(String apellido, String nombre, String curso) {
-        StringBuilder query = new StringBuilder("SELECT u.usuario_id, u.apellido, u.nombre, c.nombre AS curso, p.tipo " +
+        StringBuilder query = new StringBuilder("SELECT u.usuario_id, u.apellido, u.nombre, c.nombre AS curso " +
                 "FROM Usuarios u " +
                 "JOIN Profesores p ON u.usuario_id = p.profesor_id " +
                 "JOIN Cursos c ON p.curso_id = c.curso_id " +
@@ -130,7 +130,6 @@ public class DatabaseUtils {
                     row.put("apellido", resultSet.getString("apellido"));
                     row.put("nombre", resultSet.getString("nombre"));
                     row.put("curso", resultSet.getString("curso"));
-                    row.put("tipo", resultSet.getString("tipo"));
                     results.add(row);
                 }
             }

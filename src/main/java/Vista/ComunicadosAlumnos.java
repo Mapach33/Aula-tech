@@ -30,11 +30,7 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
         listarComunicados();
         //lista todos los comunicados de la base de datos
 
-        // Configurar el ActionListener para jButtonRegistrar
-        jButtonRegistrar.addActionListener(e -> {
-            // Cambiar al panel RegistroComunicados
-            menuAlumnos.mostrarPanel(new RegistroComunicados());
-        });
+       
 }
         
     /**
@@ -50,9 +46,7 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
         table = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jButtonAbrir = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jButtonRegistrar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 27, 72));
         setPreferredSize(new java.awt.Dimension(900, 680));
@@ -105,47 +99,20 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
             }
         });
 
-        jButtonEliminar.setBackground(new java.awt.Color(255, 255, 51));
-        jButtonEliminar.setForeground(new java.awt.Color(0, 27, 72));
-        jButtonEliminar.setText("ELIMINAR");
-        jButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonEliminarMouseClicked(evt);
-            }
-        });
-
         jButtonSalir.setBackground(new java.awt.Color(255, 255, 51));
         jButtonSalir.setForeground(new java.awt.Color(0, 27, 72));
         jButtonSalir.setText("SALIR");
-
-        jButtonRegistrar.setBackground(new java.awt.Color(255, 255, 51));
-        jButtonRegistrar.setForeground(new java.awt.Color(0, 27, 72));
-        jButtonRegistrar.setText("Redactar");
-        jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonRegistrarMouseClicked(evt);
-            }
-        });
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addGap(77, 77, 77)
+                .addContainerGap(294, Short.MAX_VALUE)
                 .addComponent(jButtonAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addComponent(jButtonEliminar)
-                .addGap(77, 77, 77)
+                .addGap(75, 75, 75)
                 .addComponent(jButtonSalir)
-                .addGap(130, 130, 130))
+                .addGap(314, 314, 314))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,9 +120,7 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
@@ -209,18 +174,6 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_jButtonAbrirActionPerformed
 
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
-    private void jButtonRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarMouseClicked
-
-    private void jButtonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonEliminarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEliminarMouseClicked
-
     private void jButtonAbrirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAbrirMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAbrirMouseClicked
@@ -244,8 +197,6 @@ public class ComunicadosAlumnos extends javax.swing.JPanel {
     private List<String> idComunicados = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAbrir;
-    private javax.swing.JButton jButtonEliminar;
-    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane scroll;

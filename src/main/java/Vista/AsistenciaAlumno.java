@@ -4,6 +4,11 @@
  */
 package Vista;
 
+import Modelo.dao.AsistenciaDAO;
+import Modelo.entities.Asistencia;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MATHIAS
@@ -155,7 +160,23 @@ public class AsistenciaAlumno extends javax.swing.JPanel {
     }//GEN-LAST:event_tableMouseClicked
 
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
+                List<Asistencia> asistencias = AsistenciaDAO.getAsistenciaPorBimestre("1");
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0); // Clear existing rows
         
+        for(Asistencia asistencia : asistencias){
+            model.addRow(new Object[]{
+                    asistencia.getCurso(),
+                    asistencia.getSem1(),
+                    asistencia.getSem2(),
+                    asistencia.getSem3(),
+                    asistencia.getSem4(),
+                    asistencia.getSem5(),
+                    asistencia.getSem6(),
+                    asistencia.getSem7(),
+                    asistencia.getSem8()
+            });
+        }
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
 

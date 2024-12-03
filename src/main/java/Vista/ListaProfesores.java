@@ -143,11 +143,11 @@ public class ListaProfesores extends javax.swing.JPanel {
 
             },
             new String [] {
-                "APELLIDOS", "NOMBRES", "CURSO", "GRADO"
+                "APELLIDOS", "NOMBRES", "CURSO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -300,8 +300,7 @@ public class ListaProfesores extends javax.swing.JPanel {
             model.addRow(new Object[]{
                     profesor.get("apellido"),
                     profesor.get("nombre"),
-                    profesor.get("curso"),
-                    profesor.get("tipo")
+                    profesor.get("curso")
             });
         }
         profesores.clear();

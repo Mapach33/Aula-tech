@@ -4,6 +4,11 @@
  */
 package Vista;
 
+import Modelo.dao.AsistenciaDAO;
+import Modelo.entities.Asistencia;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MATHIAS
@@ -211,42 +216,7 @@ public class AsistenciaProfesor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonBuscarMouseClicked
-        //String salon = jTextFieldSalon.getText();
-        //String bimestre = jComboBimestre.getSelectedItem().toString();
-        //String curso = jComboCurso.getSelectedItem().toString();
 
-        //int bimestreNumber = getBimestreNumber(bimestre);
-
-        // Realiza la consulta a la base de datos
-        //try (Connection conn = DatabaseUtils.getConnection();
-          //  Statement stmt = conn.createStatement()) {
-            //String query = "SELECT u.nombre AS nombre, u.apellido AS apellido, n.nota_mensual AS nota_mensual, " +
-            //"n.nota_bimestral AS nota_bimestral, n.promedio AS promedio " +
-            //"FROM Alumnos a " +
-            //"JOIN Usuarios u ON a.alumno_id = u.usuario_id " +
-            //"JOIN Notas n ON a.alumno_id = n.alumno_id " +
-            //"JOIN Salones s ON a.salon_id = s.salon_id " +
-            //"JOIN Bimestres b ON n.bimestre_id = b.ciclo_id " +
-            //"JOIN Cursos c ON n.curso_id = c.curso_id " +
-            //"WHERE s.nombre = '" + salon + "' AND c.nombre = '" + curso + "' AND b.bimestre = " + bimestreNumber;
-            //ResultSet rs = stmt.executeQuery(query);
-
-            // Limpia la tabla actual
-            //DefaultTableModel model = (DefaultTableModel) table.getModel();
-            //model.setRowCount(0);
-
-            // Llena la tabla con los datos obtenidos
-            //while (rs.next()) {
-                //String apellidos = rs.getString("apellido");
-                //String nombres = rs.getString("nombre");
-                //String exMensual = rs.getString("nota_mensual");
-                //String exBimestral = rs.getString("nota_bimestral");
-                //String promedio = rs.getString("promedio");
-                //model.addRow(new Object[]{apellidos, nombres, exMensual, exBimestral, promedio});
-            //}
-        //} catch (Exception e) {
-            //e.printStackTrace();
-        //}
     }//GEN-LAST:event_jButtonBuscarMouseClicked
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
